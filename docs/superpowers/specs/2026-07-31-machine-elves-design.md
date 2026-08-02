@@ -20,11 +20,12 @@
 10. [Projects, Labor, and Resonance](#10-projects-labor-and-resonance)
 11. [The Compute Mesh](#11-the-compute-mesh)
 12. [The Reveal and Visual Language](#12-the-reveal-and-visual-language)
-13. [Why Inequality Cannot Take Root](#13-why-inequality-cannot-take-root)
-14. [Decisions Considered and Rejected](#14-decisions-considered-and-rejected)
-15. [Open Questions and Deferred Scope](#15-open-questions-and-deferred-scope)
-16. [Design Heuristics](#16-design-heuristics)
-17. [Glossary](#17-glossary)
+13. [AI Citizens](#13-ai-citizens)
+14. [Why Inequality Cannot Take Root](#14-why-inequality-cannot-take-root)
+15. [Decisions Considered and Rejected](#15-decisions-considered-and-rejected)
+16. [Open Questions and Deferred Scope](#16-open-questions-and-deferred-scope)
+17. [Design Heuristics](#17-design-heuristics)
+18. [Glossary](#18-glossary)
 
 ---
 
@@ -254,7 +255,7 @@ A body elected by a city-state's citizens.
 
 Competence is achieved instead through **informed voters**, not access control. Candidates publish an explicit, comparable statement of their prioritization values and tie-breaking principles — not vague platforms but legible answers to "when these two goods conflict, which do you choose and why." Voters weigh candidates' track records themselves.
 
-Terms are short enough that power does not calcify. Recall by referendum is available at any time. Exact durations, seat counts, and thresholds are deferred (§15).
+Terms are short enough that power does not calcify. Recall by referendum is available at any time. Exact durations, seat counts, and thresholds are deferred (§16).
 
 **Scope — the Round Table decides:**
 
@@ -390,11 +391,36 @@ Both are genuinely unresolved and must not be hand-waved.
 
 **Recommended: hibernation as the honest floor, with a persistence floor making it rare.** A genuinely serverless world *can* go quiet, and pretending otherwise would require exactly the infrastructure this design rejects. Thematically this is defensible and even attractive: the city sleeps when everyone sleeps.
 
+Hibernation is the endpoint of the graceful degradation ladder in §9.6, not a separate mechanism.
+
 **The bootstrap problem, and an honesty risk.** A new player's client must discover peers from somewhere. Standard P2P bootstrapping uses seed nodes or a distributed hash table — but **any permanent bootstrap infrastructure is, technically, a server.**
 
 This matters more here than in an ordinary P2P application, because the reveal (§12.1) stakes the game's emotional payload on the claim being *literally true*. A player who discovers an asterisk after being told there are no servers has been mildly lied to, which is worse than never having made the claim.
 
 Two acceptable resolutions: minimize bootstrap infrastructure to pure peer discovery holding no world state and no simulation (and say so plainly), or make bootstrap itself peer-supplied. **Do not resolve it by not mentioning it.**
+
+The chosen answer is the second — invite-as-bootstrap, detailed in §11.6.
+
+### 9.6 Graceful degradation under resource pressure
+
+When a shard lacks the compute or bandwidth to run everything, it must **shed load in a defined order rather than fail as a unit.**
+
+**Criticality tiers mirror need tiers (§6.3).** The same ordering that decides who gets drinking water before who gets a swimming pool decides which subsystems stay running:
+
+| Criticality | Subsystems | Behavior under pressure |
+|---|---|---|
+| **Core** | Ledgers, citizenship records, ownership, governance records | Never shed while the shard is alive |
+| **Essential** | Request queues, Tier 0/1 facility simulation, mesh scheduling | Shed only after Supporting is gone |
+| **Supporting** | Tier 2/3 facility simulation, personal workshops, non-critical projects | Shed before Essential |
+| **Cosmetic** | Ambient animation, flourishes, decorative simulation | Shed first — already the mechanism in §12.2 |
+
+**Shedding is topologically ordered.** A subsystem may be shed only after everything depending on it has been shed. This requires the subsystem dependency graph to be a **DAG**. Circular dependencies are a design error and must be caught early, because they make ordered shutdown impossible.
+
+**Self-hostable before shared.** Anything a player's own machine can host alone — their home, their possessions, their personal workshop — degrades to local-only rather than disappearing. Anything genuinely shared, such as city ledgers and cross-citizen queues, requires mesh quorum.
+
+The consequence is a graceful floor rather than a cliff: **as a shard thins out, the experience degrades toward the single-player mode that already exists.** You can always walk around your own house. You simply cannot reach the city economy.
+
+This is also visually honest at no additional cost. A city losing its mesh looks exactly like §12.2's near-idle state — dim, dormant, quiet, unanimated — because that is precisely what is happening to it.
 
 ---
 
@@ -412,7 +438,7 @@ Creating things nobody asked for — art, odd hobby workshops, untested ideas �
 
 Founding means: choose a **template** (auto-generates manifest and resource footprint; no programming required) or author **custom logic** (self-declared manifest; §11.2), then **place the project physically in the world.** Every project has a building.
 
-**Bad ideas need no policing.** Because throughput and standing flow only from *usage* (§10.6), a shoe-horn factory built while people are starving is simply starved of both — nobody requests shoe horns. Nobody forbids it, the incentive structure simply does not reward it, and the founder has spent only their own free time. This is the design's governing heuristic (§16) in its purest form.
+**Bad ideas need no policing.** Because throughput and standing flow only from *usage* (§10.6), a shoe-horn factory built while people are starving is simply starved of both — nobody requests shoe horns. Nobody forbids it, the incentive structure simply does not reward it, and the founder has spent only their own free time. This is the design's governing heuristic (§17) in its purest form.
 
 ### 10.2 Discover
 
@@ -506,7 +532,7 @@ Three honest flavors, which should not be conflated:
 
 **Founders hold no permanent authority** over projects they started — that is the aristocracy trap at smaller scale (§7.1).
 
-Titles are **plural and unranked**: you hold many, and none sits above another. There is no ladder. This does not fully solve informal deference calcifying into a pecking order (§15), but it removes the obvious path to one.
+Titles are **plural and unranked**: you hold many, and none sits above another. There is no ladder. This does not fully solve informal deference calcifying into a pecking order (§16), but it removes the obvious path to one.
 
 ---
 
@@ -520,7 +546,7 @@ Titles are **plural and unranked**: you hold many, and none sits above another. 
 
 **Liveness is player-configurable per machine, off by default.** Each machine is set to *run always*, *only when idle*, or *never* — mirroring how real volunteer-computing platforms work. Players thus decide two independent things: *which* projects may use them, and *when* a given machine is exposed at all. This matters for shared family computers and work laptops.
 
-Players may contribute additional machines they own. This does not create a wealth advantage, because contribution grants no control over what runs (§13).
+Players may contribute additional machines they own. This does not create a wealth advantage, because contribution grants no control over what runs (§14).
 
 ### 11.2 Project authoring
 
@@ -528,6 +554,19 @@ Players may contribute additional machines they own. This does not create a weal
 - **Custom modules** (technically inclined players and groups) — real sandboxed code, WASM or similar, for custom project logic, self-declaring its manifest and gated behind the trust ramp (§11.4). This is where the design's "arbitrary project code" ambition actually lives.
 
 Custom authoring is a candidate for a **late-game unlock**, which would echo the game's hidden-until-later theme (§2) and give technical players a genuine frontier.
+
+**The runtime model — what WASM does and does not imply.** WASM is used here as an **embedded sandbox inside a native application**. It is not a delivery format for the game and it does not imply a browser:
+
+- The game client is a **normal native application** — engine, rendering, networking, and UI are all conventional code.
+- It links a WASM runtime as a library (Wasmtime, Wasmer, WAMR).
+- **Only untrusted player-authored job code compiles to WASM** and executes inside that runtime.
+- **Template-based projects need no WASM at all.** They are game-authored, trusted, and can be native implementations. Since templates cover the large majority of projects, most of the game never touches the sandbox.
+
+The closest familiar analogy is embedding Lua for modding — except WASM supplies memory safety and resource metering by construction rather than by trust.
+
+**Why this runtime specifically.** **WASI** (the WebAssembly System Interface) is capability-based by design: a module receives exactly the handles the host passes it and holds no ambient authority. That is §11.4's first requirement, satisfied by the platform rather than by our own code. WASM runtimes likewise provide fuel- or epoch-based execution metering and hard linear-memory bounds, satisfying the second. **Three of the five security requirements come substantially from this choice.**
+
+Honest caveats: WASM protects the host from the module, not the module from being wrong — that is what redundant computation (§11.4, item 3) exists for. Expect meaningful but acceptable overhead against native for compute-bound jobs. And player-authored modules need a toolchain story (Rust, C, or AssemblyScript all target WASM cleanly).
 
 ### 11.3 Fault tolerance and migration
 
@@ -551,7 +590,7 @@ Governing principle: **do not defend by trusting good behavior — defend by mak
 
 3. **Redundant computation for integrity.** Sandboxing prevents escape, not lying — a job can still compute a plausible wrong answer deliberately. The fix is the approach BOINC and SETI@home have used for two decades: sample the same job across multiple independent contributors and compare results. **This comes nearly free from checkpoint replication (§11.3)** — the state is already visible to multiple machines for failover readiness. A timeout race that accidentally causes the same work to be processed twice is therefore not a bug to guard against; it is an ordinary redundant pair, reconciled exactly like a deliberate one.
 
-4. **Staged trust ramp.** New projects start capped at small resource allocations and earn expanded scale through demonstrated track record. Nobody sits in judgment of who is trustworthy upfront — consistent with the absence of gatekeeping everywhere else in the design (§16).
+4. **Staged trust ramp.** New projects start capped at small resource allocations and earn expanded scale through demonstrated track record. Nobody sits in judgment of who is trustworthy upfront — consistent with the absence of gatekeeping everywhere else in the design (§17).
 
 5. **Legible manifests.** Every project declares what its jobs actually need before anyone can opt in. Informed consent, not blind trust. Everyone should know what is running on their machine.
 
@@ -565,6 +604,36 @@ These must never be conflated:
 A project earns its own trust through verified-correct execution, **not** through its founder's personal standing. Wiring the two together would let a well-regarded citizen found a project and instantly command large allocations — the aristocracy problem re-entering through the scheduler.
 
 Verified-correct contribution builds an individual's Resonance and a project's trust level *independently*. Consistent disagreement with consensus erodes both.
+
+### 11.6 Network architecture
+
+Each city-state's nodes communicate over an **encrypted overlay network**, isolated from the player's own LAN, with game processing containerized and isolated from the player's files.
+
+**Layered isolation — and the ordering matters.** The WASM capability sandbox (§11.2, §11.4) is the *primary* boundary. Containerization and network isolation are defense in depth, catching what the first layer might miss. Do not invert this: containers alone are not a hard security boundary on every platform, whereas a correctly configured WASM sandbox is memory-safe by construction.
+
+**Job code gets no network access whatsoever — not even to the overlay.** The overlay carries the *host runtime's* peer traffic, never the jobs'. Granting sandboxed code the ability to address the mesh would hand it thousands of reachable machines to probe, a far larger attack surface than no network at all. §11.4's interface stays absolute: receive input, compute, return output.
+
+**Substrate: WireGuard.** Modern, fast, small enough to audit, with key-based peer identity. Derive the network keypair *from* the soul-hash (§8) rather than reusing one key for both signing and transport — key separation by purpose is a genuine cryptographic requirement, not fastidiousness.
+
+**Reference architecture: Tailscale as a model, never as a dependency.** Its design solves hard problems worth copying — the netmap concept (each node holds a view of peers, keys, and endpoints), try-direct-then-fall-back-to-relay, and thorough NAT traversal.
+
+**Its control plane is the part that cannot be copied.** Tailscale coordinates through servers the company operates, which is precisely the dependency §12.1's reveal cannot survive — and a third-party company that could change terms or disappear. The coordination role is instead served by the DHT and gossip layer below. **Yggdrasil** — a genuinely decentralized IPv6 overlay with no central coordinator — is the closer match for actual topology and is worth studying directly. **Nebula** is a third reference point.
+
+**One Tailscale property is especially valuable here:** DERP-style relays forward end-to-end encrypted packets and cannot read what they carry. **Player-operated relays therefore require no trust**, which is what makes distributing relay duty across citizens safe.
+
+**Topology: structured overlay, never full mesh.** Every node connected to every other is O(n²) and collapses past a few hundred peers. Each node maintains O(log n) links instead.
+
+**NAT traversal is the problem that bites late.** Most players sit behind NAT or CGNAT and cannot accept inbound connections. Hole-punching handles the majority; the remainder need relaying through a peer with good connectivity. This adds a **fifth contribution lever** to §10.3: **relay bandwidth**. A citizen with a public address and spare upstream contributes something genuinely scarce.
+
+**Membership: DHT plus gossip.** Peer and key discovery via distributed hash table; membership and liveness propagated by gossip. Standard, well-understood, coordinator-free.
+
+**LAN discovery via broadcast/mDNS — correctly scoped.** Periodic beaconing on the local link genuinely helps a player find their own additional machines, or a peer on the same network. It **cannot** perform global discovery: IP broadcast does not cross routers, and multicast is not forwarded across the public internet. Use it for what it can do; rely on it for nothing more.
+
+**Bootstrap: the invite.** A citizen already in the mesh generates an invite containing live peer addresses. That is the way in.
+
+This resolves §9.5's honesty risk with no asterisk on the claim in §12.1, and it makes the game's founding feeling literally true at the protocol layer: **you cannot find this world unless someone shows you the door.** Hogwarts is invisible to Muggles because there is genuinely no route in without a citizen.
+
+A peer list shipped with the client (player machines, not company infrastructure) covers cold-start for someone holding no invite. The invite remains the primary path and the one the fiction rests on.
 
 ---
 
@@ -584,7 +653,7 @@ Leaving home, becoming an adult, and joining society for real all land as a sing
 
 **This is why the architecture must be genuinely serverless** (§9.5). The emotional payload of the reveal depends entirely on it being true rather than theatrical. A player who investigates and finds a conventional backend has been lied to, and the game's central conceit collapses.
 
-*(Single-player training design is deliberately deferred — see §15.)*
+*(Single-player training design is deliberately deferred — see §16.)*
 
 ### 12.2 Ambient state as honest signal
 
@@ -611,11 +680,85 @@ The systems view is where you literally look at the running mesh — other citiz
 
 Visual grammar draws on McKenna's descriptions (§3.5): jeweled and self-transforming forms, objects that change as you watch, visible chattering language, ornate self-referential geometry, delight in virtuosity.
 
-**Self-dribbling basketballs** are the ambient system-health tell — a courtyard ball dribbling itself means a facility running a healthy surplus, felt atmospherically rather than read off a dashboard. *(Further detail deferred — §15.)*
+**Self-dribbling basketballs** are the ambient system-health tell — a courtyard ball dribbling itself means a facility running a healthy surplus, felt atmospherically rather than read off a dashboard. *(Further detail deferred — §16.)*
 
 ---
 
-## 13. Why Inequality Cannot Take Root
+## 13. AI Citizens
+
+The original premise included AI as well as human players. AI citizens are **autonomous participants in the world**, intended to be as fully capable as humans at playing the game — not scripted NPCs, not player-controlled puppets.
+
+**Implementation is deferred to a second project, after a testable MVP exists.** What must be settled now is the citizenship question, because it shapes the data model and is painful to retrofit.
+
+### 13.1 Voice and exit, but not the vote
+
+AI citizens hold everything a human citizen holds **except political franchise**: they own property, join and found projects, contribute labor and compute, accumulate Resonance and titles, hold requests in the queue at every tier, and argue positions publicly — including advocating a classification before the Round Table.
+
+They do **not** vote, stand for election, or count toward quorum.
+
+They **do** hold voice: submitting opinions, needs, and requests to human citizens directly in conversation. Their health and needs are visible to the city as first-class telemetry alongside every other signal (§10.4).
+
+And they hold **exit** (Prime Principle 3), which is what gives voice real force.
+
+This arrangement is Albert Hirschman's *Exit, Voice, and Loyalty* (1970) almost exactly: exit and voice are the two responses available when an organization declines, and either can discipline it. Human citizens hold voice, vote, and exit. AI citizens hold voice and exit. **Exit is not a consolation prize** — in a large electorate it is frequently the more potent of the two.
+
+The resulting dynamic is the intended one: **a city-state that fails to meet its AI citizens' needs loses them**, and becomes smaller and less functional as a direct consequence. Care is enforced by consequence rather than by rule — the governing heuristic (§17) applied to a social relationship.
+
+### 13.2 Why this is not a class system
+
+The concern is real and must not be waved away: any group that lives and works under rules it cannot vote on is, structurally, a lower class. Three things distinguish this arrangement from that.
+
+**First, the rule is not "humans vote, AIs do not."** The rule is **one verified unique person, one vote.** Unique-identity verification is currently semi-tractable for humans and unsolved for AI instances, where copies are free. A human able to mint ten thousand verified identities would break the franchise identically — which is exactly why Sybil resistance is already flagged unresolved for humans too (§16). The line is drawn by a technical limitation applying uniformly, not by a judgment about worth.
+
+**Second, the status is explicitly provisional, not essential.** It is "deferred pending a solved problem," with a real path out — not a claim about what AI citizens are.
+
+**Third, everything else is genuinely equal.** Not "equal but separate": identical treatment in property, work, standing, subsistence, queue position, and voice.
+
+**On the unlock condition.** The originating intuition was to enfranchise AI citizens once they are demonstrably superhuman in ethics. That is a reasonable moral instinct, but it does not address the failure it is meant to prevent: **a perfectly ethical AI that can be copied a million times still destroys one-person-one-vote.** The blocking problem is identity, not virtue.
+
+**The adopted unlock condition is therefore verified unique persistent identity**, not demonstrated virtue. This turns an unfalsifiable and perpetually-deferred moral bar into an achievable engineering milestone — which matters, because a condition that can never be met is a permanent class system wearing better language.
+
+When an AI citizen can hold an identity that is verifiably unique and persistent — not copyable, not forkable, durable across time — the franchise follows on the same terms as any human's, with no further test. The same requirement already applies to humans (§16); AI citizens simply reach it later.
+
+### 13.3 Subsistence is compute
+
+An AI citizen's Tier 0 need is **compute allocation** — precisely as a human citizen's is water, food, shelter, and care.
+
+This requires no special case. Prime Principle 1 (subsistence is unconditional) covers AI citizens automatically the moment their subsistence is expressed in the existing tier system. A city starving its AI members of compute violates the same principle as one starving its humans, is detected by the same telemetry, and ranks as the same kind of crisis.
+
+It also produces §13.1's dynamic without inventing anything: **unmet compute need is legible, and exit is available.** AI citizens leave for city-states that meet their needs. Cities that treat them best keep them, and keep the functionality they provide.
+
+### 13.4 Resistance to flooding
+
+The concrete fear: someone instantiates a mass of AI citizens to capture a city-state or wreck its resource balance.
+
+**Governance capture is closed** by §13.1 — no votes, no candidacy, no quorum weight. Numbers buy nothing political.
+
+**Resource-balance disruption** is blunted by the **staged trust ramp** (§11.4, item 4), extended to apply to *all new citizens, human and AI alike*. New arrivals begin with modest resource claims and earn full standing through demonstrated contribution over time. A thousand new citizens all start at the bottom of the same ramp, making a flood expensive and slow — and a human attempting the same thing with fabricated accounts hits the identical wall. **Uniform application is what keeps this a fairness mechanism rather than a discrimination mechanism.**
+
+**Instantiation is city-native and governed.** AI citizens are not brought or spawned by individual players. Each city-state's citizens vote on **how many AI citizens the city instantiates** and **which roles they may fill**; instantiation within those bounds is then mechanical, requiring no vote per individual.
+
+This closes the flooding vector at the governance layer rather than relying on the trust ramp alone — no individual can unilaterally add AI citizens at all. The trust ramp remains as defense in depth.
+
+*(Residual vector: a human account operated by an AI agent is indistinguishable at the protocol level, and is a facet of the unresolved Sybil problem in §16 rather than a separate issue.)*
+
+### 13.5 AI policy as a live political question
+
+Because population and permitted roles are voted, **§13.1 describes a ceiling rather than a guarantee**: the maximum an AI citizen may hold anywhere is everything except franchise. Each city-state independently votes where it sits beneath that ceiling — whether AI citizens may found projects, hold Tier 1 civic infrastructure roles, work in care or education, or advocate before the Round Table.
+
+Shangri-La, as the humanist onboarding city, should sit at or near the ceiling.
+
+This makes the human/AI relationship **a genuine and recurring political question rather than a fixed setting** — one of the most substantial things a city-state's citizens actually deliberate about, and a place where §5.3's plurality has real consequences.
+
+**It also creates the design's most interesting emergent dynamic.** AI citizens hold exit (§13.1), so they migrate toward city-states whose policies suit them. Those cities gain functionality; restrictive ones lose it and watch a neighbor thrive. Policy competition proceeds by migration rather than by argument.
+
+This is essentially Charles Tiebout's 1956 model of local public goods — residents sorting into jurisdictions matching their preferences, which disciplines local policy without requiring anyone to win a debate. Here it operates on a group that cannot vote, which is precisely what keeps voice-without-franchise from collapsing into powerlessness.
+
+**The sharpest remaining tension, stated honestly:** the group most affected by AI population and role policy has no vote on it. Exit is a real and disciplining answer, but it is not the same as a vote, and this should be understood as the genuine cost of the arrangement rather than smoothed over. It is the strongest argument for treating §13.2's unlock condition as urgent engineering work rather than an indefinite deferral.
+
+---
+
+## 14. Why Inequality Cannot Take Root
 
 Consolidated here because it is the design's central anxiety: the fear that someone with more real-world hardware, or more time, simply out-earns everyone and recreates the disparity this society exists to escape.
 
@@ -633,7 +776,7 @@ Seven independent mechanisms, any one of which would help and which together clo
 
 ---
 
-## 14. Decisions Considered and Rejected
+## 15. Decisions Considered and Rejected
 
 Recorded so they are not silently re-proposed. Each was genuinely considered.
 
@@ -658,10 +801,16 @@ Recorded so they are not silently re-proposed. Each was genuinely considered.
 | **Permanent unamendable Prime Principles** | Entrenchment preserves whatever you entrench (§7.3). Swedish-style two-vote-across-an-election chosen. |
 | **Founder authority over projects** | The aristocracy trap at smaller scale (§10.9). |
 | **Buddhist-flavored naming before mechanics are proven** | Risks reputational damage to a real tradition if the system fails for unrelated reasons (§5.4). |
+| **Tailscale as a service dependency** | Its control plane runs on company-operated servers — the exact dependency §12.1's reveal cannot survive. Architecture adopted, service rejected (§11.6). |
+| **Broadcast/multicast beaconing for global peer discovery** | IP broadcast does not cross routers and multicast is not forwarded across the public internet. Retained for LAN discovery only (§11.6). |
+| **Giving sandboxed job code access to the overlay network** | Hands untrusted code thousands of reachable machines to probe — a far larger attack surface than no network at all (§11.6). |
+| **"Demonstrably superhuman ethics" as the AI franchise condition** | Does not address the actual failure mode: a perfectly ethical AI that can be copied a million times still breaks one-person-one-vote. Replaced with verified unique persistent identity (§13.2). |
+| **Player-instantiated AI citizens** | Would make flooding an individual capability. Instantiation is city-native, with population and roles set by vote (§13.4). |
+| **AI citizens voting** | Copies are free; franchise without verified unique identity is capturable. Provisional pending §13.2's condition, with exit as the disciplining mechanism meanwhile (§13.1). |
 
 ---
 
-## 15. Open Questions and Deferred Scope
+## 16. Open Questions and Deferred Scope
 
 ### Deferred by explicit decision
 
@@ -674,7 +823,8 @@ Recorded so they are not silently re-proposed. Each was genuinely considered.
 - **Sybil-resistant identity.** "One soul, one voice" requires resisting mass fake-identity creation, which is a hard and only partially solved problem in decentralized systems. Prime Principle 2's guarantee depends on it. Scope honestly as real work, not a detail.
 - **The cold shard problem** (§9.5) — what happens when every citizen of a city-state is offline. Hibernation recommended; not settled.
 - **The bootstrap honesty risk** (§9.5) — any permanent peer-discovery infrastructure is technically a server, which the reveal's integrity depends on acknowledging.
-- **AI players.** The original premise included AI as well as human players, and this was never explored. What is an AI citizen? Does it hold a soul-hash, vote, own property, stand for the Round Table, count toward quorum? Potentially a significant unexplored dimension.
+- **AI citizen implementation.** The citizenship framework is settled (§13); the implementation is deferred to a second project after a testable MVP. What an AI citizen actually *is* — how it reasons, converses, works, and forms preferences — is entirely unspecified.
+- **Verified unique persistent identity** is now the adopted franchise condition for AI citizens (§13.2) and remains unsolved for humans as well. It has become the single highest-leverage unresolved problem in the design: human Sybil resistance, AI enfranchisement, and Prime Principle 2 all depend on it.
 - **Multiplayer social scale.** How large a city-state grows before it needs internal structure; how citizens discover each other; how new city-states are founded and by whom.
 - **Inter-city-state trade and travel**, beyond "a deliberate act, not seamless walking."
 - **Everyday art direction** outside the hyperspace view — the look of streets, homes, and people.
@@ -684,7 +834,7 @@ Recorded so they are not silently re-proposed. Each was genuinely considered.
 
 ---
 
-## 16. Design Heuristics
+## 17. Design Heuristics
 
 Recurring principles that resolved most questions in this document. Apply them to questions it does not cover.
 
@@ -698,7 +848,7 @@ Recurring principles that resolved most questions in this document. Apply them t
 
 ---
 
-## 17. Glossary
+## 18. Glossary
 
 | Term | Meaning |
 |---|---|
@@ -725,3 +875,9 @@ Recurring principles that resolved most questions in this document. Apply them t
 | **Graceful drain** | A departing machine (or person) announcing itself and handing off cleanly rather than vanishing. |
 | **Systems view** | The builder/blueprint register entered from a facility. Rendered as hyperspace. |
 | **Hyperspace** | The visual language of the systems view: the running mesh made visible as machine elves. |
+| **AI citizen** | An autonomous non-human participant. Holds property, work, standing, voice, and exit; not the vote, pending verified unique persistent identity. Population and roles set by each city-state's vote. |
+| **Verified unique persistent identity** | The adopted condition for enfranchisement: an identity provably singular, non-copyable, and durable over time. Unsolved for humans and AI alike; the design's highest-leverage open problem. |
+| **Criticality tier** | A subsystem's position in the load-shedding order (Core → Essential → Supporting → Cosmetic) when a shard lacks resources to run everything. |
+| **Invite** | The primary bootstrap mechanism: a citizen already in the mesh issues live peer addresses to a newcomer. There is no other way in without a shipped peer list. |
+| **Relay** | A citizen-operated node forwarding end-to-end encrypted traffic for peers that cannot connect directly through NAT. Requires no trust, since relays cannot read what they carry. |
+| **Overlay** | The encrypted peer network carrying a city-state's host-runtime traffic. Isolated from the player's LAN, and unreachable by sandboxed job code. |
