@@ -1,8 +1,9 @@
 # Machine Elves — Design Document
 
-**Status:** Design exploration. Implementation deferred to a separate project.
-**Date:** 2026-07-31
+**Status:** Design exploration, in progress. Implementation deferred to a separate project.
+**Started:** 2026-07-31 · **Last revised:** 2026-08-02
 **Audience:** This document is written to be self-contained. A reader with no prior context should be able to understand the whole design, the reasoning behind each decision, and what remains unresolved.
+**Where to pick up:** §16.1 lists the topics queued for the next design session.
 
 ---
 
@@ -812,6 +813,18 @@ Recorded so they are not silently re-proposed. Each was genuinely considered.
 
 ## 16. Open Questions and Deferred Scope
 
+### 16.1 Queued for the next design session
+
+These four are the active agenda — explored next, not deferred indefinitely. Each is genuinely open and none has been discussed yet.
+
+1. **Multiplayer social scale.** How large a city-state grows before it needs internal structure; how citizens discover each other and form working relationships; how new city-states are founded, by whom, and with what starting conditions.
+
+2. **Conflict and harm between citizens.** Prime Principle 5 ("restriction requires real harm") implies real harm can occur, but no mechanism exists for recognizing, adjudicating, or responding to it. This is the largest genuine hole in the governance design: the Round Table handles resource disputes, and nothing handles interpersonal ones. Note the design's standing heuristic (§17) argues against simply importing a justice system — the first question is what harm is even *possible* given the mechanics, since most real-world harm routes through scarcity, property, or power that this world has already removed.
+
+3. **Intra-project decision-making.** Founders hold no permanent authority (§10.9), which leaves large or contested projects with no described way to make decisions. Needs to avoid recreating either a founder-monarch or a miniature Round Table for every workshop.
+
+4. **Everyday art direction** outside the hyperspace view — streets, homes, people, weather, the texture of ordinary life. The systems view and ambient facility states are specified (§12); the world they sit inside is not.
+
 ### Deferred by explicit decision
 
 - **Single-player training design.** To be designed once the first version exists; treat as interactive documentation rather than a tutorial bolted on afterward.
@@ -825,12 +838,8 @@ Recorded so they are not silently re-proposed. Each was genuinely considered.
 - **The bootstrap honesty risk** (§9.5) — any permanent peer-discovery infrastructure is technically a server, which the reveal's integrity depends on acknowledging.
 - **AI citizen implementation.** The citizenship framework is settled (§13); the implementation is deferred to a second project after a testable MVP. What an AI citizen actually *is* — how it reasons, converses, works, and forms preferences — is entirely unspecified.
 - **Verified unique persistent identity** is now the adopted franchise condition for AI citizens (§13.2) and remains unsolved for humans as well. It has become the single highest-leverage unresolved problem in the design: human Sybil resistance, AI enfranchisement, and Prime Principle 2 all depend on it.
-- **Multiplayer social scale.** How large a city-state grows before it needs internal structure; how citizens discover each other; how new city-states are founded and by whom.
-- **Inter-city-state trade and travel**, beyond "a deliberate act, not seamless walking."
-- **Everyday art direction** outside the hyperspace view — the look of streets, homes, and people.
-- **Intra-project decision-making** for large or contested projects, given that founders hold no authority.
+- **Inter-city-state trade and travel**, beyond "a deliberate act, not seamless walking." Becomes more pressing given AI citizens migrate between city-states (§13.5).
 - **Informal status hierarchy.** Titles and visible standing can calcify into deference-based hierarchy with zero mechanical backing. Plural, unranked, recent-weighted design mitigates but does not eliminate this. Probably not fully solvable by mechanics alone.
-- **Conflict and harm between citizens.** "Restriction requires real harm" (Prime Principle 5) implies real harm can occur, but no mechanism exists for adjudicating or responding to it.
 
 ---
 
