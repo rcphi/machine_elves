@@ -451,14 +451,17 @@ Same underlying data, two registers, depending on how deliberately you are looki
 
 ### 10.3 Opt in
 
-Support is **not monolithic**. Four independent levers, mixed in any combination:
+Support is **not monolithic**. Five independent levers, mixed in any combination:
 
 - **Compute** — idle CPU cycles (§11)
 - **Active labor** — showing up and doing the work in person
 - **Land** — the plot your home sits on, or land you hold
 - **Storage** — idle disk hosting world state (§9.2)
+- **Relay bandwidth** — forwarding encrypted traffic for peers stuck behind NAT (§11.6)
 
-This matters: someone with no hardware to spare can matter as much as someone lending a rack of cores, through a different lever. Resonance tracks contribution across all four (§10.6), not compute alone.
+This matters: someone with no hardware to spare can matter as much as someone lending a rack of cores, through a different lever. Resonance tracks contribution across all five (§10.6), not compute alone.
+
+Note that the levers are genuinely different in kind — relay bandwidth and land are scarce in ways compute is not, and a citizen with a public IP address contributes something no amount of CPU substitutes for.
 
 ### 10.4 Status views — three nested zooms
 
