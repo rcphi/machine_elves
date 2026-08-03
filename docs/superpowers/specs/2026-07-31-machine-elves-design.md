@@ -1,7 +1,7 @@
 # Machine Elves — Design Document
 
 **Status:** Design exploration, in progress. Implementation deferred to a separate project.
-**Started:** 2026-07-31 · **Last revised:** 2026-08-02
+**Started:** 2026-07-31 · **Last revised:** 2026-08-03
 **Audience:** This document is written to be self-contained. A reader with no prior context should be able to understand the whole design, the reasoning behind each decision, and what remains unresolved.
 **Where to pick up:** §16.1 lists the topics queued for the next design session.
 
@@ -166,6 +166,38 @@ Different city-states will classify the same request differently, elect differen
 
 The reasoning is not squeamishness: if a system fails for unrelated implementation reasons, a real belief system branded onto it takes undeserved reputational damage by association. Earn the label first. Explicit thematic branding is a separate, later pass, taken deliberately and only once the mechanics stand on their own.
 
+### 5.5 The waystation
+
+The territory between city-states. It is not a frontier, a wilderness, or a punishment zone — it is simply **where people who are not currently citizens of anywhere live.**
+
+Its population is deliberately mixed:
+
+- Travelers moving between city-states
+- Emigrants in transit, having left one place and not yet joined another
+- People who prefer no citizenship at all, indefinitely
+- People gathering signers-on to found a new city-state
+- People who have been expelled (§7.6)
+
+**This mixture is the entire point.** Someone asked to leave a city-state shares the waystation with someone excitedly recruiting founders for a new one. There is no exile camp, no stigmatized zone, no visible marker of why anyone is there. The design cost of dissolving that stigma is zero, and the humane payoff is large.
+
+**Subsistence in the waystation is funded collectively.** Every city-state contributes a portion of waystation basic needs and those of its population.
+
+This settles a question Prime Principle 1 otherwise leaves ambiguous: **subsistence is genuinely unconditional, not conditional on citizenship.** A principle that stopped at a border would be misnamed. Cities fund it because they hold the principle, not because the recipients are theirs.
+
+**Permanent waystation residence is legitimate.** A person may live their whole life there, never signing any social contract, without being considered to have failed at anything.
+
+### 5.6 Founding a new city-state
+
+New city-states are born in the waystation, in two stages:
+
+1. **Social.** A founder drafts a social contract — the tier schema, the values baseline, the standards the place will hold — and gathers signers-on. A city-state begins as a document nobody has signed yet, and becomes real when enough people have.
+
+2. **Material.** Existing city-states may **vote to support a nascent city-state's growth** with resources. Support is discretionary, and a proposed contract that neighbors find compelling attracts backing that one they find alarming does not.
+
+This makes founding a genuine political act rather than a menu option, and gives existing cities a legitimate, non-coercive voice in what grows near them — they may decline to fund without anyone being entitled to their support.
+
+**Open:** how waystation territory is itself governed, if at all. It has no Round Table. Whether disputes there are handled by the funding cities jointly, by ad-hoc sortition among residents, or not at all, is undecided (§16).
+
 ---
 
 ## 6. Economy
@@ -306,6 +338,114 @@ Signing is a real commitment to *this* city-state's specific tier schema and val
 Citizens born in a city-state hold automatic citizenship but **still affirm the contract personally at coming of age** (Prime Principle 4).
 
 Disagreement carries **no punitive mechanic**. If a contract stops fitting you — because the community amended it, or because you changed — you leave, and find or found a city-state that fits. Plurality across shards is the safety valve; enforcement within one is not.
+
+### 7.5 Conflict, harm, and association
+
+#### What harm is even possible
+
+The design's governing heuristic (§17) says to ask what harm the mechanics permit before reaching for a justice system. Most categories turn out to be closed already — not by rule, but by construction:
+
+| Harm | Status |
+|---|---|
+| Deprivation, starvation | **Impossible** — Tier 0 is unconditional and never a lever |
+| Theft | **Impossible** — ownership is a signature; nothing moves without the owner's key |
+| Coercion by authority | **Largely impossible** — no bosses, no gatekeepers, exit always free |
+| Reputation attack | **Impossible** — Resonance derives from verified work, not peer opinion |
+| False endorsement | **Toothless** — titles buy nothing, so a lie about someone costs them nothing material |
+| Queue griefing | **Handled** — fair queuing already deprioritizes abnormal demand |
+| Corrupted compute | **Handled** — redundant computation catches wrong results |
+
+What survives is almost entirely **conduct**: harassment, cruelty, stalking, social exclusion, bad-faith participation, and spatial griefing. These are social rather than material, which follows directly from having removed scarcity, property crime, and power asymmetry.
+
+#### There are no punishment levers, by construction
+
+This design has already removed every conventional instrument of punishment. There is no money to fine. Subsistence cannot be withheld (Prime Principle 1). Confinement would violate free exit and does not exist as a mechanic. Standing cannot be stripped, because it derives from verified work rather than opinion.
+
+**This is a forcing function, not an oversight.** The only available responses are dialogue, mediation, withdrawal of association, and ultimately expulsion. The design pre-committed to restorative rather than punitive justice without anyone deciding to.
+
+#### The governing rule
+
+> **Freedom of action, not freedom of audience.**
+
+Nobody constrains what a citizen may do or say. But no one can be compelled to receive it, host it, work alongside it, or live with it.
+
+Every rung below is an exercise of *other people's* freedom of association, never a restriction on the offender's conduct. This is what keeps the ladder from becoming a lighter-weight jail. Mechanisms that remove options from a person — however gently framed, however well-intended — are restriction by another name and are **explicitly rejected** (§15).
+
+#### The ladder
+
+**Rung 1 — Blocking.** You decline to receive another citizen's communications, as with a blocked phone number.
+
+This is **client-side and absolute**: your client simply refuses their traffic. It requires no authority, no process, and no permission, and **no city-state can vote it away.** It is the safety floor beneath all in-fiction governance, and it protects the real person at the keyboard rather than the character.
+
+*Open:* comms blocking does not address following, loitering, or watching, which are real harassment modes in an embodied world. Three candidate models — mutual invisibility, comms-only, and asymmetric — trade off differently. Mutual invisibility is closest to how the peer layer naturally behaves and is the current lean, but it creates ghosting (two citizens in one plaza, unable to see each other, touching the same objects), which is exploitable for uncontested access to shared space. Undecided (§16).
+
+**Rung 2 — Mediation.** Voluntary on both sides. A third party helps, with no verdict and no coercion.
+
+**Mediation is a project** (§10), not a new system: mediators volunteer, the work goes through the same create/discover/opt-in/leave lifecycle as a diner or a rail line, and track records are visible. No gate exists, and because both parties choose freely, an ineffective mediator simply is not chosen — selection without a market.
+
+Mediation should be **discoverable as a physical place** in the city, learned during onboarding, rather than as a menu item. The design prefers environmental legibility to UI.
+
+Mediators bring two things: understanding of how people behave under their particular conditions and history, and skill at helping someone find a path they would actually choose. **The line that matters: transparent, consented support is coaching; covert environmental shaping is manipulation.** Only the first is acceptable, and mediation never restricts anyone's options.
+
+**Rung 3 — Group-level exclusion.** A project declines someone's labor; a homeowner controls their own space.
+
+This is not the gatekeeping the design rejects elsewhere. A group choosing its own members differs categorically from society controlling access to the means of life, which Prime Principle 1 guarantees regardless.
+
+**Rung 4 — Expulsion from the city-state.** Rare, high bar, real process. See §7.6.
+
+#### Who decides: sortition, not election
+
+Disputes are heard by **randomly selected citizens**, not by the Round Table.
+
+Elected representatives judging personal conflicts would politicize private disputes and let the popular party beat the unpopular one. Sortition resists capture, distributes the burden, and — decisively for this design — **avoids creating a permanent judicial class**, which would be exactly the standing elite rejected everywhere else.
+
+The split is principled: the Round Table is **elected** because it sets policy, which benefits from continuity and comparable platforms. Dispute panels are **sortitioned** because they judge particulars, which benefits from impartiality and the absence of career incentives.
+
+**Prime Principle 5 sets the bar: real harm, not mere offense.** This is what protects the merely strange, unpopular, or abrasive from being processed out by people who simply dislike them.
+
+Panel records are public, in keeping with legibility over enforcement.
+
+#### An honest limit
+
+This handles an individual harasser well and a **city-state whose majority endorses the harassment** poorly. If the population approves of targeting someone, neither mediation nor expulsion will be aimed at the harassers, and the victim retains only blocking and exit.
+
+Plurality is a real answer — you leave for a city-state that does not tolerate it — but "your recourse is emigration" is a thin response to organized cruelty. The design should not pretend otherwise.
+
+### 7.6 Expulsion, exit, and re-entry
+
+**Expulsion is never permanent.** A permanent ban asserts that a person cannot change and judges them before their life is over. The design refuses that claim.
+
+**Re-entry is gated by tiered probation**, scaled by the severity of the behavior and by how many prior probations the person has held. Probation gates **only re-entry to the city-state that expelled them**; they remain entirely free everywhere else, including the waystation and every other city.
+
+**Records are visible and decaying.** Other city-states can see that a person was expelled and for what reason. The record **decays with time**, in keeping with the design's treatment of everything else as a flow rather than a stock — a ten-year-old expulsion weighs less than last month's. No city-state is *bound* by another's judgment; each decides its own entry, and a city known for harsh expulsions earns less deference from its neighbors.
+
+**Possessions travel.** Soul-hash ownership is cryptographic and jurisdiction-independent (§8), so a departing citizen takes everything they own. Their property re-replicates into the destination's mesh on arrival.
+
+This has a consequence worth noting: **emigration removes material footprint as well as labor, compute, and hosting.** A city-state that treats people badly pays a metabolic cost, not merely a reputational one.
+
+**The exit protocol.** Subsistence continues throughout — Prime Principle 1 was already unconditional, so this needs no new guarantee. The departing citizen goes to the waystation (§5.5), where basic needs are collectively funded and where they may remain indefinitely. Helpers are available to assist in finding or founding a new home; like mediation, this is a project rather than an office.
+
+**Framing is mechanical, not cosmetic.** Pushing hard against someone's identity reliably produces entrenchment and doubling-down. A process that shames manufactures the resistance it is responding to. "This is not working; here is help finding where it will" behaves differently from "you are banished," and the difference shows up in outcomes.
+
+### 7.7 Protecting against capture
+
+Defenses against a city-state falling to the corrupt or the incompetent, in descending order of strength.
+
+**1. There is very little to capture.** The Round Table does not run the city — the fair queue does. Its scope is contested classifications, scarcity tie-breaks, and crises; everything else is mechanical and public. **The strongest protection against bad leadership is leadership with a small surface area.** This also bounds incompetence, not just malice.
+
+**2. Capture degrades the prize.** Exit is free and possessions travel. A captured city-state loses citizens, and every departure removes compute, hosting, labor, and material from the mesh the captors just seized — thinning it toward the degradation ladder in §9.6. In the world that collapsed, a captured state could trap its people. Here, **you can win the city and find it empty.** Corruption is self-liquidating.
+
+**3. Prime Principles are a floor that cannot be moved quickly.** Even a fully captured Round Table cannot make subsistence conditional or let standing buy votes without winning twice across an election (§7.3).
+
+**4. Recall and citizen-initiated referendum** let citizens override representatives directly, at any time.
+
+**5. Precedent decays unless reaffirmed.** The subtlest vulnerability is self-serving case law outliving the term that created it. Everything else in this design is a flow rather than a stock, and precedent is no exception: rulings that still make sense are reaffirmed cheaply, and the rest lapse.
+
+**6. Sortitioned ratification of precedent.** The elected Round Table *rules*; a randomly drawn citizen body *ratifies* anything that would become precedent. Capture then requires taking both — and **nobody can campaign their way into a lottery.** Ireland's constitutional convention is real-world precedent for using sortition on genuinely contested questions.
+
+**7. Automatic divergence tracking.** Candidates already publish explicit tie-breaking values (§7.1), which makes the gap between what someone said and how they actually ruled *computable*. Publish it automatically. No punishment and no enforcement — just the record made legible, which is this design's characteristic move.
+
+**Two honest limits.** All of the above assumes one-person-one-vote genuinely holds, so **Sybil resistance remains the load-bearing unsolved problem** (§16) — sortition depends on a genuine citizen pool exactly as elections do. And none of it protects against a *popular* bad idea. Democracy constrains unpopular corruption, not majority conviction; the Prime Principles are the only floor there, and even they can be amended slowly.
 
 ---
 
@@ -811,6 +951,12 @@ Recorded so they are not silently re-proposed. Each was genuinely considered.
 | **"Demonstrably superhuman ethics" as the AI franchise condition** | Does not address the actual failure mode: a perfectly ethical AI that can be copied a million times still breaks one-person-one-vote. Replaced with verified unique persistent identity (§13.2). |
 | **Player-instantiated AI citizens** | Would make flooding an individual capability. Instantiation is city-native, with population and roles set by vote (§13.4). |
 | **AI citizens voting** | Copies are free; franchise without verified unique identity is capturable. Provisional pending §13.2's condition, with exit as the disciplining mechanism meanwhile (§13.1). |
+| **Removing options from a person as a corrective** ("making poor choices no longer possible") | Restriction wearing a friendlier word — a lighter-weight jail. Jail does not make people better. Support is offered, never imposed (§7.5). |
+| **Permanent expulsion** | Asserts a person cannot change and judges them before their life is over. Replaced by tiered, decaying probation (§7.6). |
+| **The Round Table hearing interpersonal disputes** | Politicizes private conflict and lets the popular party beat the unpopular one. Sortitioned panels instead (§7.5). |
+| **A permanent judiciary** | Would create exactly the standing elite rejected everywhere else. Sortition avoids a judicial class entirely (§7.5). |
+| **Subsistence conditional on citizenship** | A principle that stops at a border is not unconditional. Every city-state funds a share of waystation needs (§5.5). |
+| **A dedicated exile zone** | Stigmatizing by construction. Expelled citizens share the waystation with travelers and city-founders, with no marker of why anyone is there (§5.5). |
 
 ---
 
@@ -818,15 +964,19 @@ Recorded so they are not silently re-proposed. Each was genuinely considered.
 
 ### 16.1 Queued for the next design session
 
-These four are the active agenda — explored next, not deferred indefinitely. Each is genuinely open and none has been discussed yet.
+The active agenda — explored next, not deferred indefinitely.
 
-1. **Multiplayer social scale.** How large a city-state grows before it needs internal structure; how citizens discover each other and form working relationships; how new city-states are founded, by whom, and with what starting conditions.
+1. **Multiplayer social scale.** How large a city-state grows before it needs internal structure, and how citizens discover each other and form working relationships. *(The founding of new city-states is now answered in §5.6.)*
 
-2. **Conflict and harm between citizens.** Prime Principle 5 ("restriction requires real harm") implies real harm can occur, but no mechanism exists for recognizing, adjudicating, or responding to it. This is the largest genuine hole in the governance design: the Round Table handles resource disputes, and nothing handles interpersonal ones. Note the design's standing heuristic (§17) argues against simply importing a justice system — the first question is what harm is even *possible* given the mechanics, since most real-world harm routes through scarcity, property, or power that this world has already removed.
+2. **Intra-project decision-making.** Founders hold no permanent authority (§10.9), which leaves large or contested projects with no described way to make decisions. Needs to avoid recreating either a founder-monarch or a miniature Round Table for every workshop.
 
-3. **Intra-project decision-making.** Founders hold no permanent authority (§10.9), which leaves large or contested projects with no described way to make decisions. Needs to avoid recreating either a founder-monarch or a miniature Round Table for every workshop.
+3. **Everyday art direction** outside the hyperspace view — streets, homes, people, weather, the texture of ordinary life. The systems view and ambient facility states are specified (§12); the world they sit inside is not.
 
-4. **Everyday art direction** outside the hyperspace view — streets, homes, people, weather, the texture of ordinary life. The systems view and ambient facility states are specified (§12); the world they sit inside is not.
+4. **The blocking model** (§7.5, Rung 1). Mutual invisibility, comms-only, or asymmetric — and how to handle the ghosting exploit if mutual invisibility is chosen.
+
+5. **Waystation governance** (§5.5). Whether disputes in waystation territory are handled by the funding cities jointly, by ad-hoc sortition among residents, or not at all.
+
+*Conflict and harm between citizens was on this list and is now designed — see §7.5 through §7.7.*
 
 ### Deferred by explicit decision
 
@@ -893,3 +1043,10 @@ Recurring principles that resolved most questions in this document. Apply them t
 | **Invite** | The primary bootstrap mechanism: a citizen already in the mesh issues live peer addresses to a newcomer. There is no other way in without a shipped peer list. |
 | **Relay** | A citizen-operated node forwarding end-to-end encrypted traffic for peers that cannot connect directly through NAT. Requires no trust, since relays cannot read what they carry. |
 | **Overlay** | The encrypted peer network carrying a city-state's host-runtime traffic. Isolated from the player's LAN, and unreachable by sandboxed job code. |
+| **Waystation** | Territory between city-states, where non-citizens live: travelers, emigrants, permanent non-joiners, city-founders recruiting signers-on, and the expelled. Basic needs funded collectively by all city-states. |
+| **Freedom of action, not freedom of audience** | The rule governing conflict: nobody constrains what you may do or say, but no one can be compelled to receive, host, or live with it. |
+| **Blocking** | Client-side refusal of another citizen's traffic. Absolute, requires no authority, and cannot be voted away — the safety floor beneath all in-fiction governance. |
+| **Sortition** | Random selection of citizens for a role. Used for dispute panels and precedent ratification, because it resists capture and creates no permanent class. |
+| **Probation** | A decaying, tiered period gating re-entry to the city-state that expelled someone. Never permanent; never restricts them anywhere else. |
+| **Divergence tracking** | Automatic public comparison of a representative's published tie-breaking values against their actual rulings. Legibility, not enforcement. |
+| **Precedent decay** | Round Table precedent lapses unless reaffirmed, preventing self-serving case law from outliving the term that made it. |
