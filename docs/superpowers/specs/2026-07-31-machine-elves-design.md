@@ -1,7 +1,7 @@
 # Machine Elves — Design Document
 
 **Status:** Design exploration, in progress. Implementation deferred to a separate project.
-**Started:** 2026-07-31 · **Last revised:** 2026-08-03
+**Started:** 2026-07-31 · **Last revised:** 2026-08-04
 **Audience:** This document is written to be self-contained. A reader with no prior context should be able to understand the whole design, the reasoning behind each decision, and what remains unresolved.
 **Where to pick up:** §16.1 lists the topics queued for the next design session.
 
@@ -266,6 +266,12 @@ Within a tier, ordering is by **fair-queuing with transparent backpressure telem
 
 **Tier 2 is where the game's thesis lives** — "cool work that makes us happy." Most meaningful play happens here. Tiers 0 and 1 should feel reliably, boringly satisfied in a healthy city.
 
+**The floor is universal; the rest is membership.** Tier 0 is guaranteed everywhere and to everyone, including in waystation territory and to people who have signed no social contract at all (§5.5, §7.9). Tiers 1 through 3 exist where a specific community built them, and citizenship is what connects a person to those systems.
+
+This is **access, not queue preference** — a citizen is *in* their city's request pool for the things that city built, while a non-citizen simply is not, rather than being ranked behind them. Visitors are treated as guests: hospitality in the small (eating at a diner, riding a tram), not entitlement in the large (a house, a workshop allocation).
+
+The distinction is not a status hierarchy. It is the plain fact that infrastructure exists where people built it, and that joining a community is what connects you to what it made.
+
 **Edge case — Tier 0 shortfall.** Prime Principle 1 (§7.2) makes subsistence unconditional, but physics can disagree: production may genuinely fail to cover Tier 0. This condition is by definition a **crisis**, and is the clearest case for Round Table emergency scope (§7.1). The principle is not that scarcity is impossible; it is that Tier 0 is never *deprioritized by policy* — it can only be defeated by physical reality, and when it is, that is the city's single most urgent problem.
 
 ### 6.4 Fair queuing and the hoarding response
@@ -296,15 +302,28 @@ Without this, hoarding simply reappears in a new form: request everything you mi
 
 Freed allocations are **redistributed, never merely voided** — the point is to get resources to someone who will use them, not to punish the requester.
 
-### 6.7 Durability
+### 6.7 Durability, repairability, and modularity
 
-**Nothing is built to fail.** Homes, vehicles, machinery, tools, and structures are made to last and made to be repaired. Planned obsolescence has no mechanism to arise here, because nothing benefits from it — there is no seller wanting a second sale.
+Three distinct commitments, not one:
 
-This is a direct inversion of the enshittification that produced the collapse (§1), and it should be visible everywhere in the world (§12.4).
+**Durable — nothing is built to fail.** Planned obsolescence has no mechanism to arise, because nothing benefits from it: there is no seller wanting a second sale.
 
-**It is also load-bearing economically, not merely thematic.** A society producing disposable goods for everyone indefinitely would exhaust its ledgers no matter how it allocated them. Durability is what makes the arithmetic of a post-scarcity economy actually work: goods that last decades generate a fraction of the demand of goods that last two years, which is why total production can stay within renewable flow and recyclable circulation.
+**Repairable — anything can be opened and fixed.** No sealed assemblies, no adhesives where fasteners would serve, no deliberate barriers to service.
 
-**Repair is preferred to replacement**, and appears in the tier system as a much smaller request than a new object — which means the fair queue naturally routes toward repair without anyone mandating it.
+**Modular — complex machines are assemblies of replaceable, recyclable parts**, not monoliths that die when one component fails.
+
+The third is where the anti-enshittification argument actually lands, because it is precisely what the old world got wrong: glued-in batteries, proprietary fasteners, serialized components that refuse to function when swapped. Every one of those exists to force replacement, and nothing here has any reason to want that.
+
+**Interoperability is therefore the default.** Incompatibility exists only to capture customers, so parts standardize across designs without anyone mandating it. A common parts ecology emerges on its own, and its absence would require someone to deliberately engineer lock-in that benefits them in no way.
+
+**Economic consequences — this is load-bearing, not thematic.** A society producing disposable goods for everyone indefinitely would exhaust its ledgers no matter how fairly it allocated them. Durability is what makes the arithmetic of a post-scarcity economy close: goods lasting decades generate a fraction of the demand of goods lasting two years, which is how total production stays inside renewable flow and recyclable circulation.
+
+Two mechanisms fall out with nothing to enforce:
+
+- **A repair request is for a part, not a machine** — a far smaller ask that clears the queue quickly, so the fair queue routes toward repair on its own.
+- **Worn parts return to the recyclable ledger** individually, rather than whole assemblies being scrapped for one failure.
+
+It also makes §10.8's "operating becomes maintaining" concrete: maintenance is genuine ongoing work because machines genuinely have serviceable parts.
 
 ---
 
@@ -344,6 +363,10 @@ Five principles that policy drift cannot reach:
 5. **Restriction requires real harm.** No censorship or prohibition absent genuine illegality. No rules for the sake of order, taste, or comfort.
 
 None of these introduce new scope. Each is a promise that a decision already made elsewhere in this document stays true as policy details drift.
+
+**The Prime Principles are universal, not city-state property.** They hold everywhere — including waystation territory, and for people who have signed no social contract at all. A social contract **adds** to this floor; no city-state owns it, and none may make it conditional on membership.
+
+This is why waystation subsistence is collectively funded (§5.5): not charity, and not generosity, but the principle applying where it already applied. A floor that stopped at a border would not be a floor.
 
 ### 7.3 Amendment
 
@@ -494,6 +517,51 @@ Governance **recurses**, following Beer's Viable System Model directly (§3.1): 
 **Not everything needs to recurse.** Sortition is scale-free — a random sample is drawn from whatever population is relevant. Fair queuing is scale-free. Mediation is a project and therefore already local. Only *representation* genuinely requires the recursion, because only representation degrades with distance.
 
 **Growth is therefore additive, not dilutive.** A city-state does not scale by giving each citizen a smaller share of one Round Table; it scales by adding districts that govern themselves, with the city body handling only what genuinely spans them.
+
+### 7.9 Governance beyond city-states
+
+Waystation territory (§5.5) has no Round Table, no social contract, and residents who may have agreed to nothing and may live there permanently. Three rules govern it.
+
+**1. The Prime Principles are the floor, and they are universal.**
+
+They apply in waystations because they apply everywhere (§7.2). The waystation is therefore not ungoverned — it is governed by the floor and by nothing else. **Maximum freedom, minimum protection**, which is the correct arrangement for a place whose defining quality is that nobody there signed anything.
+
+**2. Above the floor, structure is opt-in — and it is already the founding mechanism.**
+
+Anyone wanting more than the floor gathers people willing to agree to it. But that is precisely §5.6: a compact of twenty people with a short contract is a proto-city-state, and if it stabilizes and grows it becomes one.
+
+The gradient from "no structure at all" to "full city-state" is therefore **continuous rather than a cliff**, and requires no new machinery. Someone who wants rules does not petition an authority; they persuade people.
+
+**3. The funding cities do not govern.**
+
+This one is non-negotiable. "Whoever pays, decides" would collapse the most important separation in the design — that contribution grants no control. It is the same rule preventing a compute donor from directing the mesh (§11.1), and it must hold here or it does not genuinely hold anywhere.
+
+Cities fund waystation subsistence because they hold Prime Principle 1, not because it buys them anything. It buys them nothing.
+
+#### Disputes in waystation territory
+
+The ladder from §7.5 applies, **truncated at rung 3**:
+
+- **Blocking** works everywhere; it is client-side and requires no authority.
+- **Mediation** works, because mediation is a project (§10) and mediators may operate anywhere they choose to.
+- **Compact-level exclusion** works — a voluntary compact may exclude someone from itself.
+- **There is no rung 4.** Nobody can be expelled from a waystation.
+
+**This truncation is a structural guarantee, not an oversight.** There is nowhere further out, and creating one would rebuild the exile zone the design deliberately rejected (§15). It is also what makes the entire expulsion system safe: expulsion means "go to the waystation," and the waystation cannot pass anyone along.
+
+**Nobody is ever nowhere.**
+
+#### Why this does not produce a lawless zone
+
+Subsistence is guaranteed, so there is no desperation. There is nothing to steal, because ownership is cryptographic (§8). There is no scarcity to fight over.
+
+The waystation is safe for the same reason cities are — **the mechanics, not the policing.** If the design's central thesis is correct, it should hold in a place with almost no governance at all. The waystation is where that thesis is tested most directly.
+
+#### An open tension
+
+Waystation residents receive subsistence from cities in which they have no voice.
+
+This is defensible — they signed nothing, owe nothing, and may join a city-state at any time if they want a vote — and the absence of voice is the price of the absence of obligation, freely chosen. But it is a real asymmetry, and it deserves a considered position rather than silence (§16).
 
 ---
 
@@ -906,7 +974,13 @@ Visual grammar draws on McKenna's descriptions (§3.5): jeweled and self-transfo
 
 **Light carries the information.** Since ambient presentation is a load readout (§12.2), light, motion, and warmth are the primary channel. An active city **glows to the extent it is churning and thriving** — you read its health by looking at it from a hill at dusk, with no interface at all.
 
-**Nobody's standing is visible.** Post-scarcity means appearance is purely expressive: infinite variety in clothing and style, no uniforms, no visible class markers, nothing that reads as expensive because nothing is. **You cannot tell anything about a citizen's contribution, standing, or history by looking at them.** The absence of legible hierarchy in a crowd is the design's central value made visual — and it is worth protecting against art direction that would sneak status back in through visual sophistication.
+**Nobody's standing is visible, and both tails are gone.** Everyone has access to the best, so there is no low end — nobody looks like they are barely getting by. Nothing has excess built into it, so there is no high end either — nobody looks like they are displaying.
+
+The principle is **universal quality, absent ostentation**: good workwear, fine tools, a well-made car — beautiful because well-built rather than because decorated. This is a much better target than "everyone looks average," which is what a naive reading of classlessness would produce and which would make the world drab rather than egalitarian.
+
+Within that, **appearance is purely expressive**: infinite variety in clothing and style, no uniforms, no class markers, nothing that reads as expensive because nothing is. **You cannot tell anything about a citizen's contribution, standing, or history by looking at them.**
+
+The absence of legible hierarchy in a crowd is the design's central value made visual — and it needs active protection against art direction that would sneak status back in through visual sophistication, since that is exactly where it would return.
 
 **Palette:** earth, plant, weathered metal, warm light — set deliberately against hyperspace's saturated, impossible colors.
 
@@ -1046,6 +1120,10 @@ Recorded so they are not silently re-proposed. Each was genuinely considered.
 | **Formal governance for every project** | Machinery for a three-person workshop. Nothing, then do-ocracy, then fork (§10.10). |
 | **Scaling governance by diluting one Round Table** | Representation degrades with distance. Cities add self-governing districts instead (§7.8). |
 | **Visible status in appearance** | Would reintroduce legible hierarchy through art direction after the mechanics removed it. Nothing about a citizen's standing is visible (§12.4). |
+| **Funding cities governing waystations** | "Whoever pays, decides" would collapse the design's most important separation — that contribution grants no control. Funding buys nothing (§7.9). |
+| **Expulsion from a waystation** | There is nowhere further out, and creating one would rebuild the exile zone already rejected. The ladder truncates at rung 3 so that nobody is ever nowhere (§7.9). |
+| **Prime Principles as city-state property** | A floor that stops at a border is not a floor. They hold everywhere, including for people who signed nothing (§7.2). |
+| **Proprietary or non-interchangeable parts** | Incompatibility exists only to capture customers, and nothing here benefits from that. Interoperability is the default (§6.7). |
 
 ---
 
@@ -1055,13 +1133,13 @@ Recorded so they are not silently re-proposed. Each was genuinely considered.
 
 The active agenda — explored next, not deferred indefinitely.
 
-1. **Waystation governance** (§5.5). Whether disputes in waystation territory are handled by the funding cities jointly, by ad-hoc sortition among residents, or not at all. Now more pressing given that people may live there permanently.
+1. **Weather, seasons, and time.** Day/night is load-bearing, since light carries system state (§12.4). Whether seasons exist — and whether they modulate renewable flow rates, agriculture, and energy availability — is undecided and would tie the visual layer directly to the economy.
 
-2. **Weather, seasons, and time.** Day/night is load-bearing, since light carries system state (§12.4). Whether seasons exist — and whether they modulate renewable flow rates, agriculture, and energy availability — is undecided and would tie the visual layer to the economy.
+2. **The texture of ordinary life.** Art direction is settled at the level of principle (§12.4). What citizens actually do between projects — food, music, sport, ritual, rest — is not.
 
-3. **The texture of ordinary life.** Art direction is settled at the level of principle (§12.4). What citizens actually do between projects — food, music, sport, ritual, rest — is not.
+3. **Voice without membership** (§7.9). Waystation residents receive subsistence from cities in which they have no voice. The asymmetry is defensible but unexamined, and deserves a considered position.
 
-*Resolved since the last revision and no longer open: conflict and harm (§7.5–7.7), founding new city-states (§5.6), social scale and discovery (§5.7), recursive governance (§7.8), intra-project decision-making (§10.10), the blocking model (§7.5), and everyday art direction (§12.4).*
+*Resolved since the last revision and no longer open: conflict and harm (§7.5–7.7), founding new city-states (§5.6), social scale and discovery (§5.7), recursive governance (§7.8), waystation governance (§7.9), intra-project decision-making (§10.10), the blocking model (§7.5), durability and modularity (§6.7), and everyday art direction (§12.4).*
 
 ### Deferred by explicit decision
 
@@ -1140,3 +1218,6 @@ Recurring principles that resolved most questions in this document. Apply them t
 | **Do-ocracy** | The default for medium projects: whoever does the work decides how it is done. No votes, no offices. |
 | **Fork** | Exit at project scale. Contributors who disagree irreconcilably take their template and people elsewhere; demand decides whether both survive. |
 | **Durability** | Nothing is built to fail. Aesthetic *and* economic — goods that last decades are what keep total production inside renewable flow. |
+| **Modularity** | Complex machines are assemblies of replaceable, recyclable parts. Enables part-level repair requests and part-level recycling. |
+| **The floor** | Tier 0, guaranteed everywhere to everyone regardless of citizenship. Distinct from Tiers 1–3, which exist where a community built them and which membership connects you to. |
+| **Compact** | A voluntary agreement among waystation residents wanting more structure than the floor. Structurally a proto-city-state. |
