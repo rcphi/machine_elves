@@ -198,6 +198,26 @@ This makes founding a genuine political act rather than a menu option, and gives
 
 **Open:** how waystation territory is itself governed, if at all. It has no Round Table. Whether disputes there are handled by the funding cities jointly, by ad-hoc sortition among residents, or not at all, is undecided (§16).
 
+### 5.7 Social scale and discovery
+
+Two things break as a city-state grows. Everything else scales without modification — sortition is indifferent to population size, fair queuing is indifferent to population size, and mediation works at any scale because it is simply a project.
+
+**What breaks first is representation.** A Round Table serving fifty citizens is theater; one serving fifty thousand is remote. The answer is recursion, detailed in §7.8.
+
+**Districts are the human-scale unit.** A district should sit near **Dunbar's number** — roughly 150 stable social relationships, the threshold beyond which personal knowledge stops working and institutions have to take over. Below it, people simply know each other and most machinery is unnecessary; above it, structure becomes genuinely necessary rather than bureaucratic.
+
+The goal is that **the level where you actually live is the level where you know people.**
+
+The district tier already exists in the systems view (§10.4). This makes it a social and political unit as well as a visual one.
+
+**Discovery runs through projects, not directories.** You notice a facility straining, you show up, and the people there are the people there. Association forms through shared work, physical proximity, and the waystation for cross-city contact.
+
+**Projects are searchable; people are not.** Projects are public, legible, and meant to be found — searching them is the intended path. A citizen directory would be both less thematic and more socially fraught, and it is deliberately omitted.
+
+**No population cap.** Growth is simply demand growth, and backpressure (§6.5) already signals when a city has outgrown its capacity: build more, or people leave. The existing homeostatic loop covers this, and an arbitrary ceiling would be a rule where a mechanism already suffices.
+
+There *is* a real technical ceiling on mesh size, and it should be treated honestly as an engineering constraint determining practical shard size — not dressed up as a law of the fiction.
+
 ---
 
 ## 6. Economy
@@ -275,6 +295,16 @@ A granted-but-unused allocation **lapses after a reasonable window and re-enters
 Without this, hoarding simply reappears in a new form: request everything you might conceivably need, hold the claim indefinitely, just in case. A claim costs nothing to hold unless holding it has consequences.
 
 Freed allocations are **redistributed, never merely voided** — the point is to get resources to someone who will use them, not to punish the requester.
+
+### 6.7 Durability
+
+**Nothing is built to fail.** Homes, vehicles, machinery, tools, and structures are made to last and made to be repaired. Planned obsolescence has no mechanism to arise here, because nothing benefits from it — there is no seller wanting a second sale.
+
+This is a direct inversion of the enshittification that produced the collapse (§1), and it should be visible everywhere in the world (§12.4).
+
+**It is also load-bearing economically, not merely thematic.** A society producing disposable goods for everyone indefinitely would exhaust its ledgers no matter how it allocated them. Durability is what makes the arithmetic of a post-scarcity economy actually work: goods that last decades generate a fraction of the demand of goods that last two years, which is why total production can stay within renewable flow and recyclable circulation.
+
+**Repair is preferred to replacement**, and appears in the tier system as a much smaller request than a new object — which means the fair queue naturally routes toward repair without anyone mandating it.
 
 ---
 
@@ -446,6 +476,24 @@ Defenses against a city-state falling to the corrupt or the incompetent, in desc
 **7. Automatic divergence tracking.** Candidates already publish explicit tie-breaking values (§7.1), which makes the gap between what someone said and how they actually ruled *computable*. Publish it automatically. No punishment and no enforcement — just the record made legible, which is this design's characteristic move.
 
 **Two honest limits.** All of the above assumes one-person-one-vote genuinely holds, so **Sybil resistance remains the load-bearing unsolved problem** (§16) — sortition depends on a genuine citizen pool exactly as elections do. And none of it protects against a *popular* bad idea. Democracy constrains unpopular corruption, not majority conviction; the Prime Principles are the only floor there, and even they can be amended slowly.
+
+### 7.8 Recursive governance
+
+Governance **recurses**, following Beer's Viable System Model directly (§3.1): every viable system contains viable systems, each autonomous in what is genuinely local to it and coordinating only what is not.
+
+**Each level decides what it can meaningfully decide, and no more.** This principle has a name — **subsidiarity** — and it is the structural answer to a city-state outgrowing a single Round Table.
+
+| Level | Decides |
+|---|---|
+| **Project** | Its own work (§10.10) |
+| **District** | Matters local to the district — siting, local infrastructure, district-scoped classification disputes |
+| **City-state** | Matters spanning districts — the grid, water, rail, the tier schema, Prime Principles, crises |
+
+**Structure is identical at each level**, which means a citizen who understands how their district works understands how the city works. This is the same consistency argument as the nested systems views (§10.4), applied to politics rather than telemetry.
+
+**Not everything needs to recurse.** Sortition is scale-free — a random sample is drawn from whatever population is relevant. Fair queuing is scale-free. Mediation is a project and therefore already local. Only *representation* genuinely requires the recursion, because only representation degrades with distance.
+
+**Growth is therefore additive, not dilutive.** A city-state does not scale by giving each citizen a smaller share of one Round Table; it scales by adding districts that govern themselves, with the city body handling only what genuinely spans them.
 
 ---
 
@@ -678,6 +726,22 @@ Three honest flavors, which should not be conflated:
 
 Titles are **plural and unranked**: you hold many, and none sits above another. There is no ladder. This does not fully solve informal deference calcifying into a pecking order (§16), but it removes the obvious path to one.
 
+### 10.10 Intra-project decision-making
+
+Founders hold no permanent authority (§10.9), which raises the question of how a project decides anything. The answer is graduated, and it begins with **nothing**.
+
+**Small projects need no governance.** A diner with three people talks. Building machinery for a workshop is the mistake to avoid.
+
+**Medium projects run on do-ocracy.** Whoever does the work decides how it is done. Nobody votes on the paint color; the painter chooses. This is how open-source projects and most functioning co-ops actually operate, and it requires no formal structure, no meetings, and no offices.
+
+**Large or contested projects fork.** This is the design's own answer, applied one level down: at city scale, irreconcilable disagreement resolves through exit and plurality (§7.4); at project scale it resolves identically. **A fork is exit at project scale.**
+
+Forking is deliberately cheap, because a project is only a template, a manifest, and its contributors. Take your people, place a new building, continue. Disagreement resolves by divergence rather than by anyone winning an argument.
+
+If genuine demand supports both, both survive. If it does not, backpressure (§6.5) resolves the duplication without anyone adjudicating it.
+
+**The exception: you cannot fork the power grid.** Tier 1 civic infrastructure cannot diverge — a city has one grid, one water system, one rail network. But this exception needs no new mechanism, because those decisions are already **major irreversible capacity commitments** inside the Round Table's existing scope (§7.1). Critical infrastructure escalates to civic governance because it *is* civic.
+
 ---
 
 ## 11. The Compute Mesh
@@ -826,6 +890,26 @@ Visual grammar draws on McKenna's descriptions (§3.5): jeweled and self-transfo
 
 **Self-dribbling basketballs** are the ambient system-health tell — a courtyard ball dribbling itself means a facility running a healthy surplus, felt atmospherically rather than read off a dashboard. *(Further detail deferred — §16.)*
 
+### 12.4 Everyday visual language
+
+**The governing idea: the street and hyperspace are deliberate opposites.** Hyperspace is jeweled, saturated, chattering, impossible. Street level is its complement — warm, material, human-scale, calm. Mundane against numinous. The contrast is what makes stepping into the systems view feel like stepping *through* something.
+
+**Visible, dignified reuse.** Everything is made from something else and the world does not hide it: salvaged material, honest joins, repairs that are evident and cared for rather than concealed. The distinction that matters is that this is a civilization which **repairs beautifully**, not one making do. The non-renewable ledger is literally the old world's wreckage (§6.2), so every building is visibly an argument about what that wreckage became.
+
+**Made to last.** Homes, vehicles, machinery, and structures are substantial, well-built, and obviously repairable (§6.7). Nothing looks disposable, because nothing is. Set against the ruins — full of the cheap and the broken — this is the most legible possible statement of what changed.
+
+**Low and warm.** Human-scale buildings. Nothing monumental, nothing built to impress or intimidate. A society with no power to display does not build to display it.
+
+**Green over ruin.** The collapse is history, so it is softened: growth reclaiming old structures, plants integrated into salvage rather than fighting it.
+
+**No advertising. No branding. No commercial signage anywhere.** This may be the single most striking visual choice available. A street with nothing trying to sell you something reads as immediately, viscerally unlike any city a player has walked down, and it communicates "there is no commerce here" faster and more completely than any exposition could.
+
+**Light carries the information.** Since ambient presentation is a load readout (§12.2), light, motion, and warmth are the primary channel. An active city **glows to the extent it is churning and thriving** — you read its health by looking at it from a hill at dusk, with no interface at all.
+
+**Nobody's standing is visible.** Post-scarcity means appearance is purely expressive: infinite variety in clothing and style, no uniforms, no visible class markers, nothing that reads as expensive because nothing is. **You cannot tell anything about a citizen's contribution, standing, or history by looking at them.** The absence of legible hierarchy in a crowd is the design's central value made visual — and it is worth protecting against art direction that would sneak status back in through visual sophistication.
+
+**Palette:** earth, plant, weathered metal, warm light — set deliberately against hyperspace's saturated, impossible colors.
+
 ---
 
 ## 13. AI Citizens
@@ -957,6 +1041,11 @@ Recorded so they are not silently re-proposed. Each was genuinely considered.
 | **A permanent judiciary** | Would create exactly the standing elite rejected everywhere else. Sortition avoids a judicial class entirely (§7.5). |
 | **Subsistence conditional on citizenship** | A principle that stops at a border is not unconditional. Every city-state funds a share of waystation needs (§5.5). |
 | **A dedicated exile zone** | Stigmatizing by construction. Expelled citizens share the waystation with travelers and city-founders, with no marker of why anyone is there (§5.5). |
+| **A citizen directory / people search** | Less thematic and more socially fraught than discovery through shared work. Projects are searchable; people are found by doing things together (§5.7). |
+| **A hard population cap per city-state** | A rule where a mechanism already suffices — backpressure signals overgrowth exactly as it signals any other shortage (§5.7). |
+| **Formal governance for every project** | Machinery for a three-person workshop. Nothing, then do-ocracy, then fork (§10.10). |
+| **Scaling governance by diluting one Round Table** | Representation degrades with distance. Cities add self-governing districts instead (§7.8). |
+| **Visible status in appearance** | Would reintroduce legible hierarchy through art direction after the mechanics removed it. Nothing about a citizen's standing is visible (§12.4). |
 
 ---
 
@@ -966,17 +1055,13 @@ Recorded so they are not silently re-proposed. Each was genuinely considered.
 
 The active agenda — explored next, not deferred indefinitely.
 
-1. **Multiplayer social scale.** How large a city-state grows before it needs internal structure, and how citizens discover each other and form working relationships. *(The founding of new city-states is now answered in §5.6.)*
+1. **Waystation governance** (§5.5). Whether disputes in waystation territory are handled by the funding cities jointly, by ad-hoc sortition among residents, or not at all. Now more pressing given that people may live there permanently.
 
-2. **Intra-project decision-making.** Founders hold no permanent authority (§10.9), which leaves large or contested projects with no described way to make decisions. Needs to avoid recreating either a founder-monarch or a miniature Round Table for every workshop.
+2. **Weather, seasons, and time.** Day/night is load-bearing, since light carries system state (§12.4). Whether seasons exist — and whether they modulate renewable flow rates, agriculture, and energy availability — is undecided and would tie the visual layer to the economy.
 
-3. **Everyday art direction** outside the hyperspace view — streets, homes, people, weather, the texture of ordinary life. The systems view and ambient facility states are specified (§12); the world they sit inside is not.
+3. **The texture of ordinary life.** Art direction is settled at the level of principle (§12.4). What citizens actually do between projects — food, music, sport, ritual, rest — is not.
 
-4. **The blocking model** (§7.5, Rung 1). Mutual invisibility, comms-only, or asymmetric — and how to handle the ghosting exploit if mutual invisibility is chosen.
-
-5. **Waystation governance** (§5.5). Whether disputes in waystation territory are handled by the funding cities jointly, by ad-hoc sortition among residents, or not at all.
-
-*Conflict and harm between citizens was on this list and is now designed — see §7.5 through §7.7.*
+*Resolved since the last revision and no longer open: conflict and harm (§7.5–7.7), founding new city-states (§5.6), social scale and discovery (§5.7), recursive governance (§7.8), intra-project decision-making (§10.10), the blocking model (§7.5), and everyday art direction (§12.4).*
 
 ### Deferred by explicit decision
 
@@ -1050,3 +1135,8 @@ Recurring principles that resolved most questions in this document. Apply them t
 | **Probation** | A decaying, tiered period gating re-entry to the city-state that expelled someone. Never permanent; never restricts them anywhere else. |
 | **Divergence tracking** | Automatic public comparison of a representative's published tie-breaking values against their actual rulings. Legibility, not enforcement. |
 | **Precedent decay** | Round Table precedent lapses unless reaffirmed, preventing self-serving case law from outliving the term that made it. |
+| **District** | The human-scale governing and social unit within a city-state, sized near Dunbar's number. Governs what is local to it; the city handles what spans districts. |
+| **Subsidiarity** | The rule that each level decides only what it can meaningfully decide, and no more. The structural reason growth is additive rather than dilutive. |
+| **Do-ocracy** | The default for medium projects: whoever does the work decides how it is done. No votes, no offices. |
+| **Fork** | Exit at project scale. Contributors who disagree irreconcilably take their template and people elsewhere; demand decides whether both survive. |
+| **Durability** | Nothing is built to fail. Aesthetic *and* economic — goods that last decades are what keep total production inside renewable flow. |
