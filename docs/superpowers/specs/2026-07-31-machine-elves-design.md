@@ -226,9 +226,15 @@ Its population is deliberately mixed:
 
 **This mixture is the entire point.** Someone asked to leave a city-state shares the waystation with someone excitedly recruiting founders for a new one. There is no exile camp, no stigmatized zone, no visible marker of why anyone is there. The design cost of dissolving that stigma is zero, and the humane payoff is large.
 
-**Subsistence in the waystation is funded collectively.** Every city-state contributes a portion of waystation basic needs and those of its population.
+**Waystation settlements are self-reliant.** Each holds a minimum automated set of works — farming, water reclamation, sewage, power generation and distribution, recycling, clothing and housing production, and the distribution that ties them together. The floor in the waystation is produced locally rather than transferred in, and no city-state is bound to fund anyone.
 
-This settles a question Prime Principle 1 otherwise leaves ambiguous: **subsistence is genuinely unconditional, not conditional on citizenship.** A principle that stopped at a border would be misnamed. Cities fund it because they hold the principle, not because the recipients are theirs.
+This settles a question Prime Principle 1 otherwise leaves ambiguous: **subsistence is genuinely unconditional, not conditional on citizenship.** A principle that stopped at a border would be misnamed. It holds in the waystation because it holds everywhere — and it is met there by machinery the settlement owns rather than by anyone's continuing generosity.
+
+**Cities are bound by nothing routine, and PP1 remains a backstop.** There is no share, no formula, and no city's interpretation reaching a non-citizen. But the principle still means what it says, so a settlement in genuine failure — works broken, nobody present able to repair them — is a call on the floor itself rather than on charity. It is a rare tail case with nothing ongoing for a city to attach conditions to.
+
+**This makes waystations places rather than merely territory.** A settlement has visible works, and the ones that exist were built by somebody: independence here is inherited rather than innate, raised by an early generation and self-sustaining since. That history is why the works are there.
+
+**The systems are specified at the extreme durable end** (§6.7), because a waystation has no committed population to maintain them. Durability and modularity buy a great deal of time; they do not buy forever, and maintenance is genuine work that residents may choose to do. A settlement with nobody in it simply hibernates (§9.5) — harmless here, since nobody is present to need the water plant.
 
 **Permanent waystation residence is legitimate.** A person may live their whole life there, never signing any social contract, without being considered to have failed at anything.
 
@@ -297,7 +303,7 @@ Köppen–Geiger is the standard global climate classification, built from month
 
 A city runs **mean solar time, anchored so that clock noon and true solar noon coincide at the equinox.** True solar noon wanders by up to ±16 minutes across the year — the equation of time, which is why a sundial and a clock disagree — and a society with instruments keeps steady hours and lets the sun wander.
 
-**Orbit is shared; rotation is local.** The date is global: every city-state is on the same planet going around the same sun, so caravans, waystation funding (§5.5), and inter-city agreements stay coherent. The clock is local. The alternative — each city beginning its year at its own local spring — would put a southern city six months out of phase with a northern one and turn every cross-city arrangement into a conversion problem, in exchange for poetry.
+**Orbit is shared; rotation is local.** The date is global: every city-state is on the same planet going around the same sun, so caravans, inter-city agreements, and anything else spanning shards stay coherent. The clock is local. The alternative — each city beginning its year at its own local spring — would put a southern city six months out of phase with a northern one and turn every cross-city arrangement into a conversion problem, in exchange for poetry.
 
 **The calendar is thirteen months of 28 days, plus a day out of time.** 13 × 28 = 364; the intercalary day closes the year at 365, and a second one is required every fourth year.
 
@@ -489,7 +495,9 @@ None of these introduce new scope. Each is a promise that a decision already mad
 
 **The Prime Principles are universal, not city-state property.** They hold everywhere — including waystation territory, and for people who have signed no social contract at all. A social contract **adds** to this floor; no city-state owns it, and none may make it conditional on membership.
 
-This is why waystation subsistence is collectively funded (§5.5): not charity, and not generosity, but the principle applying where it already applied. A floor that stopped at a border would not be a floor.
+This is why the waystation has a floor at all (§5.5): not charity, and not generosity, but the principle applying where it already applied. A floor that stopped at a border would not be a floor.
+
+**The principle is universal; its implementation is local.** Waystation settlements meet the floor with their own works rather than with transfers from cities, which changes nothing about the guarantee and a great deal about the relationship — nobody is sustained by a polity they did not join, and no city funds people it may be at odds with. The obligation survives as a backstop for genuine failure (§5.5), not as a standing transfer.
 
 ### 7.3 Amendment
 
@@ -512,6 +520,12 @@ Entrenchment preserves whatever you entrench, wisdom and cruelty alike. Keep the
 Signing is a real commitment to *this* city-state's specific tier schema and values baseline — not generic terms-of-service paperwork. It is the mechanical gate for citizenship, and it is what makes city-states genuinely differ.
 
 Citizens born in a city-state hold automatic citizenship but **still affirm the contract personally at coming of age** (Prime Principle 4).
+
+**Admission is unilateral. Signing is the whole of it, and no city-state may refuse a signer.** Probation following expulsion (§7.6) is the sole exception: temporary, decaying, and binding only on the city that expelled you. Every other gate is refused for the reason §7.1 refuses eligibility gates for candidacy — a community that can decline members has an admission criterion, and an admission criterion is an aristocracy waiting to happen.
+
+This is load-bearing beyond citizenship itself. The design resolves conflict by exit everywhere (§4.3, §5.3, §7.4), and exit is only real if somewhere will take you. A person nobody had to admit could be made stateless by unpopularity, and the unpopular are precisely who the guarantee exists for.
+
+**The polity cannot refuse; the people in it are never compelled.** Individual citizens keep absolute blocking (§7.5), and compacts and projects may still exclude whom they like. Citizenship grants standing in the city and access to what it built — never an entitlement to any particular person's company.
 
 Disagreement carries **no punitive mechanic**. If a contract stops fitting you — because the community amended it, or because you changed — you leave, and find or found a city-state that fits. Plurality across shards is the safety valve; enforcement within one is not.
 
@@ -599,7 +613,7 @@ Plurality is a real answer — you leave for a city-state that does not tolerate
 
 This has a consequence worth noting: **emigration removes material footprint as well as labor, compute, and hosting.** A city-state that treats people badly pays a metabolic cost, not merely a reputational one.
 
-**The exit protocol.** Subsistence continues throughout — Prime Principle 1 was already unconditional, so this needs no new guarantee. The departing citizen goes to the waystation (§5.5), where basic needs are collectively funded and where they may remain indefinitely. Helpers are available to assist in finding or founding a new home; like mediation, this is a project rather than an office.
+**The exit protocol.** Subsistence continues throughout — Prime Principle 1 was already unconditional, so this needs no new guarantee. The departing citizen goes to the waystation (§5.5), where the settlements' own works meet the floor and where they may remain indefinitely. Helpers are available to assist in finding or founding a new home; like mediation, this is a project rather than an office.
 
 **Framing is mechanical, not cosmetic.** Pushing hard against someone's identity reliably produces entrenchment and doubling-down. A process that shames manufactures the resistance it is responding to. "This is not working; here is help finding where it will" behaves differently from "you are banished," and the difference shows up in outcomes.
 
@@ -655,11 +669,11 @@ Anyone wanting more than the floor gathers people willing to agree to it. But th
 
 The gradient from "no structure at all" to "full city-state" is therefore **continuous rather than a cliff**, and requires no new machinery. Someone who wants rules does not petition an authority; they persuade people.
 
-**3. The funding cities do not govern.**
+**3. No city governs the waystation — and none funds it either.**
 
-This one is non-negotiable. "Whoever pays, decides" would collapse the most important separation in the design — that contribution grants no control. It is the same rule preventing a compute donor from directing the mesh (§11.1), and it must hold here or it does not genuinely hold anywhere.
+Self-reliance (§5.5) removes the question at its root. With no standing transfer there is no payer, so "whoever pays, decides" has nothing to attach itself to.
 
-Cities fund waystation subsistence because they hold Prime Principle 1, not because it buys them anything. It buys them nothing.
+The rule survives regardless, because it has to hold in the tail case. Where PP1's backstop applies, or where a city or an individual contributes voluntarily, that contribution buys exactly nothing — the same rule that prevents a compute donor from directing the mesh (§11.1). It is the most important separation in the design, and a design that honored it only when honoring it was free would not be honoring it at all.
 
 #### Disputes in waystation territory
 
@@ -680,11 +694,28 @@ Subsistence is guaranteed, so there is no desperation. There is nothing to steal
 
 The waystation is safe for the same reason cities are — **the mechanics, not the policing.** If the design's central thesis is correct, it should hold in a place with almost no governance at all. The waystation is where that thesis is tested most directly.
 
-#### An open tension
+#### Voice without membership
 
-Waystation residents receive subsistence from cities in which they have no voice.
+The tension this section previously left open — residents receiving subsistence from cities in which they have no voice — is **dissolved rather than balanced**, because self-reliance (§5.5) removes the dependency that generated it. There is no transfer to be voiceless about.
 
-This is defensible — they signed nothing, owe nothing, and may join a city-state at any time if they want a vote — and the absence of voice is the price of the absence of obligation, freely chosen. But it is a real asymmetry, and it deserves a considered position rather than silence (§16).
+What remains is worth stating precisely, because "residents have no voice" was never accurate.
+
+**They hold complete voice over their own arrangements and none over other cities' internal decisions — which is equally true of a Shangri-La citizen with respect to any other city-state.** A waystation resident is not uniquely voiceless. They are a non-member of every city, and non-members do not vote in polities they have not joined. That is what non-membership means, and per §7.4 it is reversible by one signature that no city may refuse.
+
+The useful frame is Hirschman's *Exit, Voice, and Loyalty* (1970), which this design has used implicitly throughout — §4.3, §5.3, and §7.4 all resolve conflict through exit rather than voice. The waystation is that choice at full strength, and its residents hold a great deal:
+
+- **Blocking** — absolute, client-side, requiring no authority (§7.5)
+- **Mediation** — a project, and mediators work wherever they choose (§10)
+- **Compacts** — voluntary structure with real internal governance
+- **Founding** — persuade enough people and you are a city-state (§5.6)
+- **Exit** — to any city-state, or to any other settlement
+- **Citizenship** — one signature away, refusable by nobody (§7.4)
+
+**No waystation voice body is created, and the omission is deliberate.** Rule 1 defines this territory as governed by the floor and nothing else; a body deciding anything material would be a government for the one place whose defining quality is having none, and rule 3 would come under permanent pressure from whoever staffed it. Removing the discretion is the better move, and self-reliance removes all of it (§17).
+
+**One cost, recorded rather than smoothed.** A city that expels someone no longer bears any continuing expense for them, because nobody funds the waystation. That standing cost was a real brake on expulsion — the expeller kept paying — and self-reliance removes it. The remaining safeguards are §7.5's sortitioned panels, §7.6's tiered decaying probation, and the fact that expulsion requires demonstrated real harm rather than mere dislike. No replacement brake is introduced; the trade is that no city is bound to sustain people it is genuinely at odds with, which is the more important property.
+
+**A narrower asymmetry survives.** The floor's *definition*, and the backstop obligation in §5.5, are written and held by citizens — so in the rare case a settlement's works fail, a resident's guarantee rests on a principle they had no vote in setting. This is far smaller than a standing dependency, and the alternative — enfranchising people in polities they declined to join — would make membership meaningless and put rule 3 under exactly the pressure it exists to resist. It is accepted, not solved. See §16 for a related inconsistency about who may amend a universal principle at all.
 
 ---
 
@@ -1347,14 +1378,14 @@ Recorded so they are not silently re-proposed. Each was genuinely considered.
 | **Permanent expulsion** | Asserts a person cannot change and judges them before their life is over. Replaced by tiered, decaying probation (§7.6). |
 | **The Round Table hearing interpersonal disputes** | Politicizes private conflict and lets the popular party beat the unpopular one. Sortitioned panels instead (§7.5). |
 | **A permanent judiciary** | Would create exactly the standing elite rejected everywhere else. Sortition avoids a judicial class entirely (§7.5). |
-| **Subsistence conditional on citizenship** | A principle that stops at a border is not unconditional. Every city-state funds a share of waystation needs (§5.5). |
+| **Subsistence conditional on citizenship** | A principle that stops at a border is not unconditional. The floor holds in waystation territory, met there by the settlements' own works (§5.5). |
 | **A dedicated exile zone** | Stigmatizing by construction. Expelled citizens share the waystation with travelers and city-founders, with no marker of why anyone is there (§5.5). |
 | **A citizen directory / people search** | Less thematic and more socially fraught than discovery through shared work. Projects are searchable; people are found by doing things together (§5.7). |
 | **A hard population cap per city-state** | A rule where a mechanism already suffices — backpressure signals overgrowth exactly as it signals any other shortage (§5.7). |
 | **Formal governance for every project** | Machinery for a three-person workshop. Nothing, then do-ocracy, then fork (§10.10). |
 | **Scaling governance by diluting one Round Table** | Representation degrades with distance. Cities add self-governing districts instead (§7.8). |
 | **Visible status in appearance** | Would reintroduce legible hierarchy through art direction after the mechanics removed it. Nothing about a citizen's standing is visible (§12.4). |
-| **Funding cities governing waystations** | "Whoever pays, decides" would collapse the design's most important separation — that contribution grants no control. Funding buys nothing (§7.9). |
+| **Cities governing waystations by virtue of supporting them** | "Whoever pays, decides" would collapse the design's most important separation — that contribution grants no control. The rule outlived the arrangement that prompted it: nobody funds waystations now, and any voluntary or backstop contribution still buys nothing (§7.9). |
 | **Expulsion from a waystation** | There is nowhere further out, and creating one would rebuild the exile zone already rejected. The ladder truncates at rung 3 so that nobody is ever nowhere (§7.9). |
 | **Prime Principles as city-state property** | A floor that stops at a border is not a floor. They hold everywhere, including for people who signed nothing (§7.2). |
 | **Proprietary or non-interchangeable parts** | Incompatibility exists only to capture customers, and nothing here benefits from that. Interoperability is the default (§6.7). |
@@ -1374,6 +1405,11 @@ Recorded so they are not silently re-proposed. Each was genuinely considered.
 | **Ordinary life as pure ambience** | Would make "people are the ends" (§1) something a player watches rather than does, and would lean on AI citizens whose implementation is deferred (§13). Life is playable and produces gifts and gatherings (§4.5). |
 | **A separate leisure economy** (tracked outputs from social activity) | A second ledger running beside the first, with all the same capture risks and none of the justification. Gifts are unrequestable by construction, so no rule is needed (§4.5). |
 | **Any cost to resting** — idle decay, missed opportunity, streaks | Would rebuild the premise that time not spent producing is time wasted. Nothing decays because a citizen idled (§4.5). |
+| **Standing collective funding of waystation subsistence** | The original arrangement, reversed. It bound cities to sustain people they may be genuinely at odds with, left a residual charity stigma in a place designed to have none, and kept "whoever pays" permanently adjacent to rule 3. Waystation settlements are self-reliant, with PP1 surviving as a backstop (§5.5, §7.9). |
+| **A mechanical funding-share formula** (a published rate per citizen) | Considered as the fix for interpretation and apportionment discretion. Superseded entirely by self-reliance, which removes the discretion rather than mechanizing it (§5.5). |
+| **A waystation voice body** — franchise or a funding say for non-citizens | Would be a government for the one territory whose defining quality is having none, and would put rule 3 under permanent pressure from whoever staffed it. The discretion is removed instead (§7.9). |
+| **Letting city-states refuse would-be citizens** | Freedom of association is real, but at polity scale an admission criterion is an aristocracy waiting to happen, and a person nobody must admit can be made stateless by unpopularity. Admission is unilateral; individuals still block freely and compacts still exclude (§7.4). |
+| **Per-city interpretation of the floor reaching non-citizens** | Tier schemas are deliberately local (§5.3, §7.1), but a stingy reading of "basic shelter" must not decide what someone outside every city receives. Moot under self-reliance, and recorded so it is not reintroduced (§5.5). |
 
 ---
 
@@ -1381,9 +1417,9 @@ Recorded so they are not silently re-proposed. Each was genuinely considered.
 
 ### 16.1 Queued for the next design session
 
-The active agenda — explored next, not deferred indefinitely.
+**The active agenda is empty.** Every topic queued since the first session has been worked through; the remaining open items are the two lists below, and the *genuinely unresolved* list is where the real difficulty now lives — led by verified unique persistent identity, which several other guarantees depend on.
 
-1. **Voice without membership** (§7.9). Waystation residents receive subsistence from cities in which they have no voice. The asymmetry is defensible but unexamined, and deserves a considered position. It is the last item on the active agenda; §16's *genuinely unresolved* list is where the remaining hard problems live.
+A reasonable next move is to pick from that list rather than wait for a new topic to surface.
 
 *Resolved since the last revision and no longer open: conflict and harm (§7.5–7.7), founding new city-states (§5.6), social scale and discovery (§5.7), recursive governance (§7.8), waystation governance (§7.9), intra-project decision-making (§10.10), the blocking model (§7.5), durability and modularity (§6.7), everyday art direction (§12.4), weather, seasons, and time (§5.8–5.10, §12.5–12.6), and the texture of ordinary life (§4.5–4.6, §10.11–10.12).*
 
@@ -1401,6 +1437,7 @@ The active agenda — explored next, not deferred indefinitely.
 - **AI citizen implementation.** The citizenship framework is settled (§13); the implementation is deferred to a second project after a testable MVP. What an AI citizen actually *is* — how it reasons, converses, works, and forms preferences — is entirely unspecified.
 - **Verified unique persistent identity** is now the adopted franchise condition for AI citizens (§13.2) and remains unsolved for humans as well. It has become the single highest-leverage unresolved problem in the design: human Sybil resistance, AI enfranchisement, and Prime Principle 2 all depend on it.
 - **Inter-city-state trade and travel**, beyond "a deliberate act, not seamless walking." Becomes more pressing given AI citizens migrate between city-states (§13.5).
+- **Who may amend a universal principle.** §7.2 states the Prime Principles are universal and not city-state property; §7.3 describes amending them through a single city-state's electoral cycle. Both cannot be fully true — if one city can amend a universal principle, it stops being universal the moment that city does. The reading this document leans toward is the narrow one: an amendment binds only the city that passed it, and a city narrowing the floor has stopped holding the universal floor, which is a visible political fact rather than an enforced violation. §7.3 deliberately refused permanent locks, so an un-amendable ratchet is not available as an answer. Surfaced while resolving §7.9 and not yet settled.
 - **Informal status hierarchy.** Titles and visible standing can calcify into deference-based hierarchy with zero mechanical backing. Plural, unranked, recent-weighted design mitigates but does not eliminate this. Probably not fully solvable by mechanics alone.
 
 ---
@@ -1454,7 +1491,7 @@ Recurring principles that resolved most questions in this document. Apply them t
 | **Invite** | The primary bootstrap mechanism: a citizen already in the mesh issues live peer addresses to a newcomer. There is no other way in without a shipped peer list. |
 | **Relay** | A citizen-operated node forwarding end-to-end encrypted traffic for peers that cannot connect directly through NAT. Requires no trust, since relays cannot read what they carry. |
 | **Overlay** | The encrypted peer network carrying a city-state's host-runtime traffic. Isolated from the player's LAN, and unreachable by sandboxed job code. |
-| **Waystation** | Territory between city-states, where non-citizens live: travelers, emigrants, permanent non-joiners, city-founders recruiting signers-on, and the expelled. Basic needs funded collectively by all city-states. |
+| **Waystation** | Territory between city-states, where non-citizens live: travelers, emigrants, permanent non-joiners, city-founders recruiting signers-on, and the expelled. Settlements are self-reliant, meeting the floor with their own automated works; no city-state funds them, and PP1 survives as a backstop for genuine failure. |
 | **Freedom of action, not freedom of audience** | The rule governing conflict: nobody constrains what you may do or say, but no one can be compelled to receive, host, or live with it. |
 | **Blocking** | Client-side refusal of another citizen's traffic. Absolute, requires no authority, and cannot be voted away — the safety floor beneath all in-fiction governance. |
 | **Sortition** | Random selection of citizens for a role. Used for dispute panels and precedent ratification, because it resists capture and creates no permanent class. |
