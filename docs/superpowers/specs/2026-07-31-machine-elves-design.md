@@ -1,7 +1,7 @@
 # Machine Elves — Design Document
 
 **Status:** Design exploration, in progress. Implementation deferred to a separate project.
-**Started:** 2026-07-31 · **Last revised:** 2026-08-04
+**Started:** 2026-07-31 · **Last revised:** 2026-08-15
 **Audience:** This document is written to be self-contained. A reader with no prior context should be able to understand the whole design, the reasoning behind each decision, and what remains unresolved.
 **Where to pick up:** §16.1 lists the topics queued for the next design session.
 
@@ -154,6 +154,8 @@ The starting city-state, where all new players begin. Located near where Valpara
 
 Its social contract is grounded in non-theistic humanism with Buddhist influences. As the onboarding shard it should read as relatively **mature and settled**: infrastructure works, automation is well-developed, the place feels calm. This contrasts with frontier city-states, which are visibly hungry for hands (§10.8).
 
+Its real site does a great deal of work for free (§5.8). At 33° south, Shangri-La is a **southern-hemisphere** city — every new player's first experience of the game runs on an inverted year, with December as high summer. Its climate is temperate maritime, and Valparaíso's actual vernacular is salvage-built: brightly painted corrugated-metal housing stacked up steep hills (§12.5). The starting city-state therefore looks like this design's thesis before anyone art-directs it.
+
 ### 5.3 Plurality across city-states
 
 Each city-state defines its own standards, specializations, and social contract. Specialization may follow proximity to natural resources or regional need.
@@ -190,13 +192,17 @@ This settles a question Prime Principle 1 otherwise leaves ambiguous: **subsiste
 
 New city-states are born in the waystation, in two stages:
 
-1. **Social.** A founder drafts a social contract — the tier schema, the values baseline, the standards the place will hold — and gathers signers-on. A city-state begins as a document nobody has signed yet, and becomes real when enough people have.
+1. **Social.** A founder drafts a social contract — the tier schema, the values baseline, the standards the place will hold — and **names a place**: real coordinates on the ruined Earth (§5.8). A city-state begins as a document nobody has signed yet, and becomes real when enough people have.
 
 2. **Material.** Existing city-states may **vote to support a nascent city-state's growth** with resources. Support is discretionary, and a proposed contract that neighbors find compelling attracts backing that one they find alarming does not.
 
 This makes founding a genuine political act rather than a menu option, and gives existing cities a legitimate, non-coercive voice in what grows near them — they may decline to fund without anyone being entitled to their support.
 
-**Open:** how waystation territory is itself governed, if at all. It has no Round Table. Whether disputes there are handled by the funding cities jointly, by ad-hoc sortition among residents, or not at all, is undecided (§16).
+**The site report** is published alongside the draft contract, so signers-on know what they are joining before they sign. It states the climate and ground bands, water, viable crops, workable materials, the renewable mix the site supports (§5.8), the shape of its year and its daylight extremes (§5.9), and **the city's clock offset from the reader's own** — the last being what makes the timezone consequence in §5.9 an informed choice rather than a discovery made after settling.
+
+A place is therefore part of what a founder proposes, and part of what signers-on accept or decline. Choosing where to live is partly choosing when you live.
+
+*(Waystation governance, formerly open here, is settled in §7.9.)*
 
 ### 5.7 Social scale and discovery
 
@@ -217,6 +223,79 @@ The district tier already exists in the systems view (§10.4). This makes it a s
 **No population cap.** Growth is simply demand growth, and backpressure (§6.5) already signals when a city has outgrown its capacity: build more, or people leave. The existing homeostatic loop covers this, and an arbitrary ceiling would be a rule where a mechanism already suffices.
 
 There *is* a real technical ceiling on mesh size, and it should be treated honestly as an engineering constraint determining practical shard size — not dressed up as a law of the fiction.
+
+### 5.8 Site: what a location determines
+
+A city-state is founded at **real coordinates on the ruined Earth**. §5.2 already does this for Shangri-La; this generalizes it from one authored exception into how every city-state works.
+
+Coordinates resolve into **two coarse bands**, both real-world indices, and nothing finer. There is no point-by-point survey of the planet.
+
+| Band | Source | Determines |
+|---|---|---|
+| **Climate** | Köppen–Geiger classification | Temperature and precipitation regime, water availability, season shape, weather's plausible repertoire (§5.10) |
+| **Ground** | Geologic province | Stone, clay, ores, rare earths — what the non-renewable ledger (§6.2) actually holds here |
+
+Köppen–Geiger is the standard global climate classification, built from monthly temperature and precipitation and published as free map data. It sorts every point on Earth into a readable type — desert, steppe, Mediterranean, oceanic, humid subtropical, continental, subarctic, tundra, ice cap — and its entire purpose is to answer "what kind of place is this, and what lives here."
+
+**What grows is derived, not classified.** Each cultivar carries its real requirements: water, temperature range, the winter minimum it survives, soil, sun hours. Each site publishes its real conditions. What a city can farm is the intersection, computed rather than declared. A plant-hardiness zone is therefore one *input* among several rather than a lookup table — which is what it actually is, an index of average annual extreme minimum winter temperature and nothing else. The payoff is that a citizen asking why a crop fails here gets a real answer about water or winter lows.
+
+**Renewable mix is a property of the site.** A subarctic city is founded on hydro, wind, and geothermal; an Atacama city on solar. This is what keeps §5.9's accurate polar sun from reading as a lie: a city whose sun disappears for weeks does not run on sunlight and never needed to.
+
+**Location carries economic weight, but only static weight.** §5.3 already lets specialization follow proximity to resources; this makes it concrete. The coupling is geographic, never temporal — a place has the water, ore, and stone it has, and no season modulates any flow rate (§5.10).
+
+**Bad sites are bad, not forbidden.** Free coordinates mean someone will eventually propose a city on an ice sheet or a mid-ocean rock. §17's *design your way out of needing rules* applies: a site with no water, no growing conditions, and no workable ground simply produces a proposal that struggles to attract signers-on, which §5.6 already handles — neighbors decline to fund what they find unpromising. The Antarctic city-state is not prohibited. It is a hard sell, and the site report makes *why* legible before anyone signs.
+
+### 5.9 Time, the sun, and the calendar
+
+**World time is real time at the city's coordinates.** A day is a day and a year is a year. Time is not simulated; it is read from the clock every player already has, transformed by the city's position on Earth. Like weather (§5.10), it is a pure function — no node broadcasts it, no authority sets it, and it stays correct on a shard degraded to a single offline machine (§9.6).
+
+**Cities keep solar time, not civil time.** Noon is when the sun is highest, and that is all noon means. Timezones and daylight saving are administrative artifacts of a world with railroads, telegraphs, and national borders; a society rebuilding from ruins, with no commerce and no scheduling authority, has no reason to reinvent them. Dropping them costs nothing and buys three things: each city-state's clock is genuinely its own, the site report's offset from a given player becomes an honest statement about longitude rather than a lookup in a political map, and an entire category of implementation misery — DST rules, timezone-database churn, the hour that happens twice — never exists.
+
+A city runs **mean solar time, anchored so that clock noon and true solar noon coincide at the equinox.** True solar noon wanders by up to ±16 minutes across the year — the equation of time, which is why a sundial and a clock disagree — and a society with instruments keeps steady hours and lets the sun wander.
+
+**Orbit is shared; rotation is local.** The date is global: every city-state is on the same planet going around the same sun, so caravans, waystation funding (§5.5), and inter-city agreements stay coherent. The clock is local. The alternative — each city beginning its year at its own local spring — would put a southern city six months out of phase with a northern one and turn every cross-city arrangement into a conversion problem, in exchange for poetry.
+
+**The calendar is thirteen months of 28 days, plus a day out of time.** 13 × 28 = 364; the intercalary day closes the year at 365, and a second one is required every fourth year.
+
+The principle underneath: **the anchors are astronomical, the divisions are convention.** Day, year, and equinox are facts anyone rediscovers by watching the sky. Gregorian months are not — they are 28-to-31 days of inherited Roman politics, two of them padded for emperors. Dropping them is the same move as dropping timezones: keep what the sky says, rebuild what Rome said. Equal months also mean every month is exactly four weeks and begins on the same weekday. Precedent: the International Fixed Calendar, proposed in 1902 and used internally by Kodak until 1989 for exactly this reason.
+
+**A 28-day month matches no real lunar period, and this is accepted rather than solved.** The sidereal month is about 27.3 days and the synodic month about 29.5; 28 sits between them and matches neither, so no clean fix exists. A rendered moon's phase therefore drifts against the months. Let it drift — the calendar is the society's convention, the moon is a fact, and the drift is the honest result of setting one beside the other. The month is the one unit here that is *pure* convention, which is precisely why it was free to redesign.
+
+Per §5.4, the **structure** is adopted now and the **names** are deferred. Thirteen-month calendars carry specific traditions, and naming months after one of them is the branding pass §5.4 says to earn later. Functional numbering until then.
+
+**The day out of time is a holiday everywhere** — a day belonging to no month, on which nothing is scheduled. Festival design belongs with the texture of ordinary life (§16.1).
+
+**The sun's position is computed, not approximated.** Standard solar-position math takes coordinates and a date and returns true altitude and azimuth — a small calculation requiring no dataset. Everything follows from it rather than being authored per place:
+
+- **Day length varies by latitude and date**, correctly, with no special cases.
+- **The southern hemisphere inverts for free.** Shangri-La's December is high summer. This is declination doing its job, not a toggle.
+- **Near the equator**, days sit near twelve hours year-round and the season is wet-and-dry rather than warm-and-cold — which the climate band already says.
+- **At high latitude**, the swing is extreme: true midnight sun and true polar night above the circles, and below them a summer sun that never quite sets but grazes the horizon for hours, raking the whole night in low golden light.
+
+**Sun altitude is continuous, never a day/night flag.** Twilight is where high latitudes live. Light angle, color temperature, and shadow length key off real altitude; a binary would discard exactly the effect that makes those latitudes worth having.
+
+**The polar case is a committed cost.** A far-northern city means weeks of real-time darkness in December and no true night in June, and the site report says so before anyone signs. Two things keep it from being punishment: the city's renewable mix never depended on the sun (§5.8), so the dark months cost nothing economically; and a city in darkness reads as pure light against black, which is the emissive channel at full strength (§12.6). A polar winter city is among the most legible in the game.
+
+**The waystation has coordinates and therefore its own solar time**, but living there is not a commitment (§5.5) — it is the one place where the clock is not a decision anyone is stuck with.
+
+**Longitude is a coordination mechanism, not only flavor.** See §9.5.
+
+### 5.10 Weather
+
+**Weather is a pure function of site and moment.** Every node computes it independently and arrives at the same sky. There is no roll, no broadcast, no authority: the requirement that weather be unpredictable per city and identical for everyone in it is met by determinism rather than by messaging, at zero bandwidth, with no coordinator to contradict §12.1.
+
+**It samples coherent noise along the time axis, not independent draws.** Independent draws would flicker between states; smooth noise produces drifting pressure systems — weather that arrives, persists, and passes. Unpredictable, not discontinuous.
+
+**The climate band sets the repertoire; season shifts the distribution.** A desert is mostly clear with rare violent rain, a maritime city drizzles, a subarctic one snows for months. Precipitation type follows temperature, so the rain-snow line moves with latitude and date on its own. Local phenomena come from the same two bands: fog in maritime basins, dust in arid ones, and aurora at high geomagnetic latitude — which lands on polar cities during exactly the months that need it.
+
+**Weather is decoupled from the economy, deliberately.** It modulates no flow rate, no ledger, and no queue. Considered and rejected: seasonal renewable-flow modulation, which would have made scarcity cyclical and given §6.5's homeostatic loop a rhythm — at the cost of making Tier 0 pressure routine, when §6.3 defines a Tier 0 shortfall as by definition a crisis. A society that expects to be short of heat every winter has a different relationship to its own floor than this design wants.
+
+Two consequences of the decoupling are load-bearing:
+
+- **Perfect forecasts are harmless.** Determinism means anyone can compute next week's sky exactly. Where weather drove crops or energy that would be an exploit to design around; here there is no stake to game, so forecasting is simply something citizens can do.
+- **Weather must not counterfeit a system state.** This requires active protection, specified in §12.6.
+
+**Under degradation (§9.6) weather is Cosmetic and sheds first — but what sheds is the rendering, not the state.** Evaluating the function costs nothing, so a thinning shard loses its rain effects while every node still agrees about the weather.
 
 ---
 
@@ -650,6 +729,10 @@ Both are genuinely unresolved and must not be hand-waved.
 
 Hibernation is the endpoint of the graceful degradation ladder in §9.6, not a separate mechanism.
 
+**Longitude partially mitigates this, and it is the strongest practical argument for §5.9's real solar time.** Because a city-state runs on the real clock at its own coordinates, its daylight hours correspond to real hours somewhere on Earth — and citizens naturally settle in cities whose daylight matches their own waking life. A city-state's population therefore self-clusters into overlapping real-world schedules, which is precisely the property a shard needs to stay warm. This does not solve the cold shard problem, since a city can still empty out; it makes the emptying less likely and more predictable, and it costs nothing, because the clustering is a side effect of a choice players make for their own convenience.
+
+The inverse is the cost, and §5.6's site report exists to disclose it: a citizen whose real life does not match their city's clock will experience that city mostly at night.
+
 **The bootstrap problem, and an honesty risk.** A new player's client must discover peers from somewhere. Standard P2P bootstrapping uses seed nodes or a distributed hash table — but **any permanent bootstrap infrastructure is, technically, a server.**
 
 This matters more here than in an ordinary P2P application, because the reveal (§12.1) stakes the game's emotional payload on the claim being *literally true*. A player who discovers an asterisk after being told there are no servers has been mildly lied to, which is worse than never having made the claim.
@@ -944,6 +1027,8 @@ A facility's presentation is a direct readout of **load relative to capacity**. 
 
 **The last two must be clearly distinguishable**, because they call for opposite player responses: build more capacity, versus show up and work.
 
+**The queue must be physically visible** — material stacking in the yard, requests piling up — and not conveyed by lighting alone. At night, near-idle and understaffed separate cleanly on lights-off versus lights-on, but under bright sun that discriminator is weak and the two states would collapse into each other every clear day. Physical accumulation reads in any light. §12.6 works through this and the rest of the interaction between system state, sun, and weather.
+
 **Flourish animations sit at low priority in the same hard-metering system as real jobs (§11.4).** Under genuine strain the scheduler correctly spends its cycles on actual requested work, and the flourish starves. The glitching is therefore a **real resource-contention artifact**, not an authored "stressed" state — honest, free, and impossible to fake.
 
 ### 12.3 Hyperspace
@@ -974,6 +1059,8 @@ Visual grammar draws on McKenna's descriptions (§3.5): jeweled and self-transfo
 
 **Light carries the information.** Since ambient presentation is a load readout (§12.2), light, motion, and warmth are the primary channel. An active city **glows to the extent it is churning and thriving** — you read its health by looking at it from a hill at dusk, with no interface at all.
 
+This requires care once the world has a moving sun and changing weather (§5.9, §5.10), which push light around for reasons that have nothing to do with system state. §12.6 separates the two so they cannot be confused — and the separation makes the hill-at-dusk reading *stronger* in bad weather rather than weaker.
+
 **Nobody's standing is visible, and both tails are gone.** Everyone has access to the best, so there is no low end — nobody looks like they are barely getting by. Nothing has excess built into it, so there is no high end either — nobody looks like they are displaying.
 
 The principle is **universal quality, absent ostentation**: good workwear, fine tools, a well-made car — beautiful because well-built rather than because decorated. This is a much better target than "everyone looks average," which is what a naive reading of classlessness would produce and which would make the world drab rather than egalitarian.
@@ -983,6 +1070,67 @@ Within that, **appearance is purely expressive**: infinite variety in clothing a
 The absence of legible hierarchy in a crowd is the design's central value made visual — and it needs active protection against art direction that would sneak status back in through visual sophistication, since that is exactly where it would return.
 
 **Palette:** earth, plant, weathered metal, warm light — set deliberately against hyperspace's saturated, impossible colors.
+
+### 12.5 Vernacular architecture
+
+**Build with what is at hand.** Real vernacular architecture is defined by exactly that, and it is the logic a low-transport society with no commerce rediscovers on its own. Housing style is therefore not an art-direction choice made per city-state; it is the visible consequence of §5.8's two bands.
+
+| Site | Material | Form the material forces |
+|---|---|---|
+| **Subarctic / continental, forested** | Timber frame | Steep roofs for snow load, compact plan, small openings, heavy stove at the core |
+| **Arid** | Adobe, rammed earth | Thick walls for thermal mass, small windows, courtyards, flat roofs, pale surfaces |
+| **Temperate maritime** | Timber and stone | Moderate pitch, generous glazing, weather-facing orientation |
+| **Wet tropical** | Light timber, thatch | Raised floors, deep overhangs, cross-ventilation, minimal enclosure |
+| **Treeless highland / tundra** | Drystone, turf, earth shelter | Massive low walls, partial burial, small apertures |
+
+**Over every vernacular, the salvage layer.** The old world's wreckage *is* the non-renewable stock (§6.2), so reclaimed steel, glass, and composite are worked into local material everywhere — under §12.4's rule that joins are honest and cared for rather than concealed. Local ground plus old-world salvage, visibly married, is the game's visual signature, and it is derived rather than authored.
+
+**Shangri-La gets this free from its real site.** Valparaíso's actual vernacular is brightly painted corrugated-metal housing stacked on steep hills, historically built from salvaged ship plating. The starting city-state is already colorful salvage-built hillside housing before anyone designs anything — so §12.1's onboarding beat, citizenship and a starter home granted in one moment, teaches a new player where they are the instant they walk through the door.
+
+**The starter home** is granted at citizenship; the styles offered are those that suit the site, and the player chooses among them. Different city-states hand a newcomer visibly different first houses.
+
+**The guard rail.** §12.4 warns that status will try to re-enter through visual sophistication, so housing variety expresses **place and taste, never standing**. Two homes differ because two cities differ, or because two people like different things — never because one citizen outranks another. No material reads as expensive, because none is: a well-built adobe house and a well-built timber one are peers.
+
+This also makes §6.7 concrete at domestic scale. A house built from local material is repairable with local material, by the people who live there.
+
+### 12.6 Reading the city under sun and weather
+
+§5.9 and §5.10 add a sun that moves and a sky that changes, while §12.4 stakes the game's most distinctive claim on light — that a city's health is read from a hill at dusk with no interface at all. Left unseparated these collide: an overcast winter afternoon and a city losing its mesh would look the same, and the readout would fail exactly when conditions are worst.
+
+**The separation: reflective belongs to nature; emissive, motion, and mechanical sound belong to the system.**
+
+| Channel | Owned by | What it carries |
+|---|---|---|
+| **Reflective** | Sun, sky, weather | Sunlight, shadow, sky color — light falling **on** the world |
+| **Emissive** | System state | Windows, forge light, machinery glow, elf luminescence — light **from** the world |
+| **Motion** | System state | Elves working, the dribbling basketball, flourish animation, visible strain |
+| **Sound** | Both, separated | Nature owns wind, rain, and thunder; the system owns machinery, farm equipment, and the audible fact of a facility running |
+
+They never trade places. Weather changes how the city is lit. It never changes what the city emits, how it moves, or how it sounds.
+
+**Falling ambient light makes the system channels stronger, not weaker.** Overcast, dusk, storm, and polar night all dim the reflective channel and raise the contrast of the emissive one. Bad weather makes a thriving city read *more* clearly — the condition that threatened the signal sharpens it instead.
+
+**Bright noon is the hard case**, and midnight sun leaves a high-latitude city sitting in it for weeks. Motion and sound carry the readout there: both are fully legible under high sun, and a running factory is audible in any weather at any hour. Channel legibility is inversely correlated, so at least one is always strong.
+
+| §12.2 state | Reads at low light via | Reads at bright noon via |
+|---|---|---|
+| **Near-idle** | Dark windows, no glow, silence | Stillness, silence, and **no queue** |
+| **Balanced** | Steady warm glow | Steady motion and working sound, ball dribbling |
+| **Over capacity** | Red-hot, glitching | Glitching, heat shimmer, audible strain, visible fumbling |
+| **Understaffed** | Lit windows, no motion | Stillness against a **visibly stacked queue** |
+
+**This adds a requirement to §12.2.** Near-idle and understaffed must remain distinguishable, because they call for opposite responses — but the night-time discriminator, lights-off versus lights-on, is weak under bright sun. **The queue must therefore be physically visible**: material stacking in the yard, requests piling up. Physical accumulation reads in any light, and without it the two states collapse into each other every clear day.
+
+**Four guard rails on weather**, so it can never counterfeit a system state:
+
+- Weather never reduces emissive output. Fog **blooms** glow into volumetric shafts — more visible, not less.
+- Weather never halts flourish animation. Stopped animation must keep meaning exactly one thing: genuine resource contention (§12.2).
+- No gloomy-weather grading that borrows the near-idle palette. Overcast is grey *light*, not a dim *city*.
+- Rain and snow never damp motion or sound cues.
+
+**High-latitude city-states exercise both extremes**: maximum emissive legibility in the dark months, motion-and-sound-only legibility under midnight sun. Each channel carries the entire load alone somewhere in the world, which is why both are specified rather than one being treated as decoration.
+
+The same separation protects §9.6: a city losing its mesh looks like near-idle, and no storm may be allowed to imitate it.
 
 ---
 
@@ -1124,6 +1272,15 @@ Recorded so they are not silently re-proposed. Each was genuinely considered.
 | **Expulsion from a waystation** | There is nowhere further out, and creating one would rebuild the exile zone already rejected. The ladder truncates at rung 3 so that nobody is ever nowhere (§7.9). |
 | **Prime Principles as city-state property** | A floor that stops at a border is not a floor. They hold everywhere, including for people who signed nothing (§7.2). |
 | **Proprietary or non-interchangeable parts** | Incompatibility exists only to capture customers, and nothing here benefits from that. Interoperability is the default (§6.7). |
+| **Seasonal modulation of renewable flow** | Would have made scarcity cyclical and given §6.5's loop a rhythm, but at the cost of routine Tier 0 pressure — and §6.3 defines a Tier 0 shortfall as by definition a crisis. Weather is decoupled from the economy entirely (§5.10). |
+| **Purely decorative weather with no grounding** | The opposite failure: the one system in the document that would be authored rather than derived. Weather is decoupled from the *economy* but still derived from real climate data (§5.8, §5.10). |
+| **A short authored day/night cycle** (Minecraft-style, ~20 minutes) | Guarantees every player sees both day and night, but forfeits real solar geometry, the longitude/cold-shard effect (§9.5), and any honest relationship between a place and its sky. Real 24-hour time chosen (§5.9). |
+| **Pegging world time to the player's local clock** | Would keep every player in daylight, but two residents of one city-state would see different skies at the same moment — breaking the requirement that a city's sky is shared (§5.10). |
+| **Civil time and timezones** | Administrative artifacts of railroads, telegraphs, and national borders. A society with no commerce and no scheduling authority has no reason to rebuild them. Mean solar time per city instead (§5.9). |
+| **A per-city calendar anchored to local spring** | Would put southern and northern city-states six months out of phase and make every cross-city arrangement a conversion problem. Orbit is shared, rotation is local: global date, local clock (§5.9). |
+| **Locking rendered moon phase to the 28-day month** | The month is convention; the moon is a fact. Faking agreement between them would violate *honesty in mechanism* (§17) to hide an accepted imperfection. The phase drifts (§5.9). |
+| **Curated founding sites** (a hand-authored list of valid locations) | Would have solved the ocean, the ice sheet, and real-world naming baggage by construction, but replaces a real Earth with an authored one. Free coordinates chosen; bad sites are made legible rather than forbidden (§5.8). |
+| **Plant-hardiness zones as the single index** for resources and materials | The index measures exactly one variable — average annual extreme minimum winter temperature — and cannot carry water, geology, or building material. Split into climate and ground bands, with growing derived from actual plant requirements (§5.8). |
 
 ---
 
@@ -1133,13 +1290,11 @@ Recorded so they are not silently re-proposed. Each was genuinely considered.
 
 The active agenda — explored next, not deferred indefinitely.
 
-1. **Weather, seasons, and time.** Day/night is load-bearing, since light carries system state (§12.4). Whether seasons exist — and whether they modulate renewable flow rates, agriculture, and energy availability — is undecided and would tie the visual layer directly to the economy.
+1. **The texture of ordinary life.** Art direction is settled at the level of principle (§12.4) and vernacular housing now follows from site (§12.5). What citizens actually do between projects — food, music, sport, ritual, rest — is not. **The day out of time (§5.9) is the natural first thread**: a holiday belonging to no month, observed everywhere, with festival design entirely open.
 
-2. **The texture of ordinary life.** Art direction is settled at the level of principle (§12.4). What citizens actually do between projects — food, music, sport, ritual, rest — is not.
+2. **Voice without membership** (§7.9). Waystation residents receive subsistence from cities in which they have no voice. The asymmetry is defensible but unexamined, and deserves a considered position.
 
-3. **Voice without membership** (§7.9). Waystation residents receive subsistence from cities in which they have no voice. The asymmetry is defensible but unexamined, and deserves a considered position.
-
-*Resolved since the last revision and no longer open: conflict and harm (§7.5–7.7), founding new city-states (§5.6), social scale and discovery (§5.7), recursive governance (§7.8), waystation governance (§7.9), intra-project decision-making (§10.10), the blocking model (§7.5), durability and modularity (§6.7), and everyday art direction (§12.4).*
+*Resolved since the last revision and no longer open: conflict and harm (§7.5–7.7), founding new city-states (§5.6), social scale and discovery (§5.7), recursive governance (§7.8), waystation governance (§7.9), intra-project decision-making (§10.10), the blocking model (§7.5), durability and modularity (§6.7), everyday art direction (§12.4), and weather, seasons, and time (§5.8–5.10, §12.5–12.6).*
 
 ### Deferred by explicit decision
 
@@ -1169,6 +1324,8 @@ Recurring principles that resolved most questions in this document. Apply them t
 - **No gatekeeping, anywhere.** Candidacy, project creation, custom code, and trust are earned through demonstrated work, never granted by permission. Every gate is a future aristocracy.
 - **Consent is explicit and revocable.** Opt-in per project, per machine, per contribution type. Leaving is always free and never punished.
 - **Honesty in mechanism.** Where the game shows something, it should be showing a real thing: strain animations starve because the scheduler is genuinely busy; hyperspace shows genuinely running code; the reveal is true. Never fake a signal that could be real.
+- **Derive, don't author.** Where a real index, dataset, or calculation can produce something, use it rather than hand-authoring: climate from Köppen–Geiger, sun position from orbital geometry, what grows from what plants actually need, housing form from locally available material. Derived content is cheaper to build, larger in range, self-consistent by construction, and answers "why is it like this here?" with a real reason instead of a designer's preference.
+- **A pure function needs no coordinator.** Anything computable from data every node already holds — the date, the city's coordinates — requires no server, no broadcast, and no consensus, and survives every level of degradation in §9.6. Time, sun position, and weather are all computed independently by every machine and agree exactly. Before adding a mechanism that must be *distributed*, check whether it can instead be *derived*.
 - **Reuse mechanisms across layers.** Fair queuing governs CPU cycles and dinner alike. Graceful drain covers machines and people. Replication serves ownership, world persistence, and integrity verification simultaneously. Tiering by criticality governs both need and consistency. **If a new problem seems to need a new system, check whether an existing one already has its shape.**
 
 ---
@@ -1221,3 +1378,11 @@ Recurring principles that resolved most questions in this document. Apply them t
 | **Modularity** | Complex machines are assemblies of replaceable, recyclable parts. Enables part-level repair requests and part-level recycling. |
 | **The floor** | Tier 0, guaranteed everywhere to everyone regardless of citizenship. Distinct from Tiers 1–3, which exist where a community built them and which membership connects you to. |
 | **Compact** | A voluntary agreement among waystation residents wanting more structure than the floor. Structurally a proto-city-state. |
+| **Site** | A city-state's real coordinates on the ruined Earth, and the two bands they resolve to. Determines materials, crops, renewable mix, daylight, and weather. |
+| **Climate band / ground band** | The two coarse real-world indices a site resolves to: Köppen–Geiger climate classification, and geologic province. |
+| **Site report** | Published alongside a draft social contract at founding: bands, water, crops, workable materials, renewable mix, the shape of the year, and the city's clock offset from the reader. |
+| **Solar time** | A city-state's clock: mean solar time at its own coordinates, anchored so clock noon and true solar noon coincide at the equinox. No timezones, no daylight saving. |
+| **Day out of time** | The intercalary day closing a year of thirteen 28-day months; a holiday everywhere, belonging to no month. A second falls every fourth year. |
+| **Reflective channel** | Light falling *on* the world — sun, sky, weather. Owned by nature; never carries system state. |
+| **Emissive channel** | Light, motion, and mechanical sound coming *from* the world. Owned by system state; never altered by weather. |
+| **Vernacular** | Housing built from locally available material, its form following from that material. Derived from site, never a per-city art-direction choice. |
