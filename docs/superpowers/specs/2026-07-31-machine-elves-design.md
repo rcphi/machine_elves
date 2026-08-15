@@ -138,6 +138,50 @@ Illustrative, not prescriptive. A player logs in and might: walk their district 
 
 Nothing in that session was assigned. All of it was legible.
 
+**A second session, equally typical, and necessary to show alongside the first.** A player logs in, spends an hour cooking with two neighbors for a dinner they are hosting, walks the district in the evening and stops to watch a match they have no stake in, sits with a group practice led by someone they have never met, and logs off without contributing to a single project. Because automation carries the necessary work (§10.8), this is not a wasted session or a lesser one — it is what the necessary work is *for*.
+
+The first session is the game's engine. The second is its point. A document that only illustrated the first would be describing a game about labor, which §1 explicitly says this is not.
+
+### 4.5 The texture of ordinary life
+
+Automation carries most necessary work (§10.8), so **free time is the majority of a citizen's life, and making it worth having is a design obligation rather than a garnish.** §2's "it must not feel like a job" is currently satisfied by what is absent — no quotas, no fail states, no obligation. This section is what makes it satisfied by what is present.
+
+**Ordinary life produces exactly two things: gifts and gatherings.**
+
+A **gift** is an object made for a particular person — a meal, a sweater, a carved box, a song written down. A **gathering** is an occasion that exists because people came — a dinner, a match, a performance, a sit.
+
+Neither enters the request queue, the ledgers, or any readout. This is not a rule but a structural consequence: §6.1's economy runs on request-and-queue, and **a gift is unrequestable by construction.** Nobody can queue for a sweater their neighbor knitted, because the queue has no idea it exists. Ordinary life can therefore be as rich as it likes without ever becoming a second economy, and nothing has to forbid it (§17).
+
+**Materials are economic; the made thing is not.** You request yarn — a Tier 2 ask that clears easily — you knit the sweater, and you give it away. The ledgers see the yarn and never see the sweater.
+
+**A gift carries relationship, not status.** §12.4 forbids a citizen's standing from being visible, and a handmade object satisfies that because it is neither scarce nor fine. Its meaning is that a specific person made it for a specific person, which is the opposite of a status good — a status good means something because of what it cost.
+
+**Food.** Staple nutrition is Tier 0 and automated (§6.3), so cooking is never subsistence. It is entirely what happens above subsistence, which is the correct relationship for a society that solved hunger: nobody cooks because they must eat. A diner is a project (§10.1); a dinner is a gathering; a dish carried to a neighbor is a gift. The same activity occupies all three registers depending on why it is done.
+
+**Music and craft.** Performance is a gathering; instruments, recordings, and made objects are gifts. Both feed §12.4's rule that appearance and expression are purely personal — a society with no commercial culture has no professional/amateur distinction to enforce, because there was never anyone selling tickets.
+
+**Sport.** A club is a project (§10.1); playing is not. That split already exists in the document and is exactly right: the pitch, the equipment, and the upkeep are collective work, while the game itself is a gathering that produces nothing. The self-dribbling basketballs (§12.3) mean the world is already thematically pre-loaded for this.
+
+**Practice.** Sitting, breathing, movement — led by whoever leads it, attended by whoever comes, and open to anyone who wants to lead one. Shangri-La's social contract is non-theistic humanist with Buddhist influences (§5.2), so its practices have a recognizable shape without this document naming a tradition; per §5.4 they stay functionally described until a branding pass is earned.
+
+**Rest.** The hardest to design and the most important to protect. Rest is the absence of activity, and the design's entire job is to never punish it: **nothing decays because you idled, no opportunity is missed, no streak breaks, and nothing accrues to the people who kept playing.** A game that made resting cost something would have rebuilt the logic of the world that collapsed, in which time not spent producing was time wasted.
+
+Two things do fade, and neither is a cost. **Resonance is recent-weighted** (§10.6), so a citizen who steps back sees their standing fall — but standing buys nothing, so what falls is a description of the present, not a possession being taken. This is precisely why "buys nothing" is load-bearing rather than decorative: it is what lets the design describe current contribution honestly without turning a rest into a loss. **Skill atrophies** (§10.11) on the timescale of genuine disuse — years away from a craft, never a missed evening.
+
+**Who is here.** Ordinary life must work with players alone, since AI citizen implementation is deferred (§13, §16). It becomes richer when they exist and depends on them for nothing.
+
+### 4.6 Festivals and the day out of time
+
+**The day out of time (§5.9) is observed in every city-state**, because the calendar is global while the clock is local (§5.9). It is the one occasion the entire world shares — the only day belonging to no month, on which nothing is scheduled and no project expects anyone.
+
+**The floor does not pause.** Tier 0 is unconditional (§6.3, §7.2), so subsistence systems run through the holiday exactly as they run through the night: automated, and covered by whoever chooses to cover what still needs hands. A holiday that suspended the guarantee would not be a holiday, it would be a policy exception to the Prime Principles.
+
+**Local festivals differ by city-state**, and derive rather than being authored (§17). §5.3 makes plurality across shards the point, and §5.8's site bands supply the occasions for free: a harvest festival lands when that climate's harvest lands, a polar city marks the sun's return in a way a tropical one has no reason to, and an arid city celebrates first rain. Each city-state's calendar of local festivals falls out of where it is, and no two are alike without anyone designing the difference.
+
+**A festival is a gathering at city scale — the same object as a dinner, larger.** There is no festival mechanic and no event system: it is people converging on a place at a time, which the world already supports. What makes it a festival is that everyone came.
+
+**§12.6's discipline holds here and must be stated explicitly**, because festivals are the strongest test of it: a crowded plaza is *people and public space*, while facility health is *buildings and machinery*. A festival must never make a district read as thriving. A city where every citizen is dancing in the square and every workshop is dark is legible at a glance, and says something true.
+
 ---
 
 ## 5. World Structure
@@ -263,7 +307,7 @@ The principle underneath: **the anchors are astronomical, the divisions are conv
 
 Per §5.4, the **structure** is adopted now and the **names** are deferred. Thirteen-month calendars carry specific traditions, and naming months after one of them is the branding pass §5.4 says to earn later. Functional numbering until then.
 
-**The day out of time is a holiday everywhere** — a day belonging to no month, on which nothing is scheduled. Festival design belongs with the texture of ordinary life (§16.1).
+**The day out of time is a holiday everywhere** — a day belonging to no month, on which nothing is scheduled. It is the one occasion every city-state shares; festivals are designed in §4.6.
 
 **The sun's position is computed, not approximated.** Standard solar-position math takes coordinates and a date and returns true altitude and azimuth — a small calculation requiring no dataset. Everything follows from it rather than being authored per place:
 
@@ -832,6 +876,8 @@ It is how the city sees you: useful for finding collaborators the way a portfoli
 
 **Earned by verified real work**: producing resources that others actually use, with output independently confirmed correct (§11.4). Explicitly *not* proof-of-work puzzles.
 
+**Not a measure of competence, and not fed by leisure.** What a citizen is *good at* is a separate quantity that buys nothing and never touches Resonance (§10.11); what a citizen does for pleasure produces gifts and gatherings, which no ledger sees (§4.5).
+
 ### 10.7 The labor multiplier
 
 Queue backpressure detects **capacity** bottlenecks. It cannot detect **willingness** bottlenecks.
@@ -863,6 +909,14 @@ It interacts correctly with the labor multiplier at no cost: as staffing need fa
 
 **This gives shards texture at no systemic cost.** A mature Shangri-La feels settled and quiet, with much of its drudgery long since designed away. A young frontier city-state is visibly hungry for hands.
 
+**Automation's target is free time, not throughput.** This is the distinction that separates this design from the world that collapsed, where productivity gains were captured rather than distributed and the working day never shortened. Here there is nobody to capture them: automation's entire yield is hours returned to citizens, and what those hours are *for* is §4.5.
+
+**Shangri-La is heavily automated**, across growing, recycling, manufacturing, and distribution — and on the contracting side too, decommissioning capacity when sustained slack says to (§6.5). A mature city-state runs mostly by itself, and the drudgery a frontier city is still doing by hand is work Shangri-La designed away generations ago.
+
+**A mostly automated facility is cheap to host.** This is honest rather than convenient: a steady-state process is a simple simulation, and its cost on the mesh should reflect that. Automation therefore reduces load on the very citizens whose machines run the city (§11.1), which compounds — the better a city automates, the less its own infrastructure asks of the people living in it.
+
+**Remote operation wherever the work allows it.** A citizen should be able to run what can be run from anywhere, rather than being obliged to stand in a building because the interface demands a body. Presence is reserved for work that genuinely requires it — which §10.8 already names: care, judgment, creation, founding, teaching, and governance. Requiring attendance where it adds nothing would manufacture exactly the obligation §2 forbids.
+
 ### 10.9 Titles
 
 Three honest flavors, which should not be conflated:
@@ -892,6 +946,38 @@ Forking is deliberately cheap, because a project is only a template, a manifest,
 If genuine demand supports both, both survive. If it does not, backpressure (§6.5) resolves the duplication without anyone adjudicating it.
 
 **The exception: you cannot fork the power grid.** Tier 1 civic infrastructure cannot diverge — a city has one grid, one water system, one rail network. But this exception needs no new mechanism, because those decisions are already **major irreversible capacity commitments** inside the Round Table's existing scope (§7.1). Critical infrastructure escalates to civic governance because it *is* civic.
+
+### 10.11 Skills
+
+A third quantity, deliberately separate from Resonance (§10.6) and titles (§10.9). Conflating them is the failure mode this section exists to prevent.
+
+| Quantity | What it means | How it behaves |
+|---|---|---|
+| **Resonance** | Who is carrying weight on what the city needs *now* | Recent-weighted flow; decays; tied to need through §10.7 |
+| **Title** | What a person is called | Plural, unranked, expressive (§10.9) |
+| **Skill** | What a person is actually good at | Grows with practice; atrophies without it |
+
+**A skill is competence, not standing.** Cooking, cabinetry, sewing, leading a practice, guiding a tour, running a line — anything done often enough to get good at. It answers exactly one question: *who do I ask about this?*
+
+**Skills must never be routed into Resonance.** Resonance means "who is covering what the city needs," and it is tied to scarcity through the labor multiplier (§10.7). Feeding leisure into it would dilute that signal into "who is socially active," and would instrumentalize rest — telling players that even their free time should be useful, which is the logic of the world that collapsed (§1).
+
+**Named, not numbered.** A citizen is *known for* sourdough, cabinetry, and leading sits. There is no level, score, or rank. §16 already warns that visible standing calcifies into deference with no mechanical backing, and a public number that only rises is far more prone to that than a name, because numbers invite ranking — players build leaderboards the game never shipped. A name carries everything needed to find the right person and offers nothing to sort by.
+
+**Skill atrophies, and this is honesty rather than balance.** Real competence fades without practice, so modelling it as a flow satisfies §17's *flows, not stocks* by describing reality instead of imposing a rule. Someone who cooked daily for a decade and stopped still knows how, and is rusty. Atrophy runs on the timescale of genuine disuse, never a missed evening (§4.5).
+
+**Hard rule, matching §10.9: no skill ever touches a queue, a vote, an allocation, or eligibility.** Nobody is paid more, served sooner, or preferred anywhere for being good at something. The entire function of a skill is that another citizen knows whose door to knock on.
+
+### 10.12 The guided walkthrough
+
+**Anyone may do any work.** Eligibility does not exist — not by skill, not by Resonance, not by title, not by history. What stands between a citizen and unfamiliar work is not permission but knowledge, and the design supplies the knowledge directly: **every task carries an interactive walkthrough that demonstrates the work and guides you through doing it.**
+
+**It is completed, never passed.** This distinction is load-bearing. A walkthrough that can be *failed* is a qualification, and qualifications are how professions become guilds and how §17's *no gatekeeping, anywhere* quietly dies. There is no score, no attempt record, and no outcome other than having gone through it.
+
+**Revisitable at any time**, in full or in part, by anyone — including people who have done the work for years and want to check one step. Nothing marks a citizen as having needed it.
+
+**This partially resolves a deferred question.** §12.1 defers single-player training with the note that it should be interactive documentation rather than a tutorial bolted on afterward. A per-task walkthrough *is* that system, generalized: the tutorial is not an onboarding phase a player graduates from, it is a permanent property of every task in the world. What remains deferred is the shape of the training city-state itself, not the teaching mechanism.
+
+Combined with §10.11, the result is that competence is **visible but never qualifying**: you can find out who is good at something, and that fact opens no door to them and closes none to you.
 
 ---
 
@@ -1012,7 +1098,7 @@ Leaving home, becoming an adult, and joining society for real all land as a sing
 
 **This is why the architecture must be genuinely serverless** (§9.5). The emotional payload of the reveal depends entirely on it being true rather than theatrical. A player who investigates and finds a conventional backend has been lied to, and the game's central conceit collapses.
 
-*(Single-player training design is deliberately deferred — see §16.)*
+*(The teaching mechanism is settled — every task carries a revisitable walkthrough, §10.12. What remains deferred is the shape of the training city-state itself — see §16.)*
 
 ### 12.2 Ambient state as honest signal
 
@@ -1281,6 +1367,13 @@ Recorded so they are not silently re-proposed. Each was genuinely considered.
 | **Locking rendered moon phase to the 28-day month** | The month is convention; the moon is a fact. Faking agreement between them would violate *honesty in mechanism* (§17) to hide an accepted imperfection. The phase drifts (§5.9). |
 | **Curated founding sites** (a hand-authored list of valid locations) | Would have solved the ocean, the ice sheet, and real-world naming baggage by construction, but replaces a real Earth with an authored one. Free coordinates chosen; bad sites are made legible rather than forbidden (§5.8). |
 | **Plant-hardiness zones as the single index** for resources and materials | The index measures exactly one variable — average annual extreme minimum winter temperature — and cannot carry water, geology, or building material. Split into climate and ground bands, with growing derived from actual plant requirements (§5.8). |
+| **Leisure earning Resonance** | Would dilute standing from "who is covering what the city needs" into "who is socially active," and would instrumentalize rest — the logic of the world that collapsed (§1). Skills are a separate quantity that buys nothing (§10.11). |
+| **Numeric or levelled skills** | A public number that only rises invites ranking, and players build leaderboards the game never shipped — the deference risk §16 already names. Skills are named, not numbered (§10.11). |
+| **Skill, standing, or title as eligibility for work** | Any of the three would rebuild the professional guild the design has no use for. Anyone may do any work; a walkthrough supplies the knowledge (§10.12). |
+| **A walkthrough that can be failed** | A test is a qualification, and qualifications are how *no gatekeeping, anywhere* (§17) quietly dies. Walkthroughs are completed, never passed (§10.12). |
+| **Ordinary life as pure ambience** | Would make "people are the ends" (§1) something a player watches rather than does, and would lean on AI citizens whose implementation is deferred (§13). Life is playable and produces gifts and gatherings (§4.5). |
+| **A separate leisure economy** (tracked outputs from social activity) | A second ledger running beside the first, with all the same capture risks and none of the justification. Gifts are unrequestable by construction, so no rule is needed (§4.5). |
+| **Any cost to resting** — idle decay, missed opportunity, streaks | Would rebuild the premise that time not spent producing is time wasted. Nothing decays because a citizen idled (§4.5). |
 
 ---
 
@@ -1290,15 +1383,13 @@ Recorded so they are not silently re-proposed. Each was genuinely considered.
 
 The active agenda — explored next, not deferred indefinitely.
 
-1. **The texture of ordinary life.** Art direction is settled at the level of principle (§12.4) and vernacular housing now follows from site (§12.5). What citizens actually do between projects — food, music, sport, ritual, rest — is not. **The day out of time (§5.9) is the natural first thread**: a holiday belonging to no month, observed everywhere, with festival design entirely open.
+1. **Voice without membership** (§7.9). Waystation residents receive subsistence from cities in which they have no voice. The asymmetry is defensible but unexamined, and deserves a considered position. It is the last item on the active agenda; §16's *genuinely unresolved* list is where the remaining hard problems live.
 
-2. **Voice without membership** (§7.9). Waystation residents receive subsistence from cities in which they have no voice. The asymmetry is defensible but unexamined, and deserves a considered position.
-
-*Resolved since the last revision and no longer open: conflict and harm (§7.5–7.7), founding new city-states (§5.6), social scale and discovery (§5.7), recursive governance (§7.8), waystation governance (§7.9), intra-project decision-making (§10.10), the blocking model (§7.5), durability and modularity (§6.7), everyday art direction (§12.4), and weather, seasons, and time (§5.8–5.10, §12.5–12.6).*
+*Resolved since the last revision and no longer open: conflict and harm (§7.5–7.7), founding new city-states (§5.6), social scale and discovery (§5.7), recursive governance (§7.8), waystation governance (§7.9), intra-project decision-making (§10.10), the blocking model (§7.5), durability and modularity (§6.7), everyday art direction (§12.4), weather, seasons, and time (§5.8–5.10, §12.5–12.6), and the texture of ordinary life (§4.5–4.6, §10.11–10.12).*
 
 ### Deferred by explicit decision
 
-- **Single-player training design.** To be designed once the first version exists; treat as interactive documentation rather than a tutorial bolted on afterward.
+- **Single-player training design.** The teaching *mechanism* is now settled: every task carries a completable, revisitable walkthrough (§10.12), which is the interactive-documentation approach this entry called for. What remains deferred is the training experience itself — where a new player begins, what they are shown first, and how it hands off to the reveal (§12.1).
 - **Self-dribbling basketballs** — detail beyond their established role as ambient health tell.
 - **Round Table specifics** — term lengths, seat counts, quorum thresholds, referendum signature requirements.
 
@@ -1386,3 +1477,7 @@ Recurring principles that resolved most questions in this document. Apply them t
 | **Reflective channel** | Light falling *on* the world — sun, sky, weather. Owned by nature; never carries system state. |
 | **Emissive channel** | Light, motion, and mechanical sound coming *from* the world. Owned by system state; never altered by weather. |
 | **Vernacular** | Housing built from locally available material, its form following from that material. Derived from site, never a per-city art-direction choice. |
+| **Skill** | What a citizen is good at. Grows with practice, atrophies without it, named rather than numbered. Buys nothing and qualifies for nothing; it answers only "who do I ask about this?" |
+| **Gift** | An object made for a particular person. Unrequestable by construction, so it never enters the queue or any ledger. Carries relationship, never status. |
+| **Gathering** | An occasion that exists because people came — a dinner, a match, a performance, a sit. A festival is the same object at city scale. |
+| **Guided walkthrough** | The interactive demonstration attached to every task. Completed, never passed; revisitable by anyone at any time; leaves no record. The reason eligibility does not exist. |
