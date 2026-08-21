@@ -1,7 +1,7 @@
 # Machine Elves — Design Document
 
 **Status:** Design exploration, in progress. Implementation deferred to a separate project.
-**Started:** 2026-07-31 · **Last revised:** 2026-08-15
+**Started:** 2026-07-31 · **Last revised:** 2026-08-20
 **Audience:** This document is written to be self-contained. A reader with no prior context should be able to understand the whole design, the reasoning behind each decision, and what remains unresolved.
 **Where to pick up:** §16.1 lists the topics queued for the next design session.
 
@@ -16,7 +16,7 @@
 5. [World Structure](#5-world-structure)
 6. [Economy](#6-economy)
 7. [Governance](#7-governance)
-8. [Identity and Ownership](#8-identity-and-ownership)
+8. [Identity, Ownership, and the Franchise](#8-identity-ownership-and-the-franchise)
 9. [World State Persistence and Replication](#9-world-state-persistence-and-replication)
 10. [Projects, Labor, and Resonance](#10-projects-labor-and-resonance)
 11. [The Compute Mesh](#11-the-compute-mesh)
@@ -178,6 +178,8 @@ Two things do fade, and neither is a cost. **Resonance is recent-weighted** (§1
 
 **Local festivals differ by city-state**, and derive rather than being authored (§17). §5.3 makes plurality across shards the point, and §5.8's site bands supply the occasions for free: a harvest festival lands when that climate's harvest lands, a polar city marks the sun's return in a way a tropical one has no reason to, and an arid city celebrates first rain. Each city-state's calendar of local festivals falls out of where it is, and no two are alike without anyone designing the difference.
 
+**The week centered on the day out of time is when the franchise renews** (§8.2). This gives the holiday a second life as the one moment the world takes attendance of itself, and it is the closest thing this society has to a civic ritual — fitting, for the only day belonging to no month. It changes nothing about the holiday's character: renewal is presence among people, which is what the day already was.
+
 **A festival is a gathering at city scale — the same object as a dinner, larger.** There is no festival mechanic and no event system: it is people converging on a place at a time, which the world already supports. What makes it a festival is that everyone came.
 
 **§12.6's discipline holds here and must be stated explicitly**, because festivals are the strongest test of it: a crowded plaza is *people and public space*, while facility health is *buildings and machinery*. A festival must never make a district read as thriving. A city where every citizen is dancing in the square and every workshop is dark is legible at a glance, and says something true.
@@ -313,7 +315,7 @@ The principle underneath: **the anchors are astronomical, the divisions are conv
 
 Per §5.4, the **structure** is adopted now and the **names** are deferred. Thirteen-month calendars carry specific traditions, and naming months after one of them is the branding pass §5.4 says to earn later. Functional numbering until then.
 
-**The day out of time is a holiday everywhere** — a day belonging to no month, on which nothing is scheduled. It is the one occasion every city-state shares; festivals are designed in §4.6.
+**The day out of time is a holiday everywhere** — a day belonging to no month, on which nothing is scheduled. It is the one occasion every city-state shares; festivals are designed in §4.6, and the week centered on it is when the franchise renews (§8.2).
 
 **The sun's position is computed, not approximated.** Standard solar-position math takes coordinates and a date and returns true altitude and azimuth — a small calculation requiring no dataset. Everything follows from it rather than being authored per place:
 
@@ -460,13 +462,53 @@ It also makes §10.8's "operating becomes maintaining" concrete: maintenance is 
 
 ### 7.1 The Round Table
 
-A body elected by a city-state's citizens.
+A body of a city-state's citizens, **selected by lottery and then chosen by election.** Seats rotate individually rather than turning over all at once.
 
-**No eligibility gate of any kind.** Any citizen may stand. Gating candidacy behind reputation, contribution history, or demonstrated competence would build an aristocracy of standing in place of one of money — a closed elite with a different admission criterion, which is precisely the failure this entire design exists to avoid.
+**The two stages.** When a seat opens:
 
-Competence is achieved instead through **informed voters**, not access control. Candidates publish an explicit, comparable statement of their prioritization values and tie-breaking principles — not vague platforms but legible answers to "when these two goods conflict, which do you choose and why." Voters weigh candidates' track records themselves.
+1. **The draw.** A slate of candidates is selected at random from the city's active voters (§8.2). Those drawn are the candidates; nobody else may stand.
+2. **The election.** Those who accept publish their platforms, and active citizens elect from among them by ranked choice.
 
-Terms are short enough that power does not calcify. Recall by referendum is available at any time. Exact durations, seat counts, and thresholds are deferred (§16).
+**Nobody can campaign their way onto the ballot, and this is the point.** In an ordinary election the ballot is filled by self-selection: the people who run are the people who wanted to run. That filters for ambition, free time, social reach, and comfort with self-promotion — none of which are the qualities the office actually calls for, and all of which correlate with exactly the kind of person a design like this should be wary of handing power to. Drawing the slate removes that filter at the source.
+
+**Election is retained because pure lottery gives up too much.** A body drawn entirely at random cannot be chosen for judgment, values, or willingness, and offers citizens no way to express a preference about who governs them. The hybrid keeps both properties: the lottery decides who *may* stand, the election decides who *does*.
+
+**Real-world precedent.** The Venetian Republic selected its head of state through an elaborate alternating sequence of lotteries and elections from 1268 until the republic fell in 1797, explicitly to make factional planning impossible — you cannot organize a takeover of a body when eligibility is not known until after the draw. Athens filled most public offices by lot but *elected* its generals, on the reasoning that offices requiring specific competence should be chosen rather than drawn. This design applies both ideas to the same seat.
+
+**No eligibility gate of any kind.** The draw samples the active-voter pool without filter. Gating candidacy behind reputation, contribution history, or demonstrated competence would build an aristocracy of standing in place of one of money — a closed elite with a different admission criterion, which is precisely the failure this entire design exists to avoid. The lottery is not a gate: it is the absence of one, mechanized.
+
+**Being drawn is an offer, not a summons.** Declining is free, requires no explanation, carries no penalty, and leaves no record; the system simply draws a replacement. Anything else would be conscription, and Prime Principle 4 makes consent real rather than assumed.
+
+The honest cost is that declining partially restores a self-selection filter — only the willing end up standing. But *willingness* is a far weaker and more benign filter than *ambition*. A person who says yes when asked is a different population from a person who campaigns to be asked.
+
+**A cooling period follows service.** Citizens who have recently served are excluded from the draw for a defined interval, so rotation genuinely rotates rather than recycling the same handful of people. This is a rotation rule, not an eligibility criterion: it expires on its own and applies to everyone identically.
+
+**Publishing a platform is mandatory for anyone who stands.** Not vague statements of intent but an explicit, comparable statement of prioritization values and tie-breaking principles — legible answers to "when these two goods conflict, which do you choose and why." §7.7's divergence tracking then automatically computes the gap between what a candidate said and how they actually ruled.
+
+Mandatory disclosure is consensual here precisely *because* declining is free. A drawn citizen unwilling to publish their reasoning simply declines the draw. Nobody is ever compelled both to serve and to expose themselves.
+
+**Rulings made while serving are permanently public. Personal ballots never are.** These are two different things that both get called a voting record, and the design treats them oppositely:
+
+- **Official acts** — how a member ruled, what precedent they set, how they voted within the Round Table — are public at all times, automatically, without the member's consent being required. These are exercises of delegated power and are accountable by default.
+- **A citizen's own ballots** in elections and referenda are permanently secret and technically unprovable, including for sitting members and candidates.
+
+**The reason ballot secrecy must be mandatory rather than optional** is not obvious and is worth stating. The danger is not that someone might want to reveal their vote; it is that **if revealing is possible at all, people can be pressured to reveal.** A faction, an employer, a family member, or a mob can say "show me," and a voter who genuinely *cannot* prove how they voted is protected because everyone knows the demand is unanswerable. Australia made the secret ballot compulsory in 1856 for exactly this reason and most democracies followed.
+
+There is a second effect specific to a design like this one. Once disclosure is *optional* for candidates, declining to disclose reads as concealment; the option becomes an expectation, the expectation becomes a requirement, and every citizen who might ever be drawn acquires a reason to keep a provable ballot history. Secrecy would be lost by drift rather than by decision. The accountability that voluntary disclosure was reaching for is delivered instead by mandatory platforms and automatic divergence tracking, which cost nothing in secrecy.
+
+**Ranked choice: the winner is whoever beats every other candidate head-to-head.** Each voter ranks as many candidates as they have opinions about. **Partial rankings are allowed and expected** — with a slate of people who did not seek office, genuine indifference is normal, and forcing a complete ranking manufactures preferences that do not exist. The count compares every pair of candidates and asks how many ballots ranked A above B. A candidate who wins every one of their pairings wins the seat.
+
+Three reasons for this form rather than the elimination-round form of ranked choice familiar from public elections:
+
+- **It is easier to explain.** "The person who would beat every other candidate one-on-one" is a single sentence. Elimination rounds require walking someone through a procedure, and a governing body chosen by a method its citizens cannot explain has a legitimacy problem.
+- **The count reveals almost nothing about individuals.** The entire tally is a table of pairwise counts, fixed in size no matter how many people vote. The elimination method instead needs the distribution of complete ballot orderings — and in a district of roughly 150 people (§5.7), an unusual ordering can identify the person who cast it. Ballot secrecy is harder to protect at small scale than at national scale, and this design's political unit is deliberately small.
+- **It merges cleanly with no coordinator.** Each node tallies the ballots it holds into a pairwise table, and tables combine by simple addition in any order to give the same total. That is exactly the property a count needs in a peer-to-peer network where nodes appear and disappear (§9.6).
+
+**The honest limit** is that no candidate is guaranteed to beat all others — A may beat B, B beat C, and C beat A. This is a real mathematical possibility, first described by the Marquis de Condorcet in 1785, and it is rare in practice. When it happens, resolve by locking in the largest pairwise victories first and discarding any later one that would contradict a victory already locked — the "ranked pairs" method described by Nicolaus Tideman in 1987. Players encounter this rule only in the uncommon case that requires it.
+
+**If more than one seat is filled at once**, the same ballots are counted by single transferable vote instead, so that a cohesive minority wins representation proportional to its size rather than being shut out entirely.
+
+**Terms are short enough that power does not calcify.** Recall by referendum is available at any time. Exact durations, seat counts, slate size, and cooling-period length are deferred (§16) — but slate size specifically is not a free parameter, because a slate too small makes a lucky draw disproportionately valuable to anyone holding fraudulent identities (§8.3). Draw generously.
 
 **Scope — the Round Table decides:**
 
@@ -491,7 +533,29 @@ Five principles that policy drift cannot reach:
 4. **Consent is real and renewed.** Every citizen affirms the contract personally at coming of age, including those born into citizenship. Nobody is bound by an agreement they never made.
 5. **Restriction requires real harm.** No censorship or prohibition absent genuine illegality. No rules for the sake of order, taste, or comfort.
 
-None of these introduce new scope. Each is a promise that a decision already made elsewhere in this document stays true as policy details drift.
+None of these introduce new scope. Each holds a decision made elsewhere in this document steady as policy details drift.
+
+**The five are two different kinds of thing, and conflating them caused a real contradiction.** Some are true because of how the system is *built* — there is no mechanism by which a vote could change them. Others are genuine promises a community makes to its members, which a community can genuinely revise. Both belong on the list; they are protected by completely different means, and saying so resolves the question of who may amend a universal principle.
+
+**Architectural principles — unamendable because there is nothing to amend.**
+
+| Principle | Why no vote can reach it |
+|---|---|
+| **3. Exit is always free** | Possessions are signed with the player's own key (§8.1), the client runs on the player's machine, the network is peer-to-peer with no chokepoint (§11.6), and nobody else holds anyone's credentials. A Round Table that votes to forbid leaving has passed a rule with no mechanism behind it. There is nothing to disobey, because nothing was ever doing the holding. |
+| **2. No power without accountability** | There is no wiring between standing and the ballot. Resonance, ergs contributed, project trust level, and titles are not inputs to any vote, quorum, or draw. Making them inputs would require building a connection that does not exist, not removing a protection that does. |
+| **1. Subsistence is unconditional** *(substrate half)* | The floor is held by waystation settlements (§5.5), which are self-reliant, governed by no body, and cannot expel anyone (§7.9). No polity has standing to amend them, because no polity governs them. |
+
+**Political principles — genuine promises, genuinely amendable.**
+
+| Principle | What amendment means |
+|---|---|
+| **1. Subsistence is unconditional** *(membership half)* | What a city-state owes its *own members* above the universal floor. A city can vote to narrow this. |
+| **4. Consent is real and renewed** | How and when a city takes affirmation of its social contract. |
+| **5. Restriction requires real harm** | The city's own standard for what it will restrict. |
+
+**Amending a political principle is a visible political fact, not a violation.** A city that narrows its own floor has not broken a universal guarantee — it has made itself a worse offer than the alternative that always exists, and citizens respond by leaving. The enforcement mechanism is exit, and it needs no enforcer. This is Albert Hirschman's argument from *Exit, Voice, and Loyalty* (1970), already in this document's lineage: where people can leave, organizations are disciplined by departure rather than by rules constraining them.
+
+**The test for admitting anything to the Prime Principles at all: can it be made architectural instead?** If yes, build it that way and the entrenchment clause becomes unnecessary. If no, it is a promise, and labelling it one is more honest than pretending a paragraph protects it. **Entrenchment by text is the weak form** — §7.3 gives the reason, with the same clause type protecting human dignity in one constitution and the slave trade in another. Entrenchment by architecture only works for things that can be made structurally true, which is a much narrower and much safer set.
 
 **The Prime Principles are universal, not city-state property.** They hold everywhere — including waystation territory, and for people who have signed no social contract at all. A social contract **adds** to this floor; no city-state owns it, and none may make it conditional on membership.
 
@@ -514,6 +578,10 @@ This is why the waystation has a floor at all (§5.5): not charity, and not gene
 - The original US Constitution *also* entrenched a clause: one shielding the slave trade from Congressional interference for twenty years.
 
 Entrenchment preserves whatever you entrench, wisdom and cruelty alike. Keep the list short, keep the bar high, and do not assume the founders knew everything a later community might.
+
+**This path applies only to the political principles (§7.2).** The architectural ones are not on the ballot, because no vote reaches them.
+
+**"Wait for an election" means a full rotation cycle** — every Round Table seat turned over at least once since the first vote. This definition is required rather than incidental. §7.1 fills seats one at a time, so there is no longer a discrete moment at which the body changes; there is always an election happening somewhere. Read loosely, the waiting period would collapse to however long until the next single seat turns over, which could be weeks, and the strongest protection on the Prime Principles would be gutted by a change that had nothing to do with them. A full rotation preserves the original intent: **the second vote is taken by a genuinely different body.**
 
 ### 7.4 The social contract
 
@@ -625,17 +693,21 @@ Defenses against a city-state falling to the corrupt or the incompetent, in desc
 
 **2. Capture degrades the prize.** Exit is free and possessions travel. A captured city-state loses citizens, and every departure removes compute, hosting, labor, and material from the mesh the captors just seized — thinning it toward the degradation ladder in §9.6. In the world that collapsed, a captured state could trap its people. Here, **you can win the city and find it empty.** Corruption is self-liquidating.
 
-**3. Prime Principles are a floor that cannot be moved quickly.** Even a fully captured Round Table cannot make subsistence conditional or let standing buy votes without winning twice across an election (§7.3).
+**3. Prime Principles are a floor, and the important half of it cannot be moved at all.** A fully captured Round Table cannot narrow its own political principles without winning twice across a full rotation cycle (§7.3), and **cannot touch the architectural principles by any vote whatsoever** (§7.2). The worst case is therefore one city adopting policies its remaining members dislike — which is also the worst case of an ordinary bad election, and has the same answer.
 
 **4. Recall and citizen-initiated referendum** let citizens override representatives directly, at any time.
 
 **5. Precedent decays unless reaffirmed.** The subtlest vulnerability is self-serving case law outliving the term that created it. Everything else in this design is a flow rather than a stock, and precedent is no exception: rulings that still make sense are reaffirmed cheaply, and the rest lapse.
 
-**6. Sortitioned ratification of precedent.** The elected Round Table *rules*; a randomly drawn citizen body *ratifies* anything that would become precedent. Capture then requires taking both — and **nobody can campaign their way into a lottery.** Ireland's constitutional convention is real-world precedent for using sortition on genuinely contested questions.
+**6. Sortition appears twice, and the two uses reinforce each other.** A randomly drawn citizen body *ratifies* anything that would become precedent, and §7.1's candidate slate is itself drawn by lot. Capture requires winning both the draw and the vote — and **nobody can campaign their way into a lottery.** Ireland's constitutional convention is real-world precedent for using sortition on genuinely contested questions.
+
+**The vulnerability specific to lotteries must be stated, because it is easy to miss.** You cannot campaign your way into a draw, but you *can* hold more tickets. Someone controlling fraudulent identities is entered repeatedly in every draw without persuading anyone of anything. This means elections and sortition — presented above as independent defenses — **fail to the same single attack**, which is why §8.2's franchise rules govern the draw pool and not only the ballot.
 
 **7. Automatic divergence tracking.** Candidates already publish explicit tie-breaking values (§7.1), which makes the gap between what someone said and how they actually ruled *computable*. Publish it automatically. No punishment and no enforcement — just the record made legible, which is this design's characteristic move.
 
-**Two honest limits.** All of the above assumes one-person-one-vote genuinely holds, so **Sybil resistance remains the load-bearing unsolved problem** (§16) — sortition depends on a genuine citizen pool exactly as elections do. And none of it protects against a *popular* bad idea. Democracy constrains unpopular corruption, not majority conviction; the Prime Principles are the only floor there, and even they can be amended slowly.
+**8. The district roll.** Each district (§5.7, §7.8) continuously publishes who is arriving and how they are connecting into the community. At roughly 150 people, an anomalous influx is not something an algorithm needs to flag — **the neighbors notice.** Details in §7.8; the mechanism it feeds is §8.4.
+
+**Two honest limits.** All of the above assumes one-person-one-vote genuinely holds. §8.2 and §8.3 now raise the cost of holding fraudulent identities substantially and remove most of the payoff, but **verified unique persistent identity remains unsolved** (§16), and both elections and sortition depend on a genuine citizen pool. And none of this protects against a *popular* bad idea. Democracy constrains unpopular corruption, not majority conviction; the Prime Principles are the only floor there, and the political half of them can be amended slowly.
 
 ### 7.8 Recursive governance
 
@@ -654,6 +726,14 @@ Governance **recurses**, following Beer's Viable System Model directly (§3.1): 
 **Not everything needs to recurse.** Sortition is scale-free — a random sample is drawn from whatever population is relevant. Fair queuing is scale-free. Mediation is a project and therefore already local. Only *representation* genuinely requires the recursion, because only representation degrades with distance.
 
 **Growth is therefore additive, not dilutive.** A city-state does not scale by giving each citizen a smaller share of one Round Table; it scales by adding districts that govern themselves, with the city body handling only what genuinely spans them.
+
+**The district roll.** The district has one further job, and it follows from what a district *is*: the level at which people actually know each other (§5.7). Each district continuously publishes a standing roll — population, arrivals this season, how new arrivals have connected into the community's shared work and gatherings (§8.4), and the franchise status of recent cohorts (§8.2).
+
+**It describes the district, never individuals.** "This district gained forty citizens this season, thirty-eight of whom have shared no project, meal, or gathering with anyone outside their own group" is a fact about a place, and acting on it is politics. "Kira scores 0.3" is a mark on a person, and acting on it is a caste system with a decimal point. **The roll publishes aggregates and flows only.** No per-person figure is computed, displayed, or stored.
+
+**A district may witness and escalate. It may never exclude.** §7.4 forbids refusing a signer absolutely, and correctly: a community that can decline members has an admission criterion, and an admission criterion is an aristocracy waiting to happen. What a district can do is raise an anomaly to city-wide attention and call for review by a randomly drawn citizen body (§7.7). Its power is to make something visible and to demand it be looked at — never to keep anyone out.
+
+This is subsidiarity doing exactly what §7.8 says it should. The smallest level competent to notice something is the level that lives with it, so that is the level that notices. The city handles only what genuinely spans districts. Nothing new is invented; an existing structure is given one more job that suits it.
 
 ### 7.9 Governance beyond city-states
 
@@ -719,7 +799,9 @@ The useful frame is Hirschman's *Exit, Voice, and Loyalty* (1970), which this de
 
 ---
 
-## 8. Identity and Ownership
+## 8. Identity, Ownership, and the Franchise
+
+### 8.1 The soul-hash
 
 **The soul-hash is a persistent cryptographic keypair** generated at character creation — the moment you turn eighteen and leave home. The private key never leaves the player's control.
 
@@ -731,7 +813,89 @@ This is the literal, load-bearing referent of the game's phrase "hashed with you
 
 **Crafting is not a side economy.** Building something personal routes through the same tiered request pipeline as everything else (§6.3), so accumulating possessions is gated exactly like any other request. "I will simply own a great deal of stuff" is not a loophole.
 
-The next section generalizes this mechanism from personal property to the entire world.
+**What a keypair cannot do is prove there is only one of you.** Anyone can generate as many keypairs as they like. That is the problem the rest of this section addresses.
+
+### 8.2 The franchise
+
+**The design promises one person, one vote. That promise only holds if the game can tell one person from one person pretending to be fifty.**
+
+Nothing prevents someone from running the client fifty times on their own machine, creating fifty characters, and signing fifty social contracts. Every one is a legitimate citizen as far as the software is concerned, because no company is checking identity documents — which is the entire point of the architecture. The result is fifty votes where everyone else has one. In distributed-systems research this is a **Sybil attack**, named in a 2002 paper by John Douceur; §8.3 examines exactly what it can and cannot achieve here.
+
+**The response is not to verify identity but to make the vote something a person holds by being present.** The vote is not granted at character creation and kept forever. It is earned by presence and lost by absence, on a symmetric rule:
+
+- **Three months of presence earns it.** A new citizen votes three months after signing a city-state's social contract.
+- **Three months of absence loses it.** A citizen who does not connect and play for three months loses the vote for that year.
+- **Renewal happens in the week centered on the day out of time** (§5.9), the one occasion every city-state on the planet shares (§4.6).
+
+**The same constant in both directions.** Three months of showing up puts the vote in your hands; three months of not showing up takes it out of them.
+
+**The justification, which must be stated rather than left implicit.** The people governed by a decision should be the people making it. In a world where citizens genuinely come and go, an active citizen and a long-absent one are not equally subject to what the Round Table decides this year. Stated without its reason, the same rule looks like punishing people for having lives — so the reason belongs in the fiction, in the interface, and in the social contract itself.
+
+**This is also the primary defense against fraudulent identities**, and it works by changing the shape of the attacker's cost. Creating fifty characters is a one-time expense that now buys nothing lasting. *Keeping* fifty votes alive requires piloting fifty characters continuously, forever, and attention is the one input that cannot be copied.
+
+**Lapsing is never a punishment and never a judgment.** It is restored by showing up during the renewal week. No appeal, no application, no explanation, no record, no waiting period on return, and no official anywhere who decides.
+
+**What lapsing does not touch — and this list is load-bearing:** subsistence, citizenship, residence, property, work, standing, project membership, blocking, access to mediation, and exit. All of these are unconditional and unaffected. **The lapse reaches the ballot and the draw pool, and nothing else.** The moment it reaches a resource, this stops being a franchise rule and becomes a means test.
+
+**A renewal week rather than a renewal day.** If the vote required presence at one specific moment, then illness, work, travel, a bad connection, or an ordinary busy day would cost a person their voice for a year — disenfranchisement by calendar. A week-long window centered on the day out of time removes that failure without weakening the mechanism, since the point is annual presence rather than punctuality.
+
+**Why the day out of time is the right anchor**, beyond the fiction being pleasing. There is a proposal in security research for establishing that accounts belong to distinct people without identity documents, biometrics, or any central authority: announce a moment, require everyone to show up, and issue exactly one token per attendee. The verification rests on physics alone — one body cannot be in two places at the same instant. Nobody proves who they are, no names are recorded, and no authority decides who counts. Bryan Ford at EPFL proposed this in 2008 as "pseudonym parties," and the Encointer project runs a version of it for real.
+
+This design already contains the gathering that proposal requires, built for unrelated reasons: §5.9 gives the calendar a day belonging to no month, on which nothing is scheduled, shared by every city-state because the date is global even though the clock is local; §4.6 makes it the one holiday the whole world observes. **The day nobody works is the day the city counts itself.**
+
+**Its limit is real and should not be oversold.** Ford's version relies on physical bodies in physical rooms. This one relies on characters present in a simulated world, and a determined attacker can script characters into a plaza on the right day. For renewal to mean anything it has to involve unpredictable interaction with other people rather than a check-in — which raises the cost considerably without closing the hole.
+
+**Real-world precedent, and the reason it must be handled carefully.** Residency waiting periods for local voting are near-universal and uncontroversial. Their historical cousins — poll taxes, literacy tests, discretionary registration — were instruments of exclusion, and the difference is not the waiting itself but who decides. **This rule is uniform, automatic, and applied by no one.** There is no application, no official, no criterion a person can be judged against, and no discretion anywhere in it. Any future addition that introduces a judgment call reintroduces the historical failure mode.
+
+**The waiting period runs per city-state.** A citizen who moves votes in their new home after three months. This is a genuine cost on movement and sits in tension with Prime Principle 3, so the tension is stated rather than smoothed: exit remains free of penalty, possessions travel, and admission cannot be refused (§7.4), but the newly arrived do wait to vote. The alternative — a franchise that travels instantly — would let fraudulent identities be aged quietly in one city and then moved en masse into another at the moment they were wanted, which is precisely the attack this section exists to prevent.
+
+**The draw pool is the active-voter pool**, so the same rule governs who may be drawn as a Round Table candidate (§7.1). Sortition is at least as vulnerable to fraudulent identities as election is (§7.7), and it would be pointless to protect the ballot and leave the lottery open.
+
+**AI citizens hold no franchise** pending verified unique persistent identity (§13.2); nothing here changes that, and the presence rules apply to human citizens.
+
+### 8.3 What a fake identity can and cannot buy
+
+**Before defending the franchise it is worth asking what fraudulent identities actually gain**, and the answer turns out to be narrow. Mechanisms built for entirely unrelated reasons close most of the payoff on their own.
+
+| Vector | Status |
+|---|---|
+| **Contribution credit** | **Closed.** There are no personal balances to inflate — ergs are a ledger, not a wallet (§6.1). What contribution produces is Resonance, earned by verified real work actually used by others (§10.6). Fifty characters on one machine divide one machine's output between them. The credit attaches to the work, not to the account. |
+| **Food, housing, goods** | **Closed.** Tier 0 is fulfilled *on request*, never disbursed as an allowance (§6.3). An unplayed character asks for nothing and consumes nothing. Extracting fifty people's subsistence requires *playing* fifty lives, and human hours do not multiply the way software copies do. |
+| **Hoarding property** | **Closed by §6.6.** Claims held but unused decohere and return to the pool. Property parked on idle characters evaporates without anyone needing a rule against it. |
+| **Inflated standing** | **Mostly closed.** Fifty characters can praise one another, but Resonance purchases nothing (§10.6) — the attacker inflates a number that does not do anything. The residue is informal social deference, already listed as unresolved in §16. |
+| **Labor multiplier, titles** | **Closed.** Both attach to work actually performed (§10.7, §10.9). Unplayed characters perform none. |
+| **Votes, and entries in the sortition draw** | **Open. This is the entire exposure.** |
+
+**The useful finding is that this is not a general problem in this design. It is one specific problem: fraudulent identities can vote.** That is a far smaller thing to defend than "fraudulent identities exist," and it is why §8.2 defends the franchise rather than attempting to verify people.
+
+**The sortition draw is part of the exposure and was previously assumed safe.** §7.7 presents sortitioned ratification as covering a weakness in elections on the grounds that nobody can campaign their way into a lottery. True — but tickets can be accumulated. Both defenses rest on the same unverified assumption, and §7.7 now says so.
+
+**The residual risk, which the design deliberately does not attempt to close.** Someone who recruits two hundred real people to join a city-state and vote together defeats every measure here, correctly, because every one of those accounts belongs to a real distinct person. That situation is **indistinguishable from two hundred people genuinely deciding to move somewhere they like** — and the difference between a coordinated takeover and a disagreeable influx of newcomers is a political judgment, not a technical fact. It is exactly the judgment used to disenfranchise unwelcome newcomers in the collapsed world.
+
+Any mechanism sharp enough to catch the first case also catches the second. **This design stops short of that sharpness on purpose** and bounds the damage instead: §7.2 puts the architectural principles beyond reach of any majority, §7.7 leaves very little to capture, and exit means a captured city can be won and found empty.
+
+### 8.4 The association graph
+
+**Entry to the game is by invitation (§11.6), which incidentally records who invited whom.** That structure could be used to detect fraudulent identities — an attacker can have fake accounts invite each other for free, but getting *real* people to invite fake ones requires deceiving actual humans, so the fake population ends up attached to the real one by very few links, a shape detectable without examining any individual. This is the basis of a well-developed body of research (SybilGuard and SybilLimit, Haifeng Yu and colleagues, 2006 and 2008; Facebook's SybilRank in production).
+
+**The invitation chain is recorded and deliberately not used.** It is retained because it is free to keep and may matter later. It is unused because standing that derives from *who admitted you* is inherited position, however mild — and this design refuses those consistently. Two further problems make the refusal easy: §11.6 provides a shipped peer list for anyone holding no invite at all, so some citizens have no inviter and would be permanently disadvantaged by an accident of how they arrived; and because the franchise now requires activity, an entire branch can lose its connection when the people above it stop playing, degrading a person's position through nobody's action but other people's life circumstances.
+
+**What is used instead is association: who you have genuinely been with.** Shared work on a project, shared meals and gatherings (§4.5), attendance at the same festival (§4.6), living in the same district. The data already exists and is already public — §10.2 makes projects searchable by design, and gatherings happen in public space.
+
+This is better on every axis that matters here:
+
+- **Position comes from what you did, not from who let you in.** That is the same principle §7.1 applies to candidacy and §11.5 applies to project trust: earned through demonstrated participation, never granted by permission.
+- **It heals.** When people around you leave, you form new connections by continuing to live in the city. Nothing about your position is hostage to someone else's decisions.
+- **Nobody is an orphan.** A citizen who arrived with no invitation participates and becomes connected exactly like anyone else.
+- **It is expensive to fake.** Fake accounts inviting each other costs nothing. Fake accounts genuinely co-present with real people over months costs human attention, which is the scarce thing.
+
+**The invitation is the seed; association is the substance.** Your inviter gives you one starting connection so that you are not isolated on your first day. Everything after that comes from being present with people.
+
+**The graph is descriptive only. It has no automatic effect on any individual, ever.** It feeds the district roll (§7.8) so that citizens can see how their community is actually connecting, and it informs human political judgment at district scale. It does not weight votes, does not gate the franchise, does not shorten or lengthen anyone's waiting period, and produces no per-person score. Three rejected alternatives and their reasons are recorded in §15.
+
+**The failure mode to guard against in implementation, stated plainly because it is easy to introduce while meaning well:** if association is measured mainly through *project work*, the graph becomes a labor qualification attached to political life — the same category of thing as a property qualification for suffrage, and a direct contradiction of this design's claim that people are the ends and work is the means. **A citizen who joins no project and simply lives among people must register as fully connected as the most industrious person in the city.** Meals, gatherings, festivals, and neighbors count exactly as much as shifts worked. If that is ever not true, the graph has quietly built the thing this document exists to prevent.
+
+§9 generalizes §8.1's replication mechanism from personal property to the entire world.
 
 ---
 
@@ -1383,6 +1547,17 @@ Recorded so they are not silently re-proposed. Each was genuinely considered.
 | **A citizen directory / people search** | Less thematic and more socially fraught than discovery through shared work. Projects are searchable; people are found by doing things together (§5.7). |
 | **A hard population cap per city-state** | A rule where a mechanism already suffices — backpressure signals overgrowth exactly as it signals any other shortage (§5.7). |
 | **Formal governance for every project** | Machinery for a three-person workshop. Nothing, then do-ocracy, then fork (§10.10). |
+| **Pure election for the Round Table** (the original design) | The ballot is filled by self-selection, which filters for ambition, free time, and social reach rather than judgment. Replaced by a drawn slate (§7.1). |
+| **Pure sortition for the Round Table** | Gives up the ability to choose for judgment or willingness, and leaves citizens no way to express a preference about who governs them. The lottery decides who may stand; the election decides who serves (§7.1). |
+| **Compelling a drawn citizen to serve** | Conscription, and a direct violation of Prime Principle 4. Declining is free, unrecorded, and unexplained (§7.1). |
+| **Optional publication of a candidate's personal ballot history** | If revealing is possible, people can be pressured to reveal; and an option that reads as concealment when declined becomes a requirement by drift, ending ballot secrecy without anyone deciding to. Mandatory platforms plus automatic divergence tracking deliver the accountability instead (§7.1). |
+| **Instant-runoff (elimination-round) ranked choice** | Requires the distribution of complete ballot orderings, which can identify a voter in a district of ~150, and is harder to explain than a head-to-head criterion. Pairwise (Condorcet) counting chosen, with ranked pairs for the rare cycle (§7.1). |
+| **Weighting votes by position in a trust graph** | Fractional votes are a status hierarchy with a number attached — the aristocracy problem in its purest form, and a violation of one-person-one-vote in a new direction (§8.4). |
+| **A trust threshold below which a citizen may not vote** | Creates a class formally suspected of not being real, and any mechanism that can quietly exclude eventually excludes the unpopular. Also incompatible with §7.4's unilateral admission (§8.4). |
+| **Using the invitation chain for franchise timing** | Standing derived from who admitted you is inherited position; it also strands citizens who entered via §11.6's shipped peer list, and degrades when the people above you stop playing. Recorded but unused; association is used instead (§8.4). |
+| **Per-person trust scores of any kind** | A number attached to a person becomes a social weapon even with zero mechanical power. The district roll publishes aggregates and flows only (§7.8). |
+| **Letting a district refuse or delay newcomers** | Admission control is an aristocracy waiting to happen (§7.4). A district may witness and escalate, never exclude (§7.8). |
+| **A permanent unamendable eternity clause** *(revisited)* | Still rejected as text — but the underlying goal is achieved for three principles by making them architectural, where no mechanism to amend exists at all (§7.2). |
 | **Scaling governance by diluting one Round Table** | Representation degrades with distance. Cities add self-governing districts instead (§7.8). |
 | **Visible status in appearance** | Would reintroduce legible hierarchy through art direction after the mechanics removed it. Nothing about a citizen's standing is visible (§12.4). |
 | **Cities governing waystations by virtue of supporting them** | "Whoever pays, decides" would collapse the design's most important separation — that contribution grants no control. The rule outlived the arrangement that prompted it: nobody funds waystations now, and any voluntary or backstop contribution still buys nothing (§7.9). |
@@ -1417,27 +1592,30 @@ Recorded so they are not silently re-proposed. Each was genuinely considered.
 
 ### 16.1 Queued for the next design session
 
-**The active agenda is empty.** Every topic queued since the first session has been worked through; the remaining open items are the two lists below, and the *genuinely unresolved* list is where the real difficulty now lives — led by verified unique persistent identity, which several other guarantees depend on.
+**The active agenda is empty.** Every topic queued since the first session has been worked through; the remaining open items are the two lists below.
 
-A reasonable next move is to pick from that list rather than wait for a new topic to surface.
+The largest recent change is §8.2–8.4, which took the fake-identity problem apart. It is no longer the single blocking unknown it was, because most of what a fraudulent identity could gain turned out to be closed already and the exposure narrowed to the ballot and the draw. What remains genuinely unsolved is verifying that a *person* is singular — which is a smaller and better-defined problem than it was, but still open.
 
-*Resolved since the last revision and no longer open: conflict and harm (§7.5–7.7), founding new city-states (§5.6), social scale and discovery (§5.7), recursive governance (§7.8), waystation governance (§7.9), intra-project decision-making (§10.10), the blocking model (§7.5), durability and modularity (§6.7), everyday art direction (§12.4), weather, seasons, and time (§5.8–5.10, §12.5–12.6), and the texture of ordinary life (§4.5–4.6, §10.11–10.12).*
+A reasonable next move is to pick from the lists below rather than wait for a new topic to surface.
+
+*Resolved since the last revision and no longer open: conflict and harm (§7.5–7.7), founding new city-states (§5.6), social scale and discovery (§5.7), recursive governance (§7.8), waystation governance (§7.9), intra-project decision-making (§10.10), the blocking model (§7.5), durability and modularity (§6.7), everyday art direction (§12.4), weather, seasons, and time (§5.8–5.10, §12.5–12.6), the texture of ordinary life (§4.5–4.6, §10.11–10.12), how the franchise is held and lost (§8.2), how Round Table seats are filled (§7.1), who may amend a universal principle (§7.2), and how much of the fake-identity problem is actually exposed (§8.3).*
 
 ### Deferred by explicit decision
 
 - **Single-player training design.** The teaching *mechanism* is now settled: every task carries a completable, revisitable walkthrough (§10.12), which is the interactive-documentation approach this entry called for. What remains deferred is the training experience itself — where a new player begins, what they are shown first, and how it hands off to the reveal (§12.1).
 - **Self-dribbling basketballs** — detail beyond their established role as ambient health tell.
-- **Round Table specifics** — term lengths, seat counts, quorum thresholds, referendum signature requirements.
+- **Round Table specifics** — term lengths, seat counts, quorum thresholds, referendum signature requirements, candidate slate size, and post-service cooling period. **Slate size is not a free parameter** (§7.1): too small a slate makes a lucky draw disproportionately valuable to anyone holding fraudulent identities.
 
 ### Genuinely unresolved
 
-- **Sybil-resistant identity.** "One soul, one voice" requires resisting mass fake-identity creation, which is a hard and only partially solved problem in decentralized systems. Prime Principle 2's guarantee depends on it. Scope honestly as real work, not a detail.
+- **Sybil-resistant identity.** "One soul, one voice" requires resisting mass fake-identity creation, a hard and only partially solved problem in decentralized systems. **Substantially narrowed but not closed by §8.2–8.4:** most of what fraudulent identities could gain is already blocked by unrelated mechanisms, the exposure is now known to be the ballot and the sortition draw specifically, and holding the franchise now costs continuous human attention. What remains is that a sufficiently patient attacker who keeps fake characters genuinely active still accrues votes. Scope honestly as real work, not a detail.
 - **The cold shard problem** (§9.5) — what happens when every citizen of a city-state is offline. Hibernation recommended; not settled.
 - **The bootstrap honesty risk** (§9.5) — any permanent peer-discovery infrastructure is technically a server, which the reveal's integrity depends on acknowledging.
 - **AI citizen implementation.** The citizenship framework is settled (§13); the implementation is deferred to a second project after a testable MVP. What an AI citizen actually *is* — how it reasons, converses, works, and forms preferences — is entirely unspecified.
 - **Verified unique persistent identity** is now the adopted franchise condition for AI citizens (§13.2) and remains unsolved for humans as well. It has become the single highest-leverage unresolved problem in the design: human Sybil resistance, AI enfranchisement, and Prime Principle 2 all depend on it.
 - **Inter-city-state trade and travel**, beyond "a deliberate act, not seamless walking." Becomes more pressing given AI citizens migrate between city-states (§13.5).
-- **Who may amend a universal principle.** §7.2 states the Prime Principles are universal and not city-state property; §7.3 describes amending them through a single city-state's electoral cycle. Both cannot be fully true — if one city can amend a universal principle, it stops being universal the moment that city does. The reading this document leans toward is the narrow one: an amendment binds only the city that passed it, and a city narrowing the floor has stopped holding the universal floor, which is a visible political fact rather than an enforced violation. §7.3 deliberately refused permanent locks, so an un-amendable ratchet is not available as an answer. Surfaced while resolving §7.9 and not yet settled.
+- **How adversarial the renewal interaction can be** without becoming a chore. §8.2's annual renewal only resists scripted characters if it involves unpredictable interaction with other people rather than a check-in. Making it demanding enough to matter, while keeping it something citizens look forward to rather than endure, is an unsolved design problem and the weakest link in the franchise chain.
+- **The per-city-state waiting period taxes movement** (§8.2). Exit stays free of penalty and possessions travel, but the newly arrived wait three months to vote, which is a real cost on a design that resolves nearly everything else by exit. The alternative — a franchise that travels instantly — reopens the attack it exists to prevent, so the cost is accepted rather than solved.
 - **Informal status hierarchy.** Titles and visible standing can calcify into deference-based hierarchy with zero mechanical backing. Plural, unranked, recent-weighted design mitigates but does not eliminate this. Probably not fully solvable by mechanics alone.
 
 ---
@@ -1454,6 +1632,8 @@ Recurring principles that resolved most questions in this document. Apply them t
 - **Honesty in mechanism.** Where the game shows something, it should be showing a real thing: strain animations starve because the scheduler is genuinely busy; hyperspace shows genuinely running code; the reveal is true. Never fake a signal that could be real.
 - **Derive, don't author.** Where a real index, dataset, or calculation can produce something, use it rather than hand-authoring: climate from Köppen–Geiger, sun position from orbital geometry, what grows from what plants actually need, housing form from locally available material. Derived content is cheaper to build, larger in range, self-consistent by construction, and answers "why is it like this here?" with a real reason instead of a designer's preference.
 - **A pure function needs no coordinator.** Anything computable from data every node already holds — the date, the city's coordinates — requires no server, no broadcast, and no consensus, and survives every level of degradation in §9.6. Time, sun position, and weather are all computed independently by every machine and agree exactly. Before adding a mechanism that must be *distributed*, check whether it can instead be *derived*.
+- **Entrench by architecture, not by text.** A guarantee written down can be rewritten; a guarantee with no mechanism behind it cannot be violated, because there is nothing to disobey. Before adding a protected principle, ask whether it can be made structurally true instead (§7.2). Entrenchment by text preserves whatever you happened to write down — human dignity in one constitution, the slave trade in another.
+- **Make the thing worthless before making it unforgeable.** Faced with an attack, first enumerate what the attacker actually *gains*. §8.3 found six of seven payoffs already closed by mechanisms built for unrelated reasons, which turned an unbounded problem into one specific one. Narrowing the prize is usually cheaper and more robust than hardening the gate.
 - **Reuse mechanisms across layers.** Fair queuing governs CPU cycles and dinner alike. Graceful drain covers machines and people. Replication serves ownership, world persistence, and integrity verification simultaneously. Tiering by criticality governs both need and consistency. **If a new problem seems to need a new system, check whether an existing one already has its shape.**
 
 ---
@@ -1471,8 +1651,14 @@ Recurring principles that resolved most questions in this document. Apply them t
 | **Fair queue** | The scheduling mechanism ordering requests within a tier; also governs compute. Prevents any one requester starving others. |
 | **Backpressure** | Visible queue pressure on a resource; the signal to build more capacity. |
 | **Claim decoherence** | Granted-but-unused allocations lapsing and returning to the queue. |
-| **Round Table** | A city-state's elected governing body. Handles contested classifications, scarcity tie-breaks, crises. No eligibility gate. |
-| **Prime Principles** | Five entrenched constitutional guarantees, amendable only across an election. |
+| **Round Table** | A city-state's governing body. Candidates drawn by lottery from active voters, then elected by ranked choice; seats rotate individually. Handles contested classifications, scarcity tie-breaks, crises. No eligibility gate. |
+| **The draw** | The random selection of a Round Table candidate slate from the active-voter pool. Being drawn is an offer; declining is free. |
+| **Prime Principles** | Five constitutional guarantees. Three are *architectural* — no mechanism exists to amend them. Two and a half are *political* — genuine promises, amendable across a full rotation cycle. |
+| **Rotation cycle** | Every Round Table seat having turned over at least once. The unit of delay for amending a political Prime Principle. |
+| **The franchise** | The right to vote and to be drawn. Earned by three months' presence, lost by three months' absence, renewed in the week centered on the day out of time. Reaches the ballot and the draw pool and nothing else. |
+| **Renewal week** | The seven days centered on the day out of time, when the franchise renews. A window rather than a moment, so that a bad day costs nobody a year. |
+| **Association graph** | The record of who has genuinely been with whom — shared projects, meals, gatherings, districts. Descriptive only; feeds the district roll and affects no individual automatically. |
+| **District roll** | A district's continuously published record of population, arrivals, and how newcomers are connecting. Aggregates and flows only; never a per-person figure. |
 | **Social contract** | The city-state-specific agreement each citizen personally signs at coming of age. |
 | **Soul-hash** | A player's persistent cryptographic keypair; the basis of all ownership. |
 | **Project** | The central organizing unit: a thing people build and maintain together. Always has a physical building. |
