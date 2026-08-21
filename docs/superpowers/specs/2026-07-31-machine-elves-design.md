@@ -3,7 +3,7 @@
 **Status:** Design exploration, in progress. Implementation deferred to a separate project.
 **Started:** 2026-07-31 · **Last revised:** 2026-08-20
 **Audience:** This document is written to be self-contained. A reader with no prior context should be able to understand the whole design, the reasoning behind each decision, and what remains unresolved.
-**Where to pick up:** §16.1 lists the topics queued for the next design session.
+**Where to pick up:** §19 is the current front — what gets built first, and what deliberately waits. §16 lists what remains unresolved in the design itself.
 
 ---
 
@@ -27,6 +27,7 @@
 16. [Open Questions and Deferred Scope](#16-open-questions-and-deferred-scope)
 17. [Design Heuristics](#17-design-heuristics)
 18. [Glossary](#18-glossary)
+19. [MVP Scope and Sequencing](#19-mvp-scope-and-sequencing)
 
 ---
 
@@ -1703,3 +1704,87 @@ Recurring principles that resolved most questions in this document. Apply them t
 | **Gift** | An object made for a particular person. Unrequestable by construction, so it never enters the queue or any ledger. Carries relationship, never status. |
 | **Gathering** | An occasion that exists because people came — a dinner, a match, a performance, a sit. A festival is the same object at city scale. |
 | **Guided walkthrough** | The interactive demonstration attached to every task. Completed, never passed; revisitable by anyone at any time; leaves no record. The reason eligibility does not exist. |
+
+---
+
+## 19. MVP Scope and Sequencing
+
+**This section is a plan, not a design.** Everything above describes the society; this describes what to build first, what deliberately waits, and what result would mean stop. It is the handoff to the separate implementation project.
+
+### 19.1 What "minimum" means here
+
+**Nearly every mechanism in this design is a flow.** Claim decoherence, Resonance decay, the labor multiplier, facility maturity, skill atrophy, precedent lapsing — none of them exist as a state, only as change over time. A short playable demo tests none of them, because none of them have happened yet.
+
+So **minimum means minimum in features, never in duration.** The first build is a small world running persistently for weeks, not a slice that can be shown in an afternoon. Anything scoped as a short demo would test the one part of this design that is not the point: walking around and looking at things.
+
+The franchise rules make this concrete. §8.2 has a three-month qualifying period and an annual renewal, so they **cannot be tested in under a year.** That settles by itself whether they belong in a first build.
+
+### 19.2 The claims that can fail independently
+
+The design makes several separate bets. They fail separately, and they are not equally expensive to test.
+
+| Claim | Consequence if false | Cost to test |
+|---|---|---|
+| **Real peer-to-peer compute is playable** — tolerable latency, survives machines vanishing, works behind consumer routers | The architecture collapses and the reveal (§12.1) becomes impossible | Low — needs no game |
+| **A request-and-queue economy is legible** rather than feeling like arbitrary denial | The economy needs rethinking; the world survives | Medium |
+| **People do meaningful work without rewards, hierarchy, or progression** | There is no game here | High — needs weeks and real people |
+| **The reveal lands** | The hook is lost; the game still works | Cannot be tested by people who helped design it |
+| **Governance is engaging rather than tedious** | Cut governance; nothing else breaks | Highest — needs roughly Dunbar scale |
+
+**The first is binary, cheap, and everything else rests on it.** It is answered before any art or game design effort.
+
+**The third is the deepest risk and is not technical at all.** This design has deliberately removed every extrinsic motivator — no score, no progression, no scarcity pressure, and standing that buys nothing. Whether intrinsic motivation alone sustains a game is genuinely unproven, and no further design work settles it.
+
+### 19.3 What the first build does not contain
+
+**All of governance (§7).** Round Table, the draw, elections, referenda, sortitioned ratification, the Prime Principles, the franchise. §5.7 supplies the justification in its own words: below Dunbar's number, "people simply know each other and most machinery is unnecessary." A first build is a few dozen people, where governance would not be a test of governance but a performance of it.
+
+This is a deferral, not a retraction. The governance work was not premature: it closed a genuine logical contradiction (§7.2), and it constrains the identity data model, which is painful to retrofit — the same argument §13 makes for settling AI citizenship early while deferring its implementation.
+
+**Custom project code** — §11.2's authoring path, manifests, and the trust ramp. The largest security surface in the design, and unnecessary for testing whether the mesh works. Template projects still run genuinely on other citizens' machines; the compute is real, and only the authoring is absent.
+
+**Additional city-states, waystations, founding, and migration.** One shard.
+
+**AI citizens** — already deferred to a second project (§13).
+
+**Weather, climate bands, the calendar, festivals, skills, gifts, and vernacular architecture.** All flavor for a first build — **with one exception. Sun position stays** (§5.9). It is a small pure function requiring no data, and §12.2 makes light the channel through which system state is read honestly. It is how the mesh is *seen*.
+
+**Art.** §12.2's visual language is state made visible — sagging and dim when underused, glowing and strained when overloaded. Primitive geometry with honest lighting parameters tests that completely.
+
+### 19.4 The single-machine case is not a mock
+
+There is an obvious temptation to build a fake-mesh version first to test whether the game is enjoyable, and §15 rejects theatrical distributed computing outright.
+
+**§9.6 already resolves this.** Graceful degradation means a shard reduced to a single machine is a legitimate state of the real architecture rather than a simulation of it. Building the single-machine case first is building the bottom rung of a ladder the design already promises. Adding peers then *adds capability* rather than swapping a fake for a real one.
+
+There is therefore no dishonest prototype phase, and no risk of a mock quietly becoming the product.
+
+### 19.5 Phases
+
+**Phase 0 — Mesh spike. Not a game.**
+Headless. Prove that a dozen machines behind ordinary consumer routers can form the overlay (§11.6), schedule sandboxed jobs on one another (§11.2, §11.4), checkpoint, and migrate work when a machine disappears (§11.3).
+
+*Stop if:* direct connections between home machines fail often enough that relaying becomes the common case rather than the fallback, and relay burden proves impractical; or a machine dropping out produces a stall long enough that a player would read it as broken software rather than as the world breathing.
+
+**Phase 1 — One facility, real mesh.**
+A single shared facility whose simulation genuinely runs on participants' machines. Walk up, work, watch strain ease, see the lighting change honestly. Soul-hash ownership from §8.1 — cheap now, painful later.
+
+*Stop if:* the world feels unreliable in a way that reads as broken rather than alive.
+
+**Phase 2 — The queue.**
+Requests, need tiers 0–3, fair queuing, backpressure, claim decoherence (§6.3–6.6). The economy thesis.
+
+*Stop if:* people cannot tell why they are waiting. The entire design rests on waiting reading as visible fairness rather than arbitrary refusal, and that is legible only on real faces.
+
+**Phase 3 — Projects and standing.**
+Several facilities, opt-in contribution, the labor multiplier, Resonance (§10). Run for a month or more, because that is the shortest window in which any flow becomes visible at all.
+
+*Stop if:* attendance decays once novelty wears off. This is the real test, and failing it means the design's central bet is wrong.
+
+**Then evaluate** before touching governance, custom code, additional shards, AI citizens, or the reveal.
+
+### 19.6 What Phase 0 cannot answer on its own
+
+**The central question requires real machines on real domestic connections.** NAT traversal success rates, relay burden, and dropout behavior cannot be established on one developer machine or between containers on one host — the failure modes live in carrier-grade NAT, asymmetric upstream bandwidth, consumer router timeouts, and genuine geographic latency.
+
+A local harness can build and exercise everything and will catch ordinary faults. **The go/no-go measurement needs a handful of volunteers on separate home networks**, which makes recruiting them a Phase 0 dependency rather than a Phase 3 one.
