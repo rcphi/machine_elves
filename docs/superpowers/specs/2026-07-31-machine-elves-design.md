@@ -273,6 +273,10 @@ The district tier already exists in the systems view (§10.4). This makes it a s
 
 **Projects are searchable; people are not.** Projects are public, legible, and meant to be found — searching them is the intended path. A citizen directory would be both less thematic and more socially fraught, and it is deliberately omitted.
 
+**City-states are visible from inside the world and invisible from outside it.** A citizen of anywhere can see what other city-states exist, read their social contracts (§7.4), and see how they are doing — which is what makes §5.3's plurality something a person can act on, and exit (Prime Principle 3) something more than a theoretical right. Nobody can migrate toward a city that suits them better without being able to see it.
+
+None of this is reachable by anyone who is not already a citizen. There is no public listing (§11.6). **The world is browsable once you are in it and unfindable before.**
+
 **No population cap.** Growth is simply demand growth, and backpressure (§6.5) already signals when a city has outgrown its capacity: build more, or people leave. The existing homeostatic loop covers this, and an arbitrary ceiling would be a rule where a mechanism already suffices.
 
 There *is* a real technical ceiling on mesh size, and it should be treated honestly as an engineering constraint determining practical shard size — not dressed up as a law of the fiction.
@@ -879,7 +883,7 @@ Any mechanism sharp enough to catch the first case also catches the second. **Th
 
 **Entry to the game is by invitation (§11.6), which incidentally records who invited whom.** That structure could be used to detect fraudulent identities — an attacker can have fake accounts invite each other for free, but getting *real* people to invite fake ones requires deceiving actual humans, so the fake population ends up attached to the real one by very few links, a shape detectable without examining any individual. This is the basis of a well-developed body of research (SybilGuard and SybilLimit, Haifeng Yu and colleagues, 2006 and 2008; Facebook's SybilRank in production).
 
-**The invitation chain is recorded and deliberately not used.** It is retained because it is free to keep and may matter later. It is unused because standing that derives from *who admitted you* is inherited position, however mild — and this design refuses those consistently. Two further problems make the refusal easy: §11.6 provides a shipped peer list for anyone holding no invite at all, so some citizens have no inviter and would be permanently disadvantaged by an accident of how they arrived; and because the franchise now requires activity, an entire branch can lose its connection when the people above it stop playing, degrading a person's position through nobody's action but other people's life circumstances.
+**The invitation chain is recorded and deliberately not used.** It is retained because it is free to keep and may matter later. It is unused because standing that derives from *who admitted you* is inherited position, however mild — and this design refuses those consistently. A further problem makes the refusal easy: because the franchise requires activity, an entire branch can lose its connection when the people above it stop playing, degrading a person's position through nobody's action but other people's life circumstances.
 
 **What is used instead is association: who you have genuinely been with.** Shared work on a project, shared meals and gatherings (§4.5), attendance at the same festival (§4.6), living in the same district. The data already exists and is already public — §10.2 makes projects searchable by design, and gatherings happen in public space.
 
@@ -1274,7 +1278,15 @@ Each city-state's nodes communicate over an **encrypted overlay network**, isola
 
 This resolves §9.5's honesty risk with no asterisk on the claim in §12.1, and it makes the game's founding feeling literally true at the protocol layer: **you cannot find this world unless someone shows you the door.** Hogwarts is invisible to Muggles because there is genuinely no route in without a citizen.
 
-A peer list shipped with the client (player machines, not company infrastructure) covers cold-start for someone holding no invite. The invite remains the primary path and the one the fiction rests on.
+**There is no other way in.** No peer list ships with the client, no directory of city-states is published, no invite pool exists, and no city advertises for members. A person holding no invite has no route at all.
+
+This was decided deliberately, against the easier alternative of a public directory people could browse before joining. The reason is that the alternative dissolves the thing the design is built on: a world anyone can look up is not hidden, and §12.1's reveal is not a discovery if the door was standing open. **Entry is friend to friend, and nothing else.**
+
+**Two costs, both real and both accepted.**
+
+*Growth is only as fast as real acquaintance.* There is no viral path, no way to be found by someone who would have loved it, and no recovery if a social cluster loses interest at once. A world that cannot be stumbled upon may simply never be populated.
+
+*The world inherits the social networks it grew from.* This is the more serious one, and it sits awkwardly beside a design otherwise preoccupied with not recreating stratification. Friend-to-friend growth reproduces the demographics of whoever started it, and no mechanism here reaches anyone outside existing circles. Nothing inside the world stratifies — §7.4 forbids refusing a signer, and anyone may found a city-state (§5.6) — but the boundary of the world itself is exactly as narrow as its founders' address books. Recorded in §16 rather than solved.
 
 ---
 
@@ -1555,7 +1567,11 @@ Recorded so they are not silently re-proposed. Each was genuinely considered.
 | **Instant-runoff (elimination-round) ranked choice** | Requires the distribution of complete ballot orderings, which can identify a voter in a district of ~150, and is harder to explain than a head-to-head criterion. Pairwise (Condorcet) counting chosen, with ranked pairs for the rare cycle (§7.1). |
 | **Weighting votes by position in a trust graph** | Fractional votes are a status hierarchy with a number attached — the aristocracy problem in its purest form, and a violation of one-person-one-vote in a new direction (§8.4). |
 | **A trust threshold below which a citizen may not vote** | Creates a class formally suspected of not being real, and any mechanism that can quietly exclude eventually excludes the unpopular. Also incompatible with §7.4's unilateral admission (§8.4). |
-| **Using the invitation chain for franchise timing** | Standing derived from who admitted you is inherited position; it also strands citizens who entered via §11.6's shipped peer list, and degrades when the people above you stop playing. Recorded but unused; association is used instead (§8.4). |
+| **Using the invitation chain for franchise timing** | Standing derived from who admitted you is inherited position, and it degrades when the people above you stop playing. Recorded but unused; association is used instead (§8.4). |
+| **A published directory of city-states** for people to browse before joining | A world anyone can look up is not hidden, and §12.1's reveal is not a discovery if the door was standing open. The directory exists, and only inside the world (§5.7). |
+| **Message boards and recruitment posts** visible outside the world | Same reason, and it would turn city-states into things that advertise for members — a competitive posture §4.2 already rejects. |
+| **Invite pools and open invite requests** | Reintroduces the public door by another name. Entry is friend to friend (§11.6). |
+| **A peer list shipped with the client** | Would let anyone who downloads the client walk in, which is the whole thing the invite exists to prevent. Removed when entry became invite-only (§11.6). |
 | **Per-person trust scores of any kind** | A number attached to a person becomes a social weapon even with zero mechanical power. The district roll publishes aggregates and flows only (§7.8). |
 | **Letting a district refuse or delay newcomers** | Admission control is an aristocracy waiting to happen (§7.4). A district may witness and escalate, never exclude (§7.8). |
 | **A permanent unamendable eternity clause** *(revisited)* | Still rejected as text — but the underlying goal is achieved for three principles by making them architectural, where no mechanism to amend exists at all (§7.2). |
@@ -1616,6 +1632,7 @@ A reasonable next move is to pick from the lists below rather than wait for a ne
 - **Inter-city-state trade and travel**, beyond "a deliberate act, not seamless walking." Becomes more pressing given AI citizens migrate between city-states (§13.5).
 - **How adversarial the renewal interaction can be** without becoming a chore. §8.2's annual renewal only resists scripted characters if it involves unpredictable interaction with other people rather than a check-in. Making it demanding enough to matter, while keeping it something citizens look forward to rather than endure, is an unsolved design problem and the weakest link in the franchise chain.
 - **The per-city-state waiting period taxes movement** (§8.2). Exit stays free of penalty and possessions travel, but the newly arrived wait three months to vote, which is a real cost on a design that resolves nearly everything else by exit. The alternative — a franchise that travels instantly — reopens the attack it exists to prevent, so the cost is accepted rather than solved.
+- **The world inherits its founders' social networks.** Entry is friend to friend with no public route in (§11.6), so the population can only grow along real acquaintance and reproduces the demographics it started from. Nothing *inside* the world stratifies — no city may refuse a signer (§7.4), anyone may found one (§5.6), and the floor is universal (§7.2) — but the boundary of the world is as narrow as its founders' address books. The alternative, a public door, was rejected for good reasons (§15); that does not make this cost smaller. No mechanism currently addresses it.
 - **Informal status hierarchy.** Titles and visible standing can calcify into deference-based hierarchy with zero mechanical backing. Plural, unranked, recent-weighted design mitigates but does not eliminate this. Probably not fully solvable by mechanics alone.
 
 ---
@@ -1674,7 +1691,7 @@ Recurring principles that resolved most questions in this document. Apply them t
 | **AI citizen** | An autonomous non-human participant. Holds property, work, standing, voice, and exit; not the vote, pending verified unique persistent identity. Population and roles set by each city-state's vote. |
 | **Verified unique persistent identity** | The adopted condition for enfranchisement: an identity provably singular, non-copyable, and durable over time. Unsolved for humans and AI alike; the design's highest-leverage open problem. |
 | **Criticality tier** | A subsystem's position in the load-shedding order (Core → Essential → Supporting → Cosmetic) when a shard lacks resources to run everything. |
-| **Invite** | The primary bootstrap mechanism: a citizen already in the mesh issues live peer addresses to a newcomer. There is no other way in without a shipped peer list. |
+| **Invite** | The only way into the world: a citizen already in the mesh issues live peer addresses to someone they know. There is no other route, and none is published. |
 | **Relay** | A citizen-operated node forwarding end-to-end encrypted traffic for peers that cannot connect directly through NAT. Requires no trust, since relays cannot read what they carry. |
 | **Overlay** | The encrypted peer network carrying a city-state's host-runtime traffic. Isolated from the player's LAN, and unreachable by sandboxed job code. |
 | **Waystation** | Territory between city-states, where non-citizens live: travelers, emigrants, permanent non-joiners, city-founders recruiting signers-on, and the expelled. Settlements are self-reliant, meeting the floor with their own automated works; no city-state funds them, and PP1 survives as a backstop for genuine failure. |
