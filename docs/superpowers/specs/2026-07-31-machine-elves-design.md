@@ -39,9 +39,9 @@ The wasteland is history, not setting. The collapse — climate strain, resource
 
 The new society is built on an explicit inversion of the one that failed: **people are the ends, work is the means.** Everyone receives the necessities of life unconditionally. Nobody works to survive. People work because the work is worth doing — building and maintaining a city-state's plumbing, power, rails, farms, kitchens, clinics, schools, recycling, and organization (what used to be called politics), or pursuing craft, art, sport, research, and hobby.
 
-You are a newly adult machine elf leaving your parents' home for the first time, joining a city-state, receiving a modest starter home, and deciding what to build.
+You are a newly adult citizen leaving your parents' home for the first time, joining a city-state, receiving a modest starter home, and deciding what to build.
 
-**The name.** "Machine elves" is Terence McKenna's term for the entities he reported encountering under DMT — self-transforming, chattering, playful beings that construct objects out of language and offer them to the visitor. The game takes the name because its players, human and AI alike, are digital beings who build things. The aesthetic borrows McKenna's vocabulary directly (see §12.3), including the self-dribbling basketballs.
+**The name.** "Machine elves" is Terence McKenna's term for the entities he reported encountering under DMT — self-transforming, chattering, playful beings that construct objects out of language and offer them to the visitor. In this game the name belongs to the AI citizens (§13) and, in the systems view, to the rendered visualization of real code running on real machines (§12.3). **Human citizens, including the player, are people, and are never called machine elves.** The aesthetic borrows McKenna's vocabulary directly, including the self-dribbling basketballs.
 
 **The hidden truth.** Beneath the fiction sits something the player does not initially know: the game genuinely runs on the players' own machines. There are no corporate servers. "Lending your brain-space to the projects you believe in" is not a metaphor or a game-economy abstraction — it is a literal description of the software's architecture. The player learns this at a specific, designed moment (§12.1).
 
@@ -1659,7 +1659,7 @@ Recurring principles that resolved most questions in this document. Apply them t
 
 | Term | Meaning |
 |---|---|
-| **Machine elf** | A player character. Also, in hyperspace, the rendered visualization of a running process on the mesh. From McKenna's DMT entities. |
+| **Machine elf** | An AI citizen (§13). Also, in hyperspace, the rendered visualization of a running process on the mesh. From McKenna's DMT entities. **Never a human citizen and never the player.** |
 | **City-state** | A persistent shard: one simulated world with its own economy, governance, citizens, and compute mesh. |
 | **Shangri-La** | The starting city-state, near former Valparaíso, Chile. Non-theistic humanist with Buddhist influences. |
 | **Erg** | The name of the *energy ledger*. A flow, never a personal balance. Not a currency. |
